@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(background.png);
+  background-size: cover;
+  background-position: center;
+  font-family: Lato;
+  font-weight: 300;
+  position: relative;
+  height: 100vh;
+  color: #555;
+}
+
+.tabuleiro {
+  width: 850px;
+  height: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffe5ff;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.forca {
+  position: absolute;
+  padding-top: 60px;
+  padding-left: 30px;
+}
+
+.letras {
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  font-size: 70px;
+}
+
+.novo-jogo {
+  position: absolute;
+  font-size: 30px;
+  top: 46%;
+  left: 49%;
+}
+
+.banco {
+  text-align: center;
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(136, 45, 216, 0.2);
+  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+#erradas {
+  font-size: 50px;
+  display: block;
+}
+
+.lose {
+  display: none;
+  padding-left: 75px;
+  padding-top: 36px;
+  font-size: 35px;
+  color: #c41848;
+}
+
+.winner {
+  display: block;
+  padding-left: 75px;
+  padding-top: 45px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #34c418;
+}
+
+.lose p {
+  font-size: 25px;
+}
+
+.digitar {
+  position: absolute;
+  font-size: 30px;
+  top: 40%;
+  left: 65%;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: #ffe5ff;
+  border-width: 1px;
+}
+
+button {
+  position: absolute;
+  width: 50px;
+  left: 186px;
+  top: 11px;
+  transform: translateX(-50%);
+  color: #555;
+  background: none;
+  border: none;
+  font-family: Lato;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 300;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-new {
+  position: absolute;
+  width: 190px;
+  height: 33px;
+  left: 227px;
+  top: 17px;
+  font-size: 25px;
+}
+
+.btn-pt {
+  position: absolute;
+  left: 40px;
+}
+
+.btn-en {
+  position: absolute;
+  left: 90px;
+}
+
+i {
+  color: #EB4D4D;
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 32px;
+  line-height: 1;
+  vertical-align: text-top;
+  margin-top: 1px;
+  transition: margin 0.3s;
+}
+
+.digitar #letra {
+  background-color: rgba(136, 45, 216, 0.1);
+  position: absolute;
+  top: 9px;
+  left: 105%;
+  width: 48%;
+  height: 25px;
+  border: none;
+  text-align: center;
+}
+
+.btn-submit {
+  left: 180%;
+}
