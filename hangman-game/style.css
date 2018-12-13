@@ -21,7 +21,7 @@ body {
   color: #555;
 }
 
-.tabuleiro {
+.board {
   width: 850px;
   height: 550px;
   position: absolute;
@@ -33,27 +33,20 @@ body {
   overflow: hidden;
 }
 
-.forca {
+.hang {
   position: absolute;
   padding-top: 60px;
   padding-left: 30px;
 }
 
-.letras {
+.letters {
   position: absolute;
   top: 70%;
   left: 20%;
   font-size: 70px;
 }
 
-.novo-jogo {
-  position: absolute;
-  font-size: 30px;
-  top: 46%;
-  left: 49%;
-}
-
-.banco {
+.bank {
   text-align: center;
   width: 30%;
   height: 30%;
@@ -66,7 +59,18 @@ body {
   overflow: hidden;
 }
 
-#erradas {
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: #ffe5ff;
+  border-width: 1px;
+}
+
+#wrongs {
   font-size: 50px;
   display: block;
 }
@@ -92,24 +96,6 @@ body {
   font-size: 25px;
 }
 
-.digitar {
-  position: absolute;
-  font-size: 30px;
-  top: 40%;
-  left: 65%;
-}
-
-hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: solid;
-  border-color: #ffe5ff;
-  border-width: 1px;
-}
-
 button {
   position: absolute;
   width: 50px;
@@ -127,6 +113,35 @@ button {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.enter {
+  position: absolute;
+  font-size: 30px;
+  top: 40%;
+  left: 65%;
+}
+
+.enter #letter {
+  background-color: rgba(136, 45, 216, 0.1);
+  position: absolute;
+  top: 9px;
+  left: 105%;
+  width: 48%;
+  height: 25px;
+  border: none;
+  text-align: center;
+}
+
+.btn-submit {
+  left: 180%;
+}
+
+.new-game {
+  position: absolute;
+  font-size: 30px;
+  top: 46%;
+  left: 49%;
+}
+
 .btn-new {
   position: absolute;
   width: 190px;
@@ -134,16 +149,6 @@ button {
   left: 227px;
   top: 17px;
   font-size: 25px;
-}
-
-.btn-pt {
-  position: absolute;
-  left: 40px;
-}
-
-.btn-en {
-  position: absolute;
-  left: 90px;
 }
 
 i {
@@ -157,17 +162,12 @@ i {
   transition: margin 0.3s;
 }
 
-.digitar #letra {
-  background-color: rgba(136, 45, 216, 0.1);
+.btn-pt {
   position: absolute;
-  top: 9px;
-  left: 105%;
-  width: 48%;
-  height: 25px;
-  border: none;
-  text-align: center;
+  left: 40px;
 }
 
-.btn-submit {
-  left: 180%;
+.btn-en {
+  position: absolute;
+  left: 90px;
 }
