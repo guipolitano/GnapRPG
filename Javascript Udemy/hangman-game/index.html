@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <title>Hangman Game</title>
+</head>
+
+<body>
+  <div class="board clearfix">
+    <div class="hang">
+      <img src="hang-0.png" alt="Hangman" class="hangman">
+    </div>
+    <div class="letters">
+    </div>
+    <div class="enter">
+      <div id="submit-letter">
+        <p id="letter-text">LETRA: </p><br>
+        <input id="letter" type="text" value="" autocomplete="off" maxlength="1">
+        <br><button class="btn-submit">Enviar</button>
+      </div>
+    </div>
+    <div class="new-game">
+      <button class="btn-new"><i class="ion-ios-plus-outline"></i><label id="new-text">
+
+      Novo Jogo</label></button>
+    </div>
+    <div class="language">
+      <button class="btn-pt" style="font-weight:bold">PT-BR</button>
+      <button class="btn-en">EN-US</button>
+    </div>
+
+    <div class="bank"><p id="bank-text">Letras erradas:</p>
+      <hr>
+      <p id="wrongs"></p>
+    </div>
+    <div class="winner">
+      VOCÊ VENCEU!
+    </div>
+    <div class="lose">
+      <p id=lose-text>VOCÊ PERDEU!</p>
+      <p id="word"></p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
