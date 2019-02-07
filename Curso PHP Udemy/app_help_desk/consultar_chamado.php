@@ -21,6 +21,11 @@
         padding: 30px 0 0 0;
         width: 100%;
         margin: 0 auto;
+        }
+
+      .card-title{
+        font-weight: bold;
+
       }
     </style>
   </head>
@@ -28,7 +33,7 @@
   <body>
 
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home.php">
         <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
@@ -66,7 +71,7 @@
                ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?=$chamado_dados[1]?></h5>
+                  <h5 class="card-title"><?=strtoupper($chamado_dados[1])?></h5>
                   <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6>
                   <p class="card-text"><?=$chamado_dados[3]?></p>
 
