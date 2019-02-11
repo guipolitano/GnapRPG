@@ -1,6 +1,0 @@
-!i a "" ""
-!i a "Guughul" "0"
-!i a "Nyrvus" "0"
-!i a "Nyrvus" "3"
-!i a "Galo" "1"
-!i a "Guughul" "Chilling Gaze"

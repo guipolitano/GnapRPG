@@ -7,88 +7,10 @@
   <title>Avrae Attack Alias Generator</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-  <style>
-    .card-login {
-      padding: 30px 0 0 0;
-      width: 350px;
-      margin: 0 auto;
-    }
-
-    .card-header {
-      height: 40px;
-      text-align: center;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
-  <script>
-//Ataques
-  $(document).ready(function(){
-    var inputValue;
-    var selectedValue;
-    var checkTest;
-    $('#selectCreature').on('change', function(){
-        inputValue = $(this).val();
-        if(inputValue){
-          $.ajax({
-            type:'POST',
-            url:'selecionar_criatura.php',
-            data:'creature_id='+inputValue,
-            success:function(html){
-              $('#selectAttack').html(html);
-            }
-          });
-        }
-      });
-
-      $('#selectAttack').on('change', function(){
-          selectedValue = $(this).val();
-          if(selectedValue){
-            $.ajax({
-              type:'POST',
-              url:'gerar_alias.php',
-              data:{creature_name: selectedValue, target_name: checkTest},
-              success:function(html){
-                $('#textarea').val(html);
-              }
-            });
-          }
-        });
-
-        $('.checkbox').on('change', function(){
-            checkTest = new Array();
-            var boolTest = false;
-            $("input:checked").each(function() {
-              if(checkTest.length>0){
-                checkTest.push('-t '+$(this).val());
-                if(boolTest){
-                  checkTest[0] = '-t '+checkTest[0];
-                  boolTest=false;
-                }
-
-              }else{
-                checkTest.push($(this).val());
-                boolTest = true;
-
-              }
-            });
-            $.ajax({
-              type:'POST',
-              url:'gerar_alias.php',
-              dataType: 'html',
-              data:{creature_name: selectedValue, target_name: checkTest},
-              success:function(html){
-                $('#textarea').val(html);
-                }
-              });
-          });
-    });
-
-
-  </script>
+  <script src="script.js"></script>
 
 </head>
 
@@ -151,6 +73,21 @@
 
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="radios">Tipo</label>
+                  <div class="col-md-15">
+                    <label class="radio-inline" for="radios-0">
+                      <input class="tipoGolpe" type="radio" name="radios" id="radios-0" value="attack" checked>
+                      Attack
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                      <input class="tipoGolpe" type="radio" name="radios" id="radios-1" value="cast">
+                      Cast
+                    </label>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="checkboxes"><b>Alvo(s)</b></label>
                   <div class="col-md-15">
@@ -184,7 +121,7 @@
 
                 <div class="form-group">
                   <div class="col-md-15">
-                    <textarea class="form-control" id="textarea" name="textarea"></textarea>
+                    <textarea class="form-control" id="textarea" name="textarea" placeholder="!i a"></textarea>
                   </div>
                 </div>
             </form>
