@@ -27,8 +27,11 @@
   <script>
 //Ataques
   $(document).ready(function(){
+    var inputValue;
+    var selectedValue;
+    var checkTest;
     $('#selectCreature').on('change', function(){
-        var inputValue = $(this).val();
+        inputValue = $(this).val();
         if(inputValue){
           $.ajax({
             type:'POST',
@@ -42,21 +45,21 @@
       });
 
       $('#selectAttack').on('change', function(){
-          var selectedValue = $(this).val();
+          selectedValue = $(this).val();
           if(selectedValue){
             $.ajax({
               type:'POST',
               url:'gerar_alias.php',
-              data:'creature_name='+selectedValue,
+              data:{creature_name: selectedValue, target_name: checkTest},
               success:function(html){
-                $('#textarea').html(html);
+                $('#textarea').val(html);
               }
             });
           }
         });
 
         $('.checkbox').on('change', function(){
-            var checkTest = new Array();
+            checkTest = new Array();
             var boolTest = false;
             $("input:checked").each(function() {
               if(checkTest.length>0){
@@ -76,9 +79,9 @@
               type:'POST',
               url:'gerar_alias.php',
               dataType: 'html',
-              data:'target_name='+checkTest,
+              data:{creature_name: selectedValue, target_name: checkTest},
               success:function(html){
-                $('#textarea').html(html);
+                $('#textarea').val(html);
                 }
               });
           });

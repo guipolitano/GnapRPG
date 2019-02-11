@@ -1,16 +1,19 @@
 <?php require_once "criaturas.php"; ?>
 <?php
 
-$attackName= $_POST['creature_name'];
-$alvo = $_POST['target_name'];
+if(isset($_POST['creature_name']) && isset($_POST['target_name'])){
+  $attackName= $_POST['creature_name'];
+  $alvo = $_POST['target_name'];
+  $multiAlvos = implode(' ',$alvo);
 
 
-  echo '!i a '.$alvo.''.$attackName;
-  //echo '!i a '.$alvo.''.$attackName;
+  echo '!i a '.$multiAlvos.' '.$attackName;
+  echo '
+';
+  echo '!i cast '.$attackName.' '.$multiAlvos;
 
 
 
-
-
+}
 
  ?>
