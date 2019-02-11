@@ -25,6 +25,19 @@
 
   <div class="container">
     <div class="row">
+      <div class="col">
+        <div class="card-login">
+        <div class="card">
+          <div class="card-header">
+            DADOS
+          </div>
+          <div class="card-body">
+            <!-- CODE  -->
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class "col">
       <div class="card-login">
         <div class="card">
 
@@ -129,6 +142,21 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="col">
+    <div class="card-login">
+    <div class="card">
+      <div class="card-header">
+        INFO
+      </div>
+      <div class="card-body">
+        <!-- CODE  -->
+      </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
 </body>
 
 </html>
