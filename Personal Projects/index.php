@@ -1,15 +1,5 @@
 <?php require_once "criaturas.php"; ?>
 
-<?php require_once "selecionar_criatura.php"; ?>
-<?php $arquivo = fopen('arquivo.txt','r');
-
-  $aliasFinal = fgets($arquivo);
-
-  //file_put_contents("arquivo.txt", "");
-  fclose($arquivo);
-?>
-
-
 <html>
 
 <head>
@@ -67,9 +57,21 @@
 
         $('.checkbox').on('change', function(){
             var checkTest = new Array();
+            var boolTest = false;
             $("input:checked").each(function() {
-              checkTest.push($(this).val());
-              });
+              if(checkTest.length>0){
+                checkTest.push('-t '+$(this).val());
+                if(boolTest){
+                  checkTest[0] = '-t '+checkTest[0];
+                  boolTest=false;
+                }
+
+              }else{
+                checkTest.push($(this).val());
+                boolTest = true;
+
+              }
+            });
             $.ajax({
               type:'POST',
               url:'gerar_alias.php',
