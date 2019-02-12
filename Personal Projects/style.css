@@ -1,3 +1,9 @@
+body{
+  background-color: #212326;
+}
+.card{
+  background-color: #ce8a48;
+}
 .card-login {
   padding: 30px 0 0 0;
   width: 350px;
@@ -7,20 +13,49 @@
   width: 100%;
 }
 
+.vl {
+  border-left: 2px solid #44494f;
+  position: relative;
+  height: 100%;
+}
+
 .card-dados {
   padding: 30px 0 0 0;
 /* width: 200px; */
   margin: 0 auto;
+
 }
+.card-body{
+  background-color: #2e3135;
+  color: white;
+}
+
 
 .card-info {
   padding: 30px 0 0 0;
   width: 600px;
   margin: 0 auto;
+  color:white;
+}
+
+tr{
+  color:white;
+}
+b{
+  color: orange;
+}
+th{
+  color: orange;
+}
+.borda{
+  background-color: #44494f;
+  border-width: 0;
 }
 
 .card-header {
   height: 40px;
+  background-color: #44494f;
+  color: orange;
   text-align: center;
   font-weight: bold;
 }

@@ -152,7 +152,7 @@
               </form>
 
             </div>
-            <button class="btn btn-success" data-container="body" data-toggle="popover" data-placement="right" data-content="Copiado!" onclick="copyPaste()">Copiar</button>
+            <button class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="right" data-content="Copiado!" onclick="copyPaste()">Copiar</button>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@
           <!-- -------------------------------------------------------- -->
           <div class="card-body">
             <div class="panel-content-wrapper-inner">
-              <table class="stats">
+              <table class="row stats">
                 <tr>
                   <th class="rnd-name name" colspan="6">
                     <div class="name-inner">
@@ -183,8 +183,7 @@
                 </tr>
                 <!--  -->
                 <tr>
-                  <td colspan="6">
-                    <div class="border"></div>
+                  <td class="borda">
                   </td>
                 </tr>
                 <tr>
@@ -192,18 +191,23 @@
                     <table class="summary no-back" style="position: relative;">
                       <tbody>
                         <tr>
-                          <!-- #TODO Ajustar texto e colunas -->
-                          <th class="text-align-center">Armor Class</th>
-                          <th class="text-align-center">Hit Points</th>
-                          <th class="text-align-center">Speed</th>
-                          <th class="text-align-center">Challenge Rating</th>
+                          <th class="col-sm-4">Armor Class</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">Hit Points</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">Speed</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">Challenge</th>
                         </tr>
                         <!-- LINHA ATRIBUTOS  -->
                         <tr>
-                          <td class="text-align-center">ValorAC</td>
-                          <td class="text-align-center">ValorHP</td>
-                          <td class="text-align-center">Velocidade</td>
-                          <td class="text-align-center">CR</td>
+                          <td class="col-sm-4">ValorAC</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorHP</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">Velocidade</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">CR</td>
                         </tr>
                         <!--  -->
                       </tbody>
@@ -211,8 +215,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="6">
-                    <div class="border"></div>
+                  <td class="borda">
                   </td>
                 </tr>
                 <tr>
@@ -220,95 +223,71 @@
                     <table class="summary striped-even">
                       <tbody>
                         <tr>
-                          <th class="col-2 text-align-center">STR</th>
-                          <th class="col-2 text-align-center">DEX</th>
-                          <th class="col-2 text-align-center">CON</th>
-                          <th class="col-2 text-align-center">INT</th>
-                          <th class="col-2 text-align-center">WIS</th>
-                          <th class="col-2 text-align-center">CHA</th>
+                          <th class="col-sm-4">STR</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">DEX</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">CON</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">INT</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">WIS</th>
+                          <th class="vl"></div>
+                          <th class="col-sm-4">CHA</th>
                         </tr>
                         <tr>
-                          <td class="text-align-center"><span class="roller render-roller" title="Strength" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;18 (+4)&quot;,&quot;name&quot;:&quot;Strength&quot;,&quot;toRoll&quot;:&quot;1d20+4&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+4&quot;}">18
-                              (+4)</span></td>
-                          <td class="text-align-center"><span class="roller render-roller" title="Dexterity" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;13 (+1)&quot;,&quot;name&quot;:&quot;Dexterity&quot;,&quot;toRoll&quot;:&quot;1d20+1&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+1&quot;}">13
-                              (+1)</span></td>
-                          <td class="text-align-center"><span class="roller render-roller" title="Constitution" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;16 (+3)&quot;,&quot;name&quot;:&quot;Constitution&quot;,&quot;toRoll&quot;:&quot;1d20+3&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+3&quot;}">16
-                              (+3)</span></td>
-                          <td class="text-align-center"><span class="roller render-roller" title="Intelligence" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;8 (-1)&quot;,&quot;name&quot;:&quot;Intelligence&quot;,&quot;toRoll&quot;:&quot;1d20-1&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;-1&quot;}">8
-                              (-1)</span></td>
-                          <td class="text-align-center"><span class="roller render-roller" title="Wisdom" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;12 (+1)&quot;,&quot;name&quot;:&quot;Wisdom&quot;,&quot;toRoll&quot;:&quot;1d20+1&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+1&quot;}">12
-                              (+1)</span></td>
-                          <td class="text-align-center"><span class="roller render-roller" title="Charisma" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;7 (-2)&quot;,&quot;name&quot;:&quot;Charisma&quot;,&quot;toRoll&quot;:&quot;1d20-2&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;-2&quot;}">7
-                              (-2)</span></td>
+                          <td class="col-sm-4">ValorSTR</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorDEX</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorCON</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorINT</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorWIS</td>
+                          <th class="vl"></div>
+                          <td class="col-sm-4">ValorCHA</td>
                         </tr>
                       </tbody>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="6">
-                    <div class="border"></div>
+                  <td class="borda">
                   </td>
                 </tr>
                 <tr>
                   <td colspan="6">
                     <div class="rend__compact-stat">
-
-                      <p><b>Skills:</b> <span data-mon-skill="Perception|+3"><span class="help--hover" onmouseover="EntryRenderer.hover.mouseOverHoverTooltip(event, this, 5)">Perception</span> <span class="roller render-roller" title="Perception"
-                            onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;+3&quot;,&quot;name&quot;:&quot;Perception&quot;,&quot;toRoll&quot;:&quot;1d20+3&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+3&quot;}">+3</span></span>,
-                        <span data-mon-skill="Stealth|+3"><span class="help--hover" onmouseover="EntryRenderer.hover.mouseOverHoverTooltip(event, this, 6)" data-hover-id="1" data-hover-active="false" style="">Stealth</span> <span class="roller render-roller"
-                            title="Stealth" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;+3&quot;,&quot;name&quot;:&quot;Stealth&quot;,&quot;toRoll&quot;:&quot;1d20+3&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+3&quot;}">+3</span></span></p>
-                      <p><b>Senses:</b> darkvision 60 ft., passive Perception 13</p>
-                      <p><b>Languages:</b> Yeti</p>
-
-
-                      <p><b>Damage Imm.:</b> cold</p>
-
+                      <p><b>Skills:</b></p>
+                      <p><b>Senses:</b></p>
+                      <p><b>Languages:</b></p>
+                      <p><b>Damage Imm.:</b></p>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="6">
-                    <div class="border"></div>
+                  <td class="borda">
                   </td>
                 </tr>
                 <tr class="text compact">
                   <td colspan="6">
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="5"> <span class="entry-title-inner">Fear of Fire.</span></span>
-                      <p>If the yeti takes fire damage, it has disadvantage on attack rolls and ability checks until the end of its next turn.</p>
-                    </div>
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="6"> <span class="entry-title-inner">Keen Smell.</span></span>
-                      <p>The yeti has advantage on Wisdom (<span class="help--hover" onmouseover="EntryRenderer.hover.mouseOverHoverTooltip(event, this, 7)">Perception</span>) checks that rely on smell.</p>
-                    </div>
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="7"> <span class="entry-title-inner">Snow Camouflage.</span></span>
-                      <p>The yeti has advantage on Dexterity (Stealth) checks made to hide in snowy terrain.</p>
+                    <p><b>Traits:</b></p>
+                    <div>nomeTrait.
+                      <p>descriçaoTrait</p>
                     </div>
                   </td>
                 </tr>
 
                 <tr class="mon__stat-header-underline">
-                  <td colspan="6"><span class="mon__sect-header-inner">Actions</span></td>
+                  <td colspan="6">
+                    <p><b>Actions:</b></p>
+                  </td>
                 </tr>
                 <tr class="text compact">
                   <td colspan="6">
-
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="8"> <span class="entry-title-inner">Multiattack.</span></span>
-                      <p>The yeti can use its Chilling Gaze and makes two claw attacks.</p>
-                    </div>
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="9"> <span class="entry-title-inner">Claw.</span></span>
-                      <p><i>Melee Weapon Attack:</i> <span class="roller render-roller" title="" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;displayText&quot;:&quot;+6&quot;,&quot;toRoll&quot;:&quot;1d20+6&quot;,&quot;subType&quot;:&quot;d20&quot;,&quot;d20mod&quot;:&quot;+6&quot;}">+6</span>
-                        to hit, reach 5 ft., one target. <i>Hit:</i> 7 (<span class="roller render-roller" title="" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;toRoll&quot;:&quot;1d6 + 4&quot;,&quot;subType&quot;:&quot;damage&quot;}">1d6
-                          + 4</span>) slashing damage plus 3 (<span class="roller render-roller" title="" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;toRoll&quot;:&quot;1d6&quot;,&quot;subType&quot;:&quot;damage&quot;}">1d6</span>)
-                        cold damage.</p>
-                    </div>
-                    <div class=" statsInlineHead"><span class="entry-title" data-title-index="10"> <span class="entry-title-inner">Chilling Gaze.</span></span>
-                      <p>The yeti targets one creature it can see within 30 feet of it. If the target can see the yeti, the target must succeed on a DC 13 Constitution saving throw against this magic or take 10 (<span class="roller render-roller"
-                          title="" onmousedown="event.preventDefault()" onclick="EntryRenderer.dice.rollerClickUseData(event, this)" data-packed-dice="{&quot;type&quot;:&quot;dice&quot;,&quot;rollable&quot;:true,&quot;toRoll&quot;:&quot;3d6&quot;,&quot;subType&quot;:&quot;damage&quot;}">3d6</span>)
-                        cold damage and then be <a href="conditionsdiseases.html#paralyzed_phb" onmouseover="EntryRenderer.hover.mouseOver(event, this, 'conditionsdiseases.html', 'PHB', 'paralyzed_phb', false, null)">paralyzed</a> for 1 minute,
-                        unless it is
-                        immune to cold damage. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If the target's saving throw is successful, or if the effect ends on it, the target is
-                        immune to
-                        the Chilling Gaze of all yetis (but not abominable yetis) for 1 hour.</p>
+                    <div>nomeAtaque.
+                      <p>descriçaoAtaque</p>
                     </div>
                   </td>
                 </tr>
