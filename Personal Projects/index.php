@@ -170,14 +170,18 @@
                 <tr>
                   <th class="rnd-name name" colspan="6">
                     <div class="name-inner">
+                      <!-- LINHA NOME  -->
                       <span class="nomeMonstro"><b>NOME</b></span>
                       <span class="manualFonte">Fonte e pg</span>
+                      <!--  -->
                     </div>
                   </th>
                 </tr>
+                <!-- LINHA TAMANHO TIPO ALINHAMENTO  -->
                 <tr>
                   <td colspan="6"><i>TAMANHO, TIPO, ALINHAMENTO</i></td>
                 </tr>
+                <!--  -->
                 <tr>
                   <td colspan="6">
                     <div class="border"></div>
@@ -185,21 +189,23 @@
                 </tr>
                 <tr>
                   <td colspan="6">
-                    <table class="summary striped-even">
+                    <table class="summary no-back" style="position: relative;">
                       <tbody>
                         <tr>
                           <!-- #TODO Ajustar texto e colunas -->
-                          <th class="col-1 text-align-center">Armor Class</th>
-                          <th class="col-1 text-align-center">Hit Points</th>
-                          <th class="col-1 text-align-center">Speed</th>
-                          <th class="col-1 text-align-center">Challenge Rating</th>
+                          <th class="text-align-center">Armor Class</th>
+                          <th class="text-align-center">Hit Points</th>
+                          <th class="text-align-center">Speed</th>
+                          <th class="text-align-center">Challenge Rating</th>
                         </tr>
+                        <!-- LINHA ATRIBUTOS  -->
                         <tr>
-                          <td class="text-align-center roller render-roller">ValorAC</td>
-                          <td class="text-align-center roller render-roller">ValorHP</td>
-                          <td class="text-align-center roller render-roller">Velocidade</td>
-                          <td class="text-align-center roller render-roller">CR</td>
+                          <td class="text-align-center">ValorAC</td>
+                          <td class="text-align-center">ValorHP</td>
+                          <td class="text-align-center">Velocidade</td>
+                          <td class="text-align-center">CR</td>
                         </tr>
+                        <!--  -->
                       </tbody>
                     </table>
                   </td>
