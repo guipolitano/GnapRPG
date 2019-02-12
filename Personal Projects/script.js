@@ -1,3 +1,11 @@
+
+function copyPaste() {
+  var copyText = document.getElementById("textarea");
+  copyText.select();
+  document.execCommand("copy");
+};
+
+
 $(document).ready(function(){
   var inputValue;
   var selectedValue;
@@ -61,7 +69,6 @@ $(document).ready(function(){
 
       $('.tipoGolpe').on('change', function(){
           attackOrCast = $(this).val();
-
           $.ajax({
             type:'POST',
             url:'gerar_alias.php',
