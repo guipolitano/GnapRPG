@@ -188,6 +188,7 @@
                     <table class="summary striped-even">
                       <tbody>
                         <tr>
+                          <!-- #TODO Ajustar texto e colunas -->
                           <th class="col-1 text-align-center">Armor Class</th>
                           <th class="col-1 text-align-center">Hit Points</th>
                           <th class="col-1 text-align-center">Speed</th>
