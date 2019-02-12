@@ -1,10 +1,8 @@
-
 function copyPaste() {
   var copyText = document.getElementById("textarea");
   copyText.select();
   document.execCommand("copy");
 };
-
 
 $(document).ready(function(){
   var inputValue;
@@ -20,6 +18,14 @@ $(document).ready(function(){
           data:'creature_id='+inputValue,
           success:function(html){
             $('#selectAttack').html(html);
+          }
+        });
+        $.ajax({
+          type:'POST',
+          url:'monster_infos.php',
+          data:'monster_id='+inputValue,
+          success:function(html){
+            $('#monster_info').html(html);
           }
         });
       }
