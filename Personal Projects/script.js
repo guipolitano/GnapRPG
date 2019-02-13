@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+  });
+  
 function copyPaste() {
   var copyText = document.getElementById("textarea");
   copyText.select();

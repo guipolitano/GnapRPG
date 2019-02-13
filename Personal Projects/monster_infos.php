@@ -73,7 +73,10 @@ foreach ($monstro['immune'] as $immuneValue) {
 #TODO FAZER OS TRAITS
 foreach ($monstro['trait'] as $traitKey => $traitValue) {
   if($traitKey == 'name'){
+    $traits = '<div>'.$traits.'';
 
+  } else if($traitKey == 'entries'){
+    $traitsDesc = '<p>'.$traitsDesc.'</p></div>';
   }
 }
 
@@ -170,9 +173,8 @@ echo
 <tr class="text compact">
   <td colspan="6">
     <p><b>Traits:</b></p>
-      <div>nomeTrait.
-      <p>descriçaoTrait</p>
-    </div>
+      '.$traits.'.'.$traitsDesc.'
+
   </td>
 </tr>
 
