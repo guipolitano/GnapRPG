@@ -69,17 +69,6 @@ foreach ($monstro['immune'] as $immuneValue) {
   $immune = $immune.' '.ucfirst($immuneValue).', ';
 }
 
-//Traits
-#TODO FAZER OS TRAITS
-foreach ($monstro['trait'] as $traitKey => $traitValue) {
-  if($traitKey == 'name'){
-    $traits = '<div>'.$traits.'';
-
-  } else if($traitKey == 'entries'){
-    $traitsDesc = '<p>'.$traitsDesc.'</p></div>';
-  }
-}
-
 
 echo
 '
@@ -173,23 +162,65 @@ echo
 <tr class="text compact">
   <td colspan="6">
     <p><b>Traits:</b></p>
-      '.$traits.'.'.$traitsDesc.'
-
+      ';
+      foreach ($monstro['trait'] as $traitId) {
+        foreach ($traitId as $traitKey => $traitValue) {
+          if($traitKey=='name'){
+            echo '<b style="color:white">'.$traitValue.'</b><br>';
+          }else if($traitKey=='entries'){
+            foreach ($traitValue as $entryKey => $entry) {
+            echo $entry.'<br><br>';
+            }
+          }
+        }
+      }
+echo
+      '
   </td>
 </tr>
-
 <tr class="mon__stat-header-underline">
   <td colspan="6">
     <p><b>Actions:</b></p>
+    ';
+    foreach ($monstro['action'] as $actionId) {
+      foreach ($actionId as $actionKey => $actionValue) {
+        if($actionKey=='name'){
+          echo '<b style="color:white">'.$actionValue.'</b><br>';
+        }else if($actionKey=='entries'){
+          foreach ($actionValue as $actionEntryKey => $actionEntry) {
+            echo $actionEntry.'<br><br>';
+          }
+        }
+      }
+    }
+
+echo '
   </td>
 </tr>
-<tr class="text compact">
-  <td colspan="6">
-    <div>nomeAtaque.
-      <p>descriçaoAtaque</p>
-    </div>
-  </td>
-</tr>
+'
+;
+if($monstro['legendary']){
+  echo '<tr>
+    <td colspan="6">
+      <div class="rend__compact-stat">
+        <p><b>Legendary:</b></p>';
+  foreach ($monstro['legendary'] as $legendaryId) {
+    foreach ($legendaryId as $legendaryKey => $legendaryValue) {
+      if($legendaryKey=='name'){
+        echo '<b style="color:white">'.$legendaryValue.'</b><br>';
+      }else if($legendaryKey=='entries'){
+        foreach ($legendaryValue as $legendaryKey => $legendaryEntry) {
+        echo $legendaryEntry.'<br><br>';
+        }
+      }
+    }
+  }
+  echo '</div>
+    </td>
+  </tr>';
+}
+echo
+'
 </table>
 ';
 

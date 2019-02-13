@@ -1,6 +1,9 @@
 body{
   background-color: #212326;
 }
+p{
+  margin-bottom: 0px;
+}
 .card{
   background-color: #ce8a48;
 }

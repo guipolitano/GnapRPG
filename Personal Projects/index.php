@@ -37,8 +37,15 @@
             <div class="card-header">
               DADOS
             </div>
-            <div class="card-body">
-              <p></p>
+            <div id="dices" class="card-body">
+              <button type="button" class="btn btn-danger btn-sm">1d20</button>
+              <button type="button" class="btn btn-info btn-sm">1d6</button>
+              <button type="button" class="btn btn-warning btn-sm">1d8</button>
+              <div id="diceroll">
+
+                <p style="font-size: 40px; text-align:center">15</p>
+
+              </div>
             </div>
           </div>
         </div>
@@ -111,7 +118,7 @@
 
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="checkboxes"><b>Alvo(s)</b></label>
-                    <div class="col-md-15">
+                    <div id="listaAlvos" class="col-md-15">
                       <label class="checkbox-inline" for="checkboxes-0">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-0" value="Nyrvus">
                         Nyrvus
@@ -136,7 +143,12 @@
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-5" value="Salva Burros">
                         Salva Burros
                       </label>
-
+                    </div>
+                    <div class="input-group mb-3">
+                      <input id="textAlvo" type="text" class="form-control" placeholder="Adicionar Alvo" aria-label="Adicionar Alvo" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button id="addAlvos" class="btn btn-success" type="button">Add</button>
+                      </div>
                     </div>
                   </div>
 
