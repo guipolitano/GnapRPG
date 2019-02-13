@@ -164,16 +164,14 @@
             INFO
           </div>
           <div class="card-body">
-            <div class="panel-content-wrapper-inner row">
-              <table class="row stats">
+            <div class="panel-content-wrapper-inner">
                 <div id="monster_info" class="">
-              </div>
-              </table>
+                </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
   </div>
   <div class="row">
     <div class="col">
@@ -188,7 +186,6 @@
         </div>
       </div>
     </div>
-  </div>
   </div>
 </body>
 

@@ -16,6 +16,7 @@ body{
 .vl {
   border-left: 2px solid #44494f;
   position: relative;
+  padding: none;
   height: 100%;
 }
 
@@ -29,17 +30,19 @@ body{
   background-color: #2e3135;
   color: white;
 }
-
-
+tbody{
+  width: 100%;
+}
 .card-info {
   padding: 30px 0 0 0;
-  width: 600px;
+  /* width: 600px; */
   margin: 0 auto;
   color:white;
 }
 
 tr{
   color:white;
+  width: 100%;
 }
 b{
   color: orange;

@@ -56,14 +56,26 @@ $hp = $monstro['hp']['average'].' ('.$monstro['hp']['formula'].')';
 //VELOCIDADE
 
 foreach ($monstro['speed'] as $velKey => $velValue) {
-  $velocidade = $velocidade.' '.ucfirst($velKey).' '.$velValue.' .ft,';
+  $velocidade = $velocidade.' '.ucfirst($velKey).' '.$velValue.'.ft,';
+}
+
+//SKILLS
+foreach ($monstro['skill'] as $skillKey => $skillValue) {
+  $skill = $skill.' '.ucfirst($skillKey).' '.$skillValue.', ';
+}
+
+//IMUNIDADES
+foreach ($monstro['immune'] as $immuneValue) {
+  $immune = $immune.' '.ucfirst($immuneValue).', ';
 }
 
 
 
 echo
-'<tr>
-  <th class="rnd-name name" colspan="6">
+'
+<table class="table">
+<tr>
+  <th colspan="6" style="border-top:none; padding: 3px">
     <div class="name-inner">
       <!-- LINHA NOME  -->
       <span><b>'.strtoupper($monstro['name']).'</b></span>
@@ -72,52 +84,39 @@ echo
     </div>
   </th>
 </tr>
-<!-- LINHA TAMANHO TIPO ALINHAMENTO  -->
 <tr>
-  <td colspan="6">
+  <td colspan="6" style="padding: 1px">
     <i>'.$monstro['size'].' '.$tipo.', '.$alinhamento.'</i>
   </td>
 </tr>
-<!--  -->
 <tr>
-  <td class="borda">
-  </td>
-</tr>
-<tr>
-  <td colspan="6">
-    <table class="summary no-back" style="position: relative;">
-      <tbody>
+  <td style="border-top:0px; padding: 1px">
+    <table class="table" style="background-color: #2e3135">
         <tr>
-          <th class="col-sm-4">Armor Class</th>
-          <th class="vl"></div>
-          <th class="col-sm-4">Hit Points</th>
-          <th class="vl"></div>
-          <th class="col-sm-4">Speed</th>
-          <th class="vl"></div>
-          <th class="col-sm-4">Challenge</th>
+          <th class="" style="text-align: center">AC</th>
+          <th class="vl"></th>
+          <th class="" style="text-align: center">HP</th>
+          <th class="vl"></th>
+          <th class="" style="text-align: center">Speed</th>
+          <th class="vl"></th>
+          <th class="" style="text-align: center">CR</th>
         </tr>
-        <!-- LINHA ATRIBUTOS  -->
         <tr>
-          <td class="col-sm-4">'.$monstro['ac'].'</td>
-          <th class="vl"></div>
-          <td class="col-sm-4" style="padding-right:0px">'.$hp.'</td>
-          <th class="vl"></div>
-          <td class="col-sm-4" style="padding-right:0px">'.$velocidade.'</td>
-          <th class="vl"></div>
-          <td class="col-sm-4">'.$monstro['cr'].'</td>
+          <td class="" style="text-align: center">'.$monstro['ac'].'</td>
+          <td class="vl"></td>
+          <td class="" style="text-align: center">'.$hp.'</td>
+          <td class="vl"></td>
+          <td class="" style="text-align: center">'.$velocidade.'</td>
+          <td class="vl"></td>
+          <td class="" style="text-align: center">'.$monstro['cr'].'</td>
         </tr>
-        <!--  -->
-      </tbody>
     </table>
   </td>
 </tr>
+
 <tr>
-  <td class="borda">
-  </td>
-</tr>
-<tr>
-  <td colspan="6">
-    <table class="summary striped-even">
+  <td colspan="6" style="border-top:0px; padding: 1px">
+    <table class="table" style="background-color: #2e3135">
       <tbody>
         <tr>
           <th class="col-sm-4">STR</th>
@@ -149,24 +148,18 @@ echo
     </table>
   </td>
 </tr>
-<tr>
-  <td class="borda">
-  </td>
-</tr>
+
 <tr>
   <td colspan="6">
     <div class="rend__compact-stat">
-      <p><b>Skills:</b></p>
-      <p><b>Senses:</b></p>
-      <p><b>Languages:</b></p>
-      <p><b>Damage Imm.:</b></p>
+      <p><b>Skills:</b>'.$skill.'</p>
+      <p><b>Senses: </b>'.ucfirst($monstro['senses']).'</p>
+      <p><b>Languages: </b>'.$monstro['languages'].'</p>
+      <p><b>Damage Imm.:</b>'.$immune.'</p>
     </div>
   </td>
 </tr>
-<tr>
-  <td class="borda">
-  </td>
-</tr>
+
 <tr class="text compact">
   <td colspan="6">
     <p><b>Traits:</b></p>
@@ -187,7 +180,9 @@ echo
       <p>descriçaoAtaque</p>
     </div>
   </td>
-</tr>';
+</tr>
+</table>
+';
 
 
  ?>
