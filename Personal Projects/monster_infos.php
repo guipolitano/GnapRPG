@@ -69,6 +69,13 @@ foreach ($monstro['immune'] as $immuneValue) {
   $immune = $immune.' '.ucfirst($immuneValue).', ';
 }
 
+//Traits
+#TODO FAZER OS TRAITS
+foreach ($monstro['trait'] as $traitKey => $traitValue) {
+  if($traitKey == 'name'){
+
+  }
+}
 
 
 echo
@@ -163,7 +170,7 @@ echo
 <tr class="text compact">
   <td colspan="6">
     <p><b>Traits:</b></p>
-    <div>nomeTrait.
+      <div>nomeTrait.
       <p>descriçaoTrait</p>
     </div>
   </td>
