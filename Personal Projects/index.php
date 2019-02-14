@@ -38,9 +38,11 @@
               DADOS
             </div>
             <div id="dices" class="card-body">
-              <button type="button" class="btn btn-danger btn-sm">1d20</button>
-              <button type="button" class="btn btn-info btn-sm">1d6</button>
-              <button type="button" class="btn btn-warning btn-sm">1d8</button>
+
+              <button id="d6" type="button" class="btn btn-info btn-sm btn-block" value="6">1d6</button>
+              <button id="d8" type="button" class="btn btn-warning btn-sm btn-block" value="8">1d8</button>
+              <button id="d20" type="button" class="btn btn-danger btn-sm btn-block" value="20">1d20</button>
+
               <div id="diceroll">
 
                 <p style="font-size: 40px; text-align:center">15</p>
@@ -69,22 +71,22 @@
                       <select id="selectCreature" name="criatura" class="form-control">
                         <option value="">Selecione a Criatura</option>
                         <?php
-                      foreach ($bestiary as $monsterArray) {
-                        foreach ($monsterArray as $monsterId => $monsterObject) {
-                          foreach ($monsterObject as $monsterAtributes => $atributo) {
-                            if($monsterAtributes=='name'){
-                              ?>
-                        <option value="<?php echo $monsterId?>">
-                          <?php echo $atributo?>
-                        </option>
-                        <?php
-                            } else{
-                              continue;
+                          foreach ($bestiary as $monsterArray) {
+                            foreach ($monsterArray as $monsterId => $monsterObject) {
+                              foreach ($monsterObject as $monsterAtributes => $atributo) {
+                                if($monsterAtributes=='name'){
+                                  ?>
+                                  <option value="<?php echo $monsterId?>">
+                                    <?php echo $atributo?>
+                                  </option>
+                                    <?php
+                                  } else{
+                                    continue;
+                                  }
+                                }
+                              }
                             }
-                          }
-                        }
-                      }
-                      ?>
+                            ?>
                       </select>
 
                     </div>
@@ -144,6 +146,7 @@
                         Salva Burros
                       </label>
                     </div>
+
                     <div class="input-group mb-3">
                       <input id="textAlvo" type="text" class="form-control" placeholder="Adicionar Alvo" aria-label="Adicionar Alvo" aria-describedby="basic-addon2">
                       <div class="input-group-append">

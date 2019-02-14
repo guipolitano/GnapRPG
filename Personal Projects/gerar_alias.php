@@ -6,7 +6,8 @@
   $alvo = $_POST['target_name'];
   $attackType = $_POST['attack_type'];
 
-  $multiAlvos = implode(' ',$alvo);
+  $multiAlvos = implode(' ', $alvo);
+  print_r($alvo);
 
   if($attackType == 'cast'){
     echo '!i cast "'.$attackName.'" '.$multiAlvos;

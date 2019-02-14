@@ -1,22 +1,3 @@
-function addItem(){
-    var ul = document.getElementById('ul'); //ul
-    var li = document.createElement('li');//li
-
-    var checkbox = document.createElement('input');
-        checkbox.type = "checkbox";
-        checkbox.value = 1;
-        checkbox.name = "todo[]";
-
-    li.appendChild(checkbox);
-
-    var text = document.getElementById('texto');
-    li.appendChild(document.createTextNode(text.value));
-    ul.appendChild(li);
-};
-
-// var button = document.getElementById('btn');
-// button.onclick = addItem;
-
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover();
   });
@@ -30,8 +11,10 @@ function copyPaste() {
 $(document).ready(function(){
   var inputValue;
   var selectedValue;
-  var checkTest;
+  var checkTest =10;
   var attackOrCast = 'attack';
+  var text;
+  var textBool = false;
   $('#selectCreature').on('change', function(){
       inputValue = $(this).val();
       if(inputValue){
@@ -68,7 +51,18 @@ $(document).ready(function(){
         }
       });
 
-      $('.checkbox').on('change', function(){
+      $('#addAlvos').click(function() {
+        text = $('#textAlvo').val();
+        var container = $('#listaAlvos');
+        var labels = container.find('label');
+        var id = labels.length+1;
+
+        $('#listaAlvos').append('<label class="checkbox-inline" for="checkboxes-'+id+'"><input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'</label>');
+
+
+      });
+
+      $('.checkbox').on('click', function(){
           checkTest = new Array();
           var boolTest = false;
           $("input:checkbox:checked").each(function() {
@@ -95,6 +89,7 @@ $(document).ready(function(){
               }
             });
         });
+
 
       $('.tipoGolpe').on('change', function(){
           attackOrCast = $(this).val();
