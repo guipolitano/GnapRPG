@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Avrae Attack Alias Generator</title>
+  <title>Avrae Helper</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -25,7 +25,7 @@
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
       <img src="logo.png" width="40" height="40" class="d-inline-block align-center" alt="">
-      PACHOLAS AVRAE ATTACK GENERATOR
+      AVRAE HELPER
     </a>
   </nav>
 
