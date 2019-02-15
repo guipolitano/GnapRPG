@@ -37,6 +37,24 @@ $(document).ready(function(){
       }
     });
 
+    $('#dices').on('click', '.btn', function(roll){
+      var dado = $(roll.target).attr("value");
+      var rolagem = Math.floor(Math.random() * dado) + 1;
+      if(rolagem==1){
+        document.getElementById('diceroll').style.color = "red";
+        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"> FAIL!';
+      } else if (rolagem == dado){
+        document.getElementById('diceroll').style.color = "green";
+        document.getElementById('diceroll').innerHTML = rolagem;
+        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"> CRITICAL!';
+      } else{
+        document.getElementById('diceroll').style.color = "white";
+        document.getElementById('diceroll').innerHTML = rolagem;
+      }
+
+
+    });
+
     $('#selectAttack').on('change', function(){
         selectedValue = $(this).val();
         if(selectedValue){
@@ -57,20 +75,13 @@ $(document).ready(function(){
         var labels = container.find('label');
         var id = labels.length+1;
 
-        $('#listaAlvos').append('<label class="checkbox-inline" for="checkboxes-'+id+'"><input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'</label><sup><i class="fas fa-times fa-xs"></i></sup>');
-
+        $('#listaAlvos').append('<label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-'+id+'" id="deleteLabel-'+id+'"><input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'<a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"><sup><i class="fas fa-times fa-xs" id="'+id+'"></i></sup></a></label>');
 
       });
 
-      var idDeletar =3;
-
-      // $('#listaAlvos').on('click', '.deletar', function(){
-      //     $('#deleteLabel-'+idDeletar).remove();
-      //   });
       $('#listaAlvos').on('click', '.deletar', function(event){
-        idDeletar = $(event.target);
-        alert(idDeletar);
-        console.log(idDeletar);
+        var idDeletar = $(event.target).attr("id");
+        $('#deleteLabel-'+idDeletar).remove();
       });
 
       $('#listaAlvos').on('click', '.checkbox', function(){
@@ -78,14 +89,14 @@ $(document).ready(function(){
           var boolTest = false;
           $("input:checkbox:checked").each(function() {
             if(checkTest.length>0){
-              checkTest.push('-t '+$(this).val());
+              checkTest.push('-t "'+$(this).val()+'"');
               if(boolTest){
                 checkTest[0] = '-t '+checkTest[0];
                 boolTest=false;
               }
 
             }else{
-              checkTest.push($(this).val());
+              checkTest.push('"'+$(this).val()+'"');
               boolTest = true;
 
             }
@@ -107,6 +118,7 @@ $(document).ready(function(){
           $.ajax({
             type:'POST',
             url:'gerar_alias.php',
+            dataType:'html',
             data:{creature_name: selectedValue, target_name: checkTest, attack_type: attackOrCast},
             success:function(html){
               $('#textarea').val(html);

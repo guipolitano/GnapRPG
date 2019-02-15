@@ -40,14 +40,18 @@
               DADOS
             </div>
             <div id="dices" class="card-body">
+              <div class="row">
+              <button id="d4" type="button" class="btn btn-info btn-sm col" value="4">1d4</button>
+              <button id="d6" type="button" class="btn btn-success btn-sm col" value="6">1d6</button>
+              <button id="d8" type="button" class="btn btn-warning btn-sm col" value="8">1d8</button>
+              <button id="d10" type="button" class="btn btn-secondary btn-sm col" value="10">1d10</button>
+              <button id="d12" type="button" class="btn btn-primary btn-sm col" value="12">1d12</button>
+              <button id="d20" type="button" class="btn btn-danger btn-sm col" value="20">1d20</button>
+              </div>
 
-              <button id="d6" type="button" class="btn btn-info btn-sm btn-block" value="6">1d6</button>
-              <button id="d8" type="button" class="btn btn-warning btn-sm btn-block" value="8">1d8</button>
-              <button id="d20" type="button" class="btn btn-danger btn-sm btn-block" value="20">1d20</button>
+              <div>
 
-              <div id="diceroll">
-
-                <p style="font-size: 40px; text-align:center">15</p>
+                <p id="diceroll" style="font-size: 40px; text-align:center">15</p>
 
               </div>
             </div>
@@ -130,48 +134,48 @@
 
                     <div id="listaAlvos" class="col-md-15">
 
-                      <label class="checkbox-inline" for="checkboxes-0" id="deleteLabel-0">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-0" value="Nyrvus">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-0" id="deleteLabel-0">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-0" value="Nyrvus">
                         Nyrvus
 
                         <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="0"> <sup><i class="fas fa-times fa-xs" id="0"></i></sup> </a>
 
                       </label>
 
-                      <label class="checkbox-inline" for="checkboxes-1" id="deleteLabel-1">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-1" value="Guughul">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-1" id="deleteLabel-1">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-1" value="Guughul">
                         Guughul
 
                         <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="1"> <sup><i class="fas fa-times fa-xs" id="1"></i></sup> </a>
 
                       </label>
 
-                      <label class="checkbox-inline" for="checkboxes-2" id="deleteLabel-2">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-2" value="Pica">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-2" id="deleteLabel-2">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-2" value="Pica">
                         Pica
 
                         <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="2"></i></sup> </a>
 
                       </label>
 
-                      <label class="checkbox-inline" for="checkboxes-3" id="deleteLabel-3">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-3" value="Cox">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-3" id="deleteLabel-3">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-3" value="Cox">
                         Cox
 
                         <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="3"></i></sup> </a>
 
                       </label>
 
-                      <label class="checkbox-inline" for="checkboxes-4" id="deleteLabel-4">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-4" value="Galo">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-4" id="deleteLabel-4">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-4" value="Galo">
                         Galo
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="4"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="4"></i></sup></a>
 
                       </label>
 
-                      <label class="checkbox-inline" for="checkboxes-5" id="deleteLabel-5">
-                        <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-5" value="Salva Burros">
+                      <label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-5" id="deleteLabel-5">
+                        <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-5" value="Salva Burros">
                         Salva Burros
 
                         <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="5"></i></sup> </a>
@@ -184,7 +188,6 @@
                       <input id="textAlvo" type="text" class="form-control" placeholder="Adicionar Alvo" aria-label="Adicionar Alvo" aria-describedby="basic-addon2">
                       <div class="input-group-append">
                         <button id="addAlvos" class="btn btn-success" type="button">Add</button>
-
                       </div>
                     </div>
                   </div>
