@@ -9,6 +9,8 @@
   <title>Avrae Helper</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
   <link rel="stylesheet" href="style.css">
 
@@ -106,51 +108,83 @@
 
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="radios">Tipo</label>
+
                     <div class="col-md-15">
+
                       <label class="radio-inline" for="radios-0">
                         <input class="tipoGolpe" type="radio" name="radios" id="radios-0" value="attack" checked>
                         Attack
                       </label>
+
                       <label class="radio-inline" for="radios-1">
                         <input class="tipoGolpe" type="radio" name="radios" id="radios-1" value="cast">
                         Cast
                       </label>
+
                     </div>
                   </div>
 
                   <div class="form-group">
+
                     <label class="col-md-4 control-label" for="checkboxes"><b>Alvo(s)</b></label>
+
                     <div id="listaAlvos" class="col-md-15">
-                      <label class="checkbox-inline" for="checkboxes-0">
+
+                      <label class="checkbox-inline" for="checkboxes-0" id="deleteLabel-0">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-0" value="Nyrvus">
                         Nyrvus
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="0"> <sup><i class="fas fa-times fa-xs" id="0"></i></sup> </a>
+
                       </label>
-                      <label class="checkbox-inline" for="checkboxes-1">
+
+                      <label class="checkbox-inline" for="checkboxes-1" id="deleteLabel-1">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-1" value="Guughul">
                         Guughul
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="1"> <sup><i class="fas fa-times fa-xs" id="1"></i></sup> </a>
+
                       </label>
-                      <label class="checkbox-inline" for="checkboxes-2">
+
+                      <label class="checkbox-inline" for="checkboxes-2" id="deleteLabel-2">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-2" value="Pica">
                         Pica
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="2"></i></sup> </a>
+
                       </label>
-                      <label class="checkbox-inline" for="checkboxes-3">
+
+                      <label class="checkbox-inline" for="checkboxes-3" id="deleteLabel-3">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-3" value="Cox">
                         Cox
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="3"></i></sup> </a>
+
                       </label>
-                      <label class="checkbox-inline" for="checkboxes-4">
+
+                      <label class="checkbox-inline" for="checkboxes-4" id="deleteLabel-4">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-4" value="Galo">
                         Galo
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="4"></i></sup> </a>
+
                       </label>
-                      <label class="checkbox-inline" for="checkboxes-5">
+
+                      <label class="checkbox-inline" for="checkboxes-5" id="deleteLabel-5">
                         <input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-5" value="Salva Burros">
                         Salva Burros
+
+                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="5"></i></sup> </a>
+
                       </label>
+
                     </div>
 
                     <div class="input-group mb-3">
                       <input id="textAlvo" type="text" class="form-control" placeholder="Adicionar Alvo" aria-label="Adicionar Alvo" aria-describedby="basic-addon2">
                       <div class="input-group-append">
                         <button id="addAlvos" class="btn btn-success" type="button">Add</button>
+
                       </div>
                     </div>
                   </div>

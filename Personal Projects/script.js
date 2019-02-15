@@ -57,12 +57,23 @@ $(document).ready(function(){
         var labels = container.find('label');
         var id = labels.length+1;
 
-        $('#listaAlvos').append('<label class="checkbox-inline" for="checkboxes-'+id+'"><input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'</label>');
+        $('#listaAlvos').append('<label class="checkbox-inline" for="checkboxes-'+id+'"><input class="checkbox" type="checkbox" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'</label><sup><i class="fas fa-times fa-xs"></i></sup>');
 
 
       });
 
-      $('.checkbox').on('click', function(){
+      var idDeletar =3;
+
+      // $('#listaAlvos').on('click', '.deletar', function(){
+      //     $('#deleteLabel-'+idDeletar).remove();
+      //   });
+      $('#listaAlvos').on('click', '.deletar', function(event){
+        idDeletar = $(event.target);
+        alert(idDeletar);
+        console.log(idDeletar);
+      });
+
+      $('#listaAlvos').on('click', '.checkbox', function(){
           checkTest = new Array();
           var boolTest = false;
           $("input:checkbox:checked").each(function() {
