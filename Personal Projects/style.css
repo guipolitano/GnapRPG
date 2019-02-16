@@ -1,7 +1,6 @@
 body{
   background-color: #212326;
   background-image: url("background.jpg");
-   background-position: center;
   background-size: cover;
 }
 p{
@@ -38,6 +37,8 @@ p{
 }
 .card-body{
   background-color: #2e3135;
+  padding:17px;
+  padding-right: 19px;
   color: white;
 }
 tbody{
@@ -60,6 +61,10 @@ b{
 th{
   color: orange;
 }
+.table td{
+  padding-top:0px;
+  padding-top:0px;
+}
 .borda{
   background-color: #44494f;
   border-width: 0;
@@ -71,4 +76,8 @@ th{
   color: orange;
   text-align: center;
   font-weight: bold;
+}
+
+.form-group{
+  margin-bottom:5px;
 }

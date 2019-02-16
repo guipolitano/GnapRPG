@@ -49,9 +49,9 @@
               <button id="d20" type="button" class="btn btn-danger btn-sm col" value="20">1d20</button>
               </div>
 
-              <div>
+              <div class="text-center" style="margin-top:5px">
 
-                <p id="diceroll" style="font-size: 40px; text-align:center">15</p>
+                <button class="btn btn-secondary btn-sm" id="diceroll" style="font-size: 40px; text-align:center" disabled>15</button>
 
               </div>
             </div>
@@ -111,7 +111,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-md-4 control-label" for="radios">Tipo</label>
+                    <label class="col-md-4 control-label" for="radios"><b>Tipo</b></label>
 
                     <div class="col-md-15">
 
@@ -128,7 +128,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" style="margin-bottom:5px">
 
                     <label class="col-md-4 control-label" for="checkboxes"><b>Alvo(s)</b></label>
 
@@ -138,7 +138,7 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-0" value="Nyrvus">
                         Nyrvus
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="0"> <sup><i class="fas fa-times fa-xs" id="0"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar" value="0"> <sup><i class="fas fa-times fa-sm" id="0"></i></sup> </a>
 
                       </label>
 
@@ -146,7 +146,7 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-1" value="Guughul">
                         Guughul
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar" value="1"> <sup><i class="fas fa-times fa-xs" id="1"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar" value="1"> <sup><i class="fas fa-times fa-sm" id="1"></i></sup> </a>
 
                       </label>
 
@@ -154,7 +154,7 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-2" value="Pica">
                         Pica
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="2"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar"> <sup><i class="fas fa-times fa-sm" id="2"></i></sup> </a>
 
                       </label>
 
@@ -162,7 +162,7 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-3" value="Cox">
                         Cox
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="3"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar"> <sup><i class="fas fa-times fa-sm" id="3"></i></sup> </a>
 
                       </label>
 
@@ -170,7 +170,7 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-4" value="Galo">
                         Galo
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="4"></i></sup></a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar"> <sup><i class="fas fa-times fa-sm" id="4"></i></sup></a>
 
                       </label>
 
@@ -178,13 +178,13 @@
                         <input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-5" value="Salva Burros">
                         Salva Burros
 
-                        <a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"> <sup><i class="fas fa-times fa-xs" id="5"></i></sup> </a>
+                        <a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar"> <sup><i class="fas fa-times fa-sm" id="5"></i></sup> </a>
 
                       </label>
 
                     </div>
 
-                    <div class="input-group mb-3">
+                    <div class="input-group" style="margin-top:3px; margin-bottom:0px">
                       <input id="textAlvo" type="text" class="form-control" placeholder="Adicionar Alvo" aria-label="Adicionar Alvo" aria-describedby="basic-addon2">
                       <div class="input-group-append">
                         <button id="addAlvos" class="btn btn-success" type="button">Add</button>

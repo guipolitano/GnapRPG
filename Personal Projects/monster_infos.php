@@ -27,15 +27,15 @@ if(is_array($monstro['type'])){
 //ALINHAMENTO
 if(is_array($monstro['alignment'])){
   for($i=0; $i<2; $i++){
-    if($monstro['alignment'][$i]=='C'){
+    if(isset($monstro['alignment'][$i])&&$monstro['alignment'][$i]=='C'){
       $monstro['alignment'][$i] = 'Chaotic';
-    }else if($monstro['alignment'][$i]=='E'){
+    }else if(isset($monstro['alignment'][$i])&&$monstro['alignment'][$i]=='E'){
       $monstro['alignment'][$i] = 'Evil';
-    }else if($monstro['alignment'][$i]=='G'){
+    }else if(isset($monstro['alignment'][$i])&&$monstro['alignment'][$i]=='G'){
       $monstro['alignment'][$i] = 'Good';
-    }else if($monstro['alignment'][$i]=='L'){
+    }else if(isset($monstro['alignment'][$i])&&$monstro['alignment'][$i]=='L'){
       $monstro['alignment'][$i] = 'Lawful';
-    }else if($monstro['alignment'][$i]=='N'){
+    }else if(isset($monstro['alignment'][$i])&&$monstro['alignment'][$i]=='N'){
       $monstro['alignment'][$i] = 'Neutral';
     }
   }
@@ -54,20 +54,30 @@ if(is_array($monstro['alignment'])){
 $hp = $monstro['hp']['average'].' ('.$monstro['hp']['formula'].')';
 
 //VELOCIDADE
-
+$velocidade= null;
 foreach ($monstro['speed'] as $velKey => $velValue) {
-  $velocidade = $velocidade.' '.ucfirst($velKey).' '.$velValue.'.ft,';
+    $velocidade = $velocidade.' '.ucfirst($velKey).' '.$velValue.'.ft,';
 }
 
+//SAVING THROWS
+$save= null;
+foreach ($monstro['save'] as $saveKey => $saveValue) {
+  $save = $save.' '.ucfirst($saveKey).' '.$saveValue.', ';
+}
 //SKILLS
+$skill= null;
 foreach ($monstro['skill'] as $skillKey => $skillValue) {
   $skill = $skill.' '.ucfirst($skillKey).' '.$skillValue.', ';
 }
 
 //IMUNIDADES
-foreach ($monstro['immune'] as $immuneValue) {
-  $immune = $immune.' '.ucfirst($immuneValue).', ';
+$immune= null;
+if(isset($monstro['immune'])){
+  foreach ($monstro['immune'] as $immuneValue) {
+    $immune = $immune.' '.ucfirst($immuneValue).', ';
+  }
 }
+
 
 
 echo
@@ -151,6 +161,7 @@ echo
 <tr>
   <td colspan="6">
     <div class="rend__compact-stat">
+      <p><b>Saving Throws:</b>'.$save.'</p>
       <p><b>Skills:</b>'.$skill.'</p>
       <p><b>Senses: </b>'.ucfirst($monstro['senses']).'</p>
       <p><b>Languages: </b>'.$monstro['languages'].'</p>

@@ -42,11 +42,11 @@ $(document).ready(function(){
       var rolagem = Math.floor(Math.random() * dado) + 1;
       if(rolagem==1){
         document.getElementById('diceroll').style.color = "red";
-        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"> FAIL!';
+        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"><b style="color:red">FAIL!</b>';
       } else if (rolagem == dado){
-        document.getElementById('diceroll').style.color = "green";
+        document.getElementById('diceroll').style.color = "#50e450";
         document.getElementById('diceroll').innerHTML = rolagem;
-        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"> CRITICAL!';
+        document.getElementById('diceroll').innerHTML = rolagem+'<p style="font-size: 20px"><b style="color:#50e450">CRITICAL!</b>';
       } else{
         document.getElementById('diceroll').style.color = "white";
         document.getElementById('diceroll').innerHTML = rolagem;
@@ -75,8 +75,18 @@ $(document).ready(function(){
         var labels = container.find('label');
         var id = labels.length+1;
 
-        $('#listaAlvos').append('<label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-'+id+'" id="deleteLabel-'+id+'"><input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'<a href="javascript:void(0);" style="color:rgb(218, 65, 9)" class="deletar"><sup><i class="fas fa-times fa-xs" id="'+id+'"></i></sup></a></label>');
+        $('#listaAlvos').append('<label class="checkbox-inline btn btn-secondary btn-sm" style="border:0px; margin:2px" for="checkboxes-'+id+'" id="deleteLabel-'+id+'"><input class="checkbox" type="checkbox" style="display:none" name="alvo[]" id="checkboxes-'+id+'" value="'+text+'">'+text+'<a href="javascript:void(0);" style="color:rgb(150, 1, 1)" class="deletar"><sup><i class="fas fa-times fa-sm" id="'+id+'"></i></sup></a></label>');
 
+      });
+
+      $('#listaAlvos').on('click', '.checkbox-inline', function(e){
+        if($(e.target).hasClass("btn-secondary")){
+          $(e.target).addClass("btn-primary");
+          $(e.target).removeClass("btn-secondary");
+        } else{
+          $(e.target).addClass("btn-secondary");
+          $(e.target).removeClass("btn-primary");
+        }
       });
 
       $('#listaAlvos').on('click', '.deletar', function(event){
