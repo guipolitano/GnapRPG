@@ -1,5 +1,12 @@
 <?php require_once "criaturas.php"; ?>
+<!--
+#TODO Adicionar input para pesquisar monstro pelo nome
+#TODO Adicionar filtros por CR e Nome
+#TODO Corrigir informaçoes exibidas 90% - Falta adicionar Spellcasting
+#TODO Retirar vírgulas finais 90%
 
+
+  -->
 <html>
 
 <head>
@@ -34,6 +41,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
+        <div class="row">
         <div class="card-dados">
           <div class="card">
             <div class="card-header">
@@ -57,6 +65,25 @@
             </div>
           </div>
         </div>
+        </div>
+        <div class="row">
+
+            <div class="card-anotacoes">
+              <div class="card">
+                <div class="card-header">
+                  ANOTAÇÕES
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <div class="col-md-15">
+                      <textarea class="lg-textarea form-control" rows="10" id="anotacoes"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
       </div>
       <div class="col">
         <div class="card-login">
@@ -75,23 +102,33 @@
                     <div class="col-md-15">
 
                       <select id="selectCreature" name="criatura" class="form-control">
-                        <option value="">Selecione a Criatura</option>
+                        <option value="">-Selecione a Criatura-</option>
                         <?php
+
                           foreach ($bestiary as $monsterArray) {
-                            foreach ($monsterArray as $monsterId => $monsterObject) {
-                              foreach ($monsterObject as $monsterAtributes => $atributo) {
-                                if($monsterAtributes=='name'){
-                                  ?>
+                              foreach ($monsterArray as $monsterId => $monsterObject) {
+                                  foreach ($monsterObject as $monsterAtributes => $atributo) {
+                                      if ($monsterAtributes=='name') {
+                                          ?>
                                   <option value="<?php echo $monsterId?>">
-                                    <?php echo $atributo?>
+                                    <?php
+
+                                    if(is_array($monsterObject['cr'])){
+                                      $cr = $monsterObject['cr']['cr'];
+                                    }else{
+                                      $cr = $monsterObject['cr'];
+                                    }
+
+                                    echo $atributo.' [CR: '.$cr.']'
+                                    ?>
                                   </option>
                                     <?php
-                                  } else{
-                                    continue;
+                                      } else {
+                                          continue;
+                                      }
                                   }
-                                }
                               }
-                            }
+                          }
                             ?>
                       </select>
 
@@ -103,7 +140,7 @@
 
                       <select id="selectAttack" name="ataque" class="form-control">
 
-                        <option value="">Selecione o Ataque</option>
+                        <option value="">-Selecione o Ataque-</option>
 
                       </select>
 
@@ -221,20 +258,7 @@
       </div>
   </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="card-login">
-        <div class="card">
-          <div class="card-header">
-            DADOS
-          </div>
-          <div class="card-body">
-            <!-- CODE  -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </body>
 
 </html>

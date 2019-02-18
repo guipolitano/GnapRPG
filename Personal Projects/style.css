@@ -6,6 +6,27 @@ body{
 p{
   margin-bottom: 0px;
 }
+
+tbody{
+  width: 100%;
+}
+
+tr{
+  color:white;
+  width: 100%;
+}
+b{
+  color: orange;
+}
+th{
+  color: orange;
+}
+
+.table td{
+  padding-top:0px;
+  padding-top:0px;
+}
+
 #dices .btn{
   margin-left: 2px;
   margin-bottom: 2px;
@@ -18,6 +39,7 @@ p{
   width: 350px;
   margin: 0 auto;
 }
+
 .navbar{
   width: 100%;
 }
@@ -33,17 +55,21 @@ p{
   padding: 30px 0 0 0;
 /* width: 200px; */
   margin: 0 auto;
-
 }
+
+.card-anotacoes {
+  padding: 12px 0 0 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .card-body{
   background-color: #2e3135;
   padding:17px;
   padding-right: 19px;
   color: white;
 }
-tbody{
-  width: 100%;
-}
+
 .card-info {
   padding: 30px 0 0 0;
   /* width: 600px; */
@@ -51,20 +77,8 @@ tbody{
   color:white;
 }
 
-tr{
-  color:white;
-  width: 100%;
-}
-b{
-  color: orange;
-}
-th{
-  color: orange;
-}
-.table td{
-  padding-top:0px;
-  padding-top:0px;
-}
+
+
 .borda{
   background-color: #44494f;
   border-width: 0;

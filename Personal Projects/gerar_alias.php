@@ -8,10 +8,10 @@
 
   $multiAlvos = implode(' ', $alvo);
 
-  if($attackType == 'cast'){
-    echo '!i cast "'.$attackName.'" '.$multiAlvos;
-  }else{
-    echo '!i a '.$multiAlvos.' "'.$attackName.'"';
+  if ($attackType == 'cast') {
+      echo '!i cast "'.$attackName.'" '.$multiAlvos;
+  } else {
+      echo '!i a '.$multiAlvos.' "'.$attackName.'"';
   }
 
 
