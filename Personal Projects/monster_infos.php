@@ -284,8 +284,6 @@ echo
             echo $willValue.', ';
           }
         }
-
-
       }
   }
 
