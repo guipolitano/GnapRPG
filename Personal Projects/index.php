@@ -2,7 +2,6 @@
 <!--
 #TODO Adicionar input para pesquisar monstro pelo nome
 #TODO Adicionar filtros por CR e Nome
-#TODO Corrigir informaçoes exibidas 90% - Falta adicionar Spellcasting
 #TODO Retirar vírgulas finais 90%
 
 
@@ -32,7 +31,7 @@
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark" style="margin-bottom:30px">
     <a class="navbar-brand" href="#">
       <img src="logo.png" width="40" height="40" class="d-inline-block align-center" alt="">
       AVRAE HELPER
@@ -95,7 +94,7 @@
             </div>
 
             <div class="card-body">
-              <form action="gerar_alias.php" method="post">
+              <form action="" method="post">
                 <div class="form-group">
 
                   <div class="form-group">
@@ -249,7 +248,7 @@
           <div class="card-header">
             INFO
           </div>
-          <div class="card-body">
+          <div class="card-body" style="overflow-y: scroll; height: 513px;">
             <div class="panel-content-wrapper-inner">
                 <div id="monster_info" class="">
                 </div>

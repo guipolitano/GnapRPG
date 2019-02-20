@@ -269,23 +269,104 @@ echo
                   echo '<b>'.$traitValue.'</b><br>';
               } elseif ($traitKey=='entries') {
                   foreach ($traitValue as $entryKey => $entry) {
-                      echo $entry.'<br><br>';
+                      echo $entry.'<br>';
                   }
               }
           }
       }
-
+    echo '<br>';
   foreach ($monstro['spellcasting'] as $spellId) {
-      foreach ($spellId as $spellKey => $spellValue) {
-        $spellKeyVal = array_search($spellKey, array_keys($spellId));
-        echo '<b>'.$monstro['spellcasting'][$spellKeyVal]['name'].'</b> '.$monstro['spellcasting'][$spellKeyVal]['headerEntries'][0].'<br>';
-        if($monstro['spellcasting'][$spellKeyVal]==['will']){
-          foreach ($spellValue as $willValue) {
-            echo $willValue.', ';
-          }
+    echo '<b>'.$spellId['name'].': </b>';
+    foreach ($spellId['headerEntries'] as $headerValue) {
+      echo $headerValue;
+    }
+
+    if(isset($spellId['will'])){
+      echo '<br><a style="color:orange">At will:</a> ';
+    }
+    foreach ($spellId['will'] as $will) {
+      echo '<u>';
+      echo ' '.$will.',';
+      echo '</u>';
+    }
+
+    foreach ($spellId['daily'] as $dailyKey => $daily) {
+      if($dailyKey=='1'){
+        echo '<br>';
+        echo '<a style="color:orange">1/day: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
+        }
+      }else if($dailyKey=='2'){
+        echo '<br>';
+        echo '<a style="color:orange">2/day: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
+        }
+      }else if($dailyKey=='3'){
+        echo '<br>';
+        echo '<a style="color:orange">2/day: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
+        }
+      }else if($dailyKey=='1e'){
+        echo '<br>';
+        echo '<a style="color:orange">1/day each: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
+        }
+      } else if($dailyKey=='2e'){
+        echo '<br>';
+        echo '<a style="color:orange">2/day each: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
+        }
+      }else if($dailyKey=='3e'){
+        echo '<br>';
+        echo '<a style="color:orange">3/day each: ';
+        foreach ($daily as $dailyName) {
+          echo '<u style="color:white">';
+          echo $dailyName.', ';
+          echo '</u>';
         }
       }
+    }
+    echo '<br>';
+    foreach ($spellId['spells'] as $spellKey => $spell) {
+      if($spellKey==0){
+        echo '<p style="color:orange">Cantrips: </p>';
+        foreach ($spell['spells'] as $spellName) {
+          echo '<u>';
+          echo $spellName.', ';
+          echo '</u>';
+        }
+      }else {
+        echo '<a style="color:orange">'.$spellKey.'st level ('.$spell['slots'].' slots): </a>';
+        foreach ($spell['spells'] as $spellName) {
+          echo '<u>';
+          echo $spellName.', ';
+          echo '</u>';
+        }
+      }
+      echo '<br>';
+    }
+    echo '<br>';
+    foreach ($spellId['footerEntries'] as $footerValue) {
+      echo $footerValue;
+    }
   }
+
+
 
 echo
 '
