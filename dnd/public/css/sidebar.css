@@ -75,6 +75,7 @@ body {
 
 .page-wrapper .theme.chiller-theme {
   background: #1e2229;
+
 }
 
 /*----------------toggeled sidebar----------------*/
@@ -352,7 +353,6 @@ body {
 /*--------------------------page-content-----------------------------*/
 
 .page-wrapper .page-content {
-  background-color: rgb(88, 88, 101);
   display: inline-block;
   width: 100%;
   padding-left: 0px;
@@ -407,7 +407,8 @@ body {
 
 /*-----------------------------chiller-theme-------------------------------------------------*/
 .page-wrapper{
-  background-color: rgb(88, 88, 101);
+  background-image: url(./../images/background.jpg);
+  background-size: cover;
 }
 .chiller-theme .sidebar-wrapper {
     background: #31353D;

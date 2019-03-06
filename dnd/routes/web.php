@@ -30,3 +30,7 @@ Route::get('/database', function () {
 Route::get('/tabletop', function () {
     return view('tabletop');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

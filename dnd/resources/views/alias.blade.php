@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="card-login">
-    <div class="card">
+    <div class="card" style="background-color: rgb(206, 138, 72)">
         <div class="card-header" style="background-color: #3a3f48;">CRIAR ALIAS</div>
         <div class="card-body">
             <div class="form-group">
