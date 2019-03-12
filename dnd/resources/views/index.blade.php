@@ -37,12 +37,13 @@
       <!-- User Info  -->
 
       <div class="sidebar-header">
+        @guest
         <div class="user-pic">
           <img class="img-fluid rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Politano
+          <span class="user-name">Username
           </span>
           <span class="user-role">Game Master</span>
           <span class="user-status">
@@ -50,6 +51,21 @@
             <span>Online</span>
           </span>
         </div>
+        @else
+          <div class="user-pic">
+            <img class="img-fluid rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+              alt="User picture">
+          </div>
+          <div class="user-info">
+            <span class="user-name"> {{ Auth::user()->name }}
+            </span>
+            <span class="user-role">Game Master</span>
+            <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Online</span>
+            </span>
+          </div>
+        @endguest
       </div>
       <div class="sidebar-menu">
         <ul>
@@ -61,20 +77,27 @@
             </a>
             <div class="sidebar-submenu" style="display:none;">
               <ul>
-                <li>
-                  <a href="{{ url('/ficha') }}">Char 1
-                    {{-- <span class="badge badge-pill badge-success">Pro</span> --}}
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ url('/ficha') }}">Char 2</a>
-                </li>
-                <li>
-                  <a href="{{ url('/ficha') }}">Char 3</a>
-                </li>
-                <li>
-                  <a href="{{ url('/ficha') }}">Nova Ficha<i class="fas fa-plus"></i></a>
-                </li>
+                @guest
+                  <li>
+                    <a href="{{ url('/ficha') }}">Nova Ficha<i class="fas fa-plus"></i></a>
+                  </li>
+                @else
+                  <li>
+                    <a href="{{ url('/ficha') }}">Char 1
+                      {{-- <span class="badge badge-pill badge-success">Pro</span> --}}
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="{{ url('/ficha') }}">Char 2</a>
+                  </li>
+                  <li>
+                    <a href="{{ url('/ficha') }}">Char 3</a>
+                  </li>
+                  <li>
+                    <a href="{{ url('/ficha') }}">Nova Ficha<i class="fas fa-plus"></i></a>
+                  </li>
+                @endguest
               </ul>
             </div>
           </li>
@@ -157,7 +180,7 @@
     </div>
   </nav>
   <!-- sidebar-wrapper  -->
-  <main class="page-content" style="">
+  <main class="page-content" style="height:100%">
     <div class="container-fluid">
       @yield('container')
     </div>
