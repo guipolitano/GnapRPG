@@ -38,20 +38,18 @@
 
       <div class="sidebar-header">
         @guest
+        <a href="{{ url('/login') }}">
         <div class="user-pic">
           <img class="img-fluid rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Username
-          </span>
-          <span class="user-role">Game Master</span>
-          <span class="user-status">
-            <i class="fa fa-circle"></i>
-            <span>Online</span>
+          <span class="user-name" style="padding-top: 20px;"><u>Faça o login</u>
           </span>
         </div>
+      </a>
         @else
+        <a href="{{ route('perfil', ['username' => Auth::user()->username]) }}">
           <div class="user-pic">
             <img class="img-fluid rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
               alt="User picture">
@@ -65,6 +63,7 @@
               <span>Online</span>
             </span>
           </div>
+        </a>
         @endguest
       </div>
       <div class="sidebar-menu">
@@ -174,9 +173,14 @@
         <i class="fa fa-cog"></i>
         {{-- <span class="badge-sonar"></span> --}}
       </a>
-      <a href="#">
+      <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
         <i class="fa fa-power-off"></i>
       </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
+
     </div>
   </nav>
   <!-- sidebar-wrapper  -->

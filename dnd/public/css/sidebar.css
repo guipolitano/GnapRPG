@@ -111,6 +111,8 @@ body {
   top: 0;
   left: -300px;
   z-index: 999;
+  border-color: #e9910f;
+  border-right-style: ridge;
 }
 
 .sidebar-wrapper ul {
@@ -312,6 +314,8 @@ body {
   width: 100%;
   bottom: 0;
   display: flex;
+  border-color: #e9910f;
+  border-top-style: ridge;
 }
 
 .sidebar-footer > a {
@@ -320,6 +324,7 @@ body {
   height: 30px;
   line-height: 30px;
   position: relative;
+  top: 6px;
 }
 
 .sidebar-footer > a .notification {
@@ -475,6 +480,9 @@ body {
     background: #3a3f48;
     box-shadow: 0px -1px 5px #282c33;
     border-top: 1px solid #464a52;
+    border-color: #e9910f;
+    border-top-color: rgb(233, 145, 15);
+    border-top-style: ridge;
 }
 
 .chiller-theme .sidebar-footer>a:first-child {

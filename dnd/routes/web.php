@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('/alias', function () {
     return view('alias');
 });
@@ -31,9 +32,12 @@ Route::get('/tabletop', function () {
     return view('tabletop');
 });
 
+Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
+
 Auth::routes();
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
