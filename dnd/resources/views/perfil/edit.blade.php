@@ -1,12 +1,57 @@
 @extends('index')
 <link rel="stylesheet" href="{{ asset('css/perfil.css') }}">
 @section('container')
+{{--
+    Informações do Perfil
+    1- Foto
+    2- Nome
+    3- Cargo no Site (Admin, User, etc);
+    4- Mesas de jogo {Fazer carrosel de imagens}
+        5.1- Char/Funcao na mesa
+        5.2- Quem é o Mestre
+        (   [IMAGEM]
+            Campanha 1
+            Descrição:
+            Jogadores:
+            -Politano (Thorn, Lv 13, Monge)
+            -Largadao (Ghughul, Lv 12, Clerico)
+            Mestre: Politano
+            Localização Atual: Planices de ...
+
+            [IMAGEM]
+            Campanha 2:
+            Descrição:
+            Jogadores:
+            -Pinguim (Nyrvus, Lv 13, Guerreiro)
+            -Largadao (Ghughul, Lv 12, Clerico)
+            Mestre: Largadao
+            Localização Atual: Planices de ...
+        )
+    5- Fichas {Fazer carrosel de imagens}
+        (
+            [IMAGEM]
+            Ficha 1 - Thorn(Lv 13, Monge.)
+            Mestre: Politano
+        )
+    6- Informações pessoais {Aba lateral (esquerda)}
+        (
+            Cargo no Site - Retangulo (Obrigatorio)
+            Data de registro (Obrigatorio)
+            Última vez online (Obrigatorio)
+            Principal ficha
+            Principal campanha
+            Interesses
+            Idade
+            Cidade
+        )
+
+    --}}
 <div class="container emp-profile">
     <form method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
+                    <img src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="" />
                     <div class="file btn btn-lg btn-primary">
                         Trocar Avatar
                         <input type="file" name="file" />
@@ -44,18 +89,18 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-                {{-- <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br />
-                    <a href="">Bootsnipp Profile</a><br />
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br />
-                    <a href="">Web Developer</a><br />
-                    <a href="">WordPress</a><br />
-                    <a href="">WooCommerce</a><br />
-                    <a href="">PHP, .Net</a><br />
-                </div> --}}
+                <div class="profile-work">
+                    <br>
+                    <span class="btn btn-info" style="width: 100%">Game Master</span><br />
+                    <a href="">Data de Registro: 15 de março</a><br />
+                    <a href="">Ultima vez online: 15 de março</a>
+                    <p>INFORMAÇÕES PESSOAIS</p>
+                    <a href="">Principal Ficha: Thorn Fulgor</a><br />
+                    <a href="">Principal Campanha: Campanha 1</a><br />
+                    <a href="">Interesses: RPG</a><br />
+                    <a href="">Idade: 26</a><br />
+                    <a href="">Localização: Vitoria-ES</a><br />
+                </div>
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">

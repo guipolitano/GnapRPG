@@ -17,19 +17,19 @@ Route::get('/', function () {
 
 
 Route::get('/alias', function () {
-    return view('alias');
+    return view('alias/alias');
 });
 
 Route::get('/ficha', function () {
-    return view('ficha');
+    return view('fichas/ficha');
 });
 
 Route::get('/database', function () {
-    return view('database');
+    return view('database/database');
 });
 
 Route::get('/tabletop', function () {
-    return view('tabletop');
+    return view('tabletop/tabletop');
 });
 
 Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');

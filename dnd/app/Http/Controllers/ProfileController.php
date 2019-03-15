@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function show($username){
-      return view('perfil', ['username'=>$username]);
+      return view('perfil/perfil', ['username'=>$username]);
     }
 }
