@@ -33,6 +33,7 @@ Route::get('/tabletop', function () {
 });
 
 Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
+Route::patch('/perfil/{username}', 'ProfileController@update')->name('perfil.update');
 
 Auth::routes();
 
