@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+//DASHBOARD
+
+Route::get('/dashboard', 'DashboardController@dashboard');
+
+//MAIN
 
 Route::get('/alias', function () {
     return view('alias/alias');

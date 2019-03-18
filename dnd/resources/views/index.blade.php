@@ -20,8 +20,8 @@
 </head>
 
 <body>
-
 <div class="page-wrapper chiller-theme toggled">
+
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
   </a>
@@ -155,6 +155,25 @@
               </ul>
             </div>
           </li>
+
+          @guest
+          @else
+          @if(Auth::user()->admin == 1)
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fab fa-superpowers"></i>
+              <span>Dashboard</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="{{ url('/dashboard') }}">Usuários</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          @endif
+          @endguest
         </ul>
       </div>
       <!-- sidebar-menu  -->
@@ -186,6 +205,14 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content" style="height:100%">
     <div class="container-fluid">
+        @if (session('status'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        @endif
       @yield('container')
     </div>
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -11,18 +13,13 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request){
-
-    $this->validate($request, [
-      'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-    ]);
-
-    $filename = Auth::id().'_'.time().'.'.$request->avatar->getClientOriginalExtension();
-    $request->avatar->move(public_path('uploads/avatars'), $filename);
-
-    $user = Auth::user();
-    $user->avatar = $filename;
-    $user->save();
-
-    return redirect()->route('perfil');
+        $user_id = Auth::user()->id;
+        $profile = DB::table('users')
+            ->join('profiles', 'users.id', '=', 'profiles.user_id')
+            ->select('users.*', 'profiles.*')
+            ->where(['profiles.user_id'=>$user_id])
+            ->get();
+            return $profile;
+            exit();
     }
 }

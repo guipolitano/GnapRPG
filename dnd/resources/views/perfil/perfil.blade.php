@@ -52,10 +52,6 @@
             <div class="col-md-4">
                 <div class="profile-img">
                     <img src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="" />
-                    <div class="file btn btn-lg btn-primary">
-                        Trocar Avatar
-                        <input type="file" name="file" />
-                    </div>
                 </div>
             </div>
             <div class="col-md-8" style="border-left: dotted; border-color: #d1820d;">
@@ -190,18 +186,6 @@
                                 <img class="card-img-top" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="Card image cap">
                                 <div class="card-body">
                                 <h5 class="card-title">Campanha 1</h5>
-                                <p class="card-text"></p>
-                                </div>
-                                <div class="card-footer border-warning text-white" style="text-align: center">
-                                    <a href="">
-                                        <small class="text-muted">IR PARA CAMPANHA</small>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card text-white bg-transparent border-warning">
-                                <img class="card-img-top" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                <h5 class="card-title">Campanha 3</h5>
                                 <p class="card-text"></p>
                                 </div>
                                 <div class="card-footer border-warning text-white" style="text-align: center">
