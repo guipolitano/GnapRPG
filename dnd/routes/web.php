@@ -38,7 +38,10 @@ Route::get('/tabletop', function () {
 });
 
 Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
-Route::patch('/perfil/{username}', 'ProfileController@update')->name('perfil.update');
+
+Route::get('/perfil/{username}/edit', 'ProfileController@edit')->name('perfil.edit');
+
+// Route::patch('/perfil/{username}', 'ProfileController@update')->name('perfil.update');
 
 Auth::routes();
 

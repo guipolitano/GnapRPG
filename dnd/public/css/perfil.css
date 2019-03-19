@@ -6,6 +6,11 @@ hr {
     background: #e9910f;
 }
 
+
+.card.text-white {
+    border: ridge;
+}
+
 .emp-profile {
     padding: 3%;
     margin-top: 3%;
@@ -24,6 +29,8 @@ hr {
 .profile-img img {
     width: 70%;
     height: 100%;
+    border: ridge;
+    border-color: #e9910f;
 }
 
 .profile-img .file {
@@ -58,8 +65,9 @@ hr {
     width: 70%;
     padding: 2%;
     font-weight: 600;
-    color: #6c757d;
+    color: #b8bfce;
     cursor: pointer;
+    background-color: #4c4f56;
 }
 
 .proile-rating {
