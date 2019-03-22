@@ -12,16 +12,29 @@ use Auth;
 class ProfileController extends Controller
 {
     public function show($username){
-        $user_id = DB::table('users')
-            ->select('users.id')
-            ->where(['users.username'=>$username])
-            ->first();
+        // $user_id = DB::table('users')
+        //     ->select('users.id')
+        //     ->where(['users.username'=>$username])
+        //     ->first();
 
-        $profile = DB::table('users')
-            ->join('profiles', 'users.id', '=', 'profiles.user_id')
-            ->select('users.*', 'profiles.*')
-            ->where(['profiles.user_id'=>$user_id->id])
-            ->first();
+        // $profile = DB::table('users')
+        //     ->join('profiles', 'users.id', '=', 'profiles.user_id')
+        //     ->select('users.*', 'profiles.*')
+        //     ->where(['profiles.user_id'=>$user_id->id])
+        //     ->first();
+
+        $user_id = User::select('id')->where('username', $username)->first();
+        $profile = User::find($user_id)->user();
+        $profile_data = $profile;
+
+        echo '<pre>';
+        var_dump($profile); exit;
+        echo '</pre>';
+
+
+
+
+
 
       return view('perfil/perfil', ['profile'=>$profile]);
     }
