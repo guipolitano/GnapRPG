@@ -27,10 +27,11 @@ hr {
 }
 
 .profile-img img {
-    width: 70%;
-    height: 100%;
+    width: 220px;
+    height: 220px;
     border: ridge;
     border-color: #e9910f;
+    border-radius: 10px;
 }
 
 .profile-img .file {
@@ -82,7 +83,7 @@ hr {
     font-weight: 600;
 }
 
-.col-md-8 .nav-tabs {
+.col-md-9 .nav-tabs {
     margin-bottom: 5%;
 }
 
@@ -90,14 +91,14 @@ hr {
     border-bottom: none;
 }
 
-.col-md-8 .nav-tabs .nav-link {
+.col-md-9 .nav-tabs .nav-link {
     color: #b8bfce;
     font-weight: 600;
     border: none;
     border-bottom: 2px solid #818896;
 }
 
-.col-md-8 .nav-tabs .nav-link.active {
+.col-md-9 .nav-tabs .nav-link.active {
     background-color: #3a3f48;
     color: #e9910f;
     border: none;
@@ -110,10 +111,10 @@ hr {
 }
 
 .profile-work p {
-    font-size: 12px;
-    color: #818182;
+    font-size: 14px;
+    color: #d1820d;
     font-weight: 600;
-    margin-top: 10%;
+    margin-top: 6%;
 }
 
 .profile-work a {

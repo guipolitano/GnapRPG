@@ -39,7 +39,7 @@ Route::get('/tabletop', function () {
 
 Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
 
-Route::get('/perfil/{username}/edit', 'ProfileController@edit')->name('perfil.edit');
+Route::post('/perfil/{username}/edit', 'ProfileController@edit')->name('perfil.edit');
 
 // Route::patch('/perfil/{username}', 'ProfileController@update')->name('perfil.update');
 

@@ -10,8 +10,8 @@
                 @csrf
                 <div class="sign-in-htm">
                     <div class="group form-group">
-                        <label for="login" class="label">Usuário ou Email</label>
-                        <input id="login" type="text" class="input form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="login" value="{{ old('login') }}" required>
+                        <label for="username" class="label">Usuário ou Email</label>
+                        <input id="username" type="text" class="input form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="username" value="{{ old('login') }}" required>
 
                         @if ($errors->has('login'))
                         <span class="invalid-feedback" role="alert">

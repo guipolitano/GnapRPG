@@ -51,13 +51,13 @@
         @else
         <a href="{{ route('perfil', ['username' => Auth::user()->username]) }}">
           <div class="user-pic">
-            <img class="img-fluid rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-              alt="User picture">
+            <img class="img-fluid rounded" src="{{asset(Auth::user()->profile->avatar)}}"
+              alt="User picture" style="max-width: 60px;max-height: 60px;">
           </div>
           <div class="user-info">
             <span class="user-name"> {{ Auth::user()->name }}
             </span>
-            <span class="user-role">Game Master</span>
+            <span class="user-role">{{Auth::user()->admin == 1 ? "Admin": "Usuário"}}</span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>

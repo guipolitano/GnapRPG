@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
-        'user_id','main_sheet', 'main_camp', 'age', 'location', 'avatar'
+        'main_sheet', 'main_camp', 'age', 'gender', 'hobbies', 'location', 'avatar', 'description'
     ];
+    protected $primaryKey = 'user_id';
 
     public $timestamps = false;
 
