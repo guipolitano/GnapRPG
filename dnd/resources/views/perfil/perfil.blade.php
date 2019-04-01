@@ -150,7 +150,7 @@
                                     <div class="form-group">
                                         <label for="interesses"><span class="fas fa-feather-alt"></span>
                                             Descrição </label>
-                                        <textarea class="form-control" name="description" rows="4" maxlength="212">{{$user->profile->description!=null ? $user->profile->description : ''}}</textarea>
+                                        <textarea class="form-control" name="description" style="height:60px; min-height:60px;" maxlength="212" id="textarea-descricao">{{$user->profile->description!=null ? $user->profile->description : ''}}</textarea>
                                     </div>
 
                                     <div class="modal-footer">
@@ -196,7 +196,7 @@
                 </ul>
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="fichas" role="tabpanel" aria-labelledby="fichas-tab">
-                        <div class="card-deck" style="padding-top: 20px;">
+                        <div class="card-deck" style="padding-top: 20px; padding-bottom:20px">
                             <div class="card text-white bg-transparent border-warning">
                                 <img class="card-img-top" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
                                     alt="Card image cap">
@@ -289,6 +289,6 @@
     </div>
 </div>
 
-<script src="{{asset("js/profile.js")}}"></script>
+<script src="{{asset('js/profile.js')}}"></script>
 
 @endsection

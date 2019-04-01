@@ -29,6 +29,10 @@ Route::get('/ficha', function () {
     return view('fichas/ficha');
 });
 
+Route::get('/ficha/novaficha', function () {
+    return view('fichas/novaficha/novaficha');
+});
+
 Route::get('/database', function () {
     return view('database/database');
 });
@@ -40,8 +44,6 @@ Route::get('/tabletop', function () {
 Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
 
 Route::post('/perfil/{username}/edit', 'ProfileController@edit')->name('perfil.edit');
-
-// Route::patch('/perfil/{username}', 'ProfileController@update')->name('perfil.update');
 
 Auth::routes();
 

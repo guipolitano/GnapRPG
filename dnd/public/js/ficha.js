@@ -7,9 +7,16 @@ function isNumber(evt) {
     return true;
 }
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
 function previewFile() {
     var preview = document.querySelector("#imgPreview");
-    var textPreview = document.querySelector("#text-preview");
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
     var type = file.type;
@@ -20,7 +27,6 @@ function previewFile() {
     } else{
         reader.onloadend = function () {
             preview.src = reader.result;
-            textPreview.textContent = file.name;
         }
 
         if (file) {
@@ -33,14 +39,13 @@ function previewFile() {
 }
 
 function expandTextarea(id) {
-    document.getElementById(id).addEventListener(
-        "keyup",
-        function() {
-            this.style.overflow = "hidden";
-            this.style.height = 0;
-            this.style.height = this.scrollHeight + "px";
-        },
-        false
-    );
+    document.getElementById(id).addEventListener('keyup', function () {
+        this.style.overflow = 'hidden';
+        this.style.height = 0;
+        this.style.height = this.scrollHeight + 'px';
+    }, false);
 }
-expandTextarea("textarea-descricao");
+
+expandTextarea('textarea-historia');
+expandTextarea('textarea-aparencia');
+expandTextarea('textarea-personalidade');
