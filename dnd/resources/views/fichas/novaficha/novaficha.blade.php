@@ -1,7 +1,6 @@
 @extends('index')
 <link rel="stylesheet" href="{{ asset('css/novaficha.css') }}">
 @section('container')
-
 <div class="container emp-sheet" style="max-width: 40%;">
     <form role="form" method="POST" enctype="multipart/form-data" action="">
         @csrf
@@ -49,5 +48,5 @@
 </div>
     @include('fichas.novaficha.modalInfo')
 
-<script src="{{asset('/js/ficha.js')}}"></script>
+<script src="{{asset('/js/fichas/novaficha/index.js')}}"></script>
 @endsection

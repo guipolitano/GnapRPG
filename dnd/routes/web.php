@@ -21,17 +21,20 @@ Route::get('/dashboard', 'DashboardController@dashboard');
 
 //MAIN
 
+Route::group(['prefix' => 'ficha'], function () {
+    Route::get('/', function () {
+        return view('fichas.index');
+    });
+
+    Route::get('/novaficha', 'Fichas\fichaController@index')->name('novaficha.index');
+});
+
 Route::get('/alias', function () {
     return view('alias/alias');
 });
 
-Route::get('/ficha', function () {
-    return view('fichas/ficha');
-});
 
-Route::get('/ficha/novaficha', function () {
-    return view('fichas/novaficha/novaficha');
-});
+
 
 Route::get('/database', function () {
     return view('database/database');
@@ -46,9 +49,3 @@ Route::get('/perfil/{username}', 'ProfileController@show')->name('perfil');
 Route::post('/perfil/{username}/edit', 'ProfileController@edit')->name('perfil.edit');
 
 Auth::routes();
-
-Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-
-Route::get('/callback', 'SocialAuthFacebookController@callback');
-
-Route::get('/home', 'HomeController@index')->name('home');

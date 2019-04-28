@@ -77,7 +77,7 @@
               <ul>
                 @guest
                   <li>
-                    <a href="{{ url('/ficha') }}">Nova Ficha<i class="fas fa-plus"></i></a>
+                    <a href="{{ url('/login') }}">Nova Ficha<i class="fas fa-plus"></i></a>
                   </li>
                 @else
                   <li>
@@ -93,7 +93,7 @@
                     <a href="{{ url('/ficha') }}">Char 3</a>
                   </li>
                   <li>
-                    <a href="{{ url('/ficha/novaficha') }}">Nova Ficha<i class="fas fa-plus"></i></a>
+                    <a href="{{ route('novaficha.index') }}">Nova Ficha<i class="fas fa-plus"></i></a>
                   </li>
                 @endguest
               </ul>
