@@ -25,8 +25,10 @@ Route::group(['prefix' => 'ficha'], function () {
     Route::get('/', function () {
         return view('fichas.index');
     });
-
-    Route::get('/novaficha', 'Fichas\fichaController@index')->name('novaficha.index');
+    Route::group(['prefix' => 'novaficha'], function () {
+        Route::get('/', 'Fichas\fichaController@index')->name('novaficha.index');
+        Route::get('/bonus-raca/{IdRaca}', 'Fichas\fichaController@getBonusRaca');
+    });
 });
 
 Route::get('/alias', function () {

@@ -26,9 +26,9 @@ $(".atributo").prop("disabled", true);
 $("#metodo").on("change", function() {
     limparCamposAtributos();
     metodo = $("#metodo").val();
-    if (metodo === "Selecione" || metodo === "6") {
+    if (metodo === "Selecione" || metodo === "5") {
         $("#rolar-dados").prop("disabled", true);
-        if(metodo === "6"){
+        if(metodo === "5"){
             $(".atributo").prop("disabled", false);
         }else{
             $(".atributo").prop("disabled", true);
@@ -96,18 +96,68 @@ $('.atributo').on('change', function (e) {
 });
 
 $('#racas').on('change', function(){
+    const ArrAtributos = ['forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma'];
     let opcao = $(this).val();
-
-    if(opcao == ''){
-        let modificadorBase = $('#exibe-forca').attr('modificador-base');
-        $('#modificador-forca').text(modificadorBase);
+    let modificadorBase;
+    let modificador;
+    elBonus(opcao);
+    ArrAtributos.forEach(atr => {
+        modificadorBase = $('#exibe-'+atr).attr('modificador-base');
+        if(modificadorBase == null){
+            modificadorBase = 0;
+        }
+        $('#modificador-'+atr).text(modificadorBase);
+    });
+    if(opcao != ''){
+        ArrAtributos.forEach(atr => {
+            modificador = $('#modificador-'+atr).text()
+            if(modificador == ''){
+                modificador = 0;
+            }
+            atualizarModificador(atr, modificador, opcao);
+        });
     }
-    if(opcao == 1){
-        let modificador = $('#modificador-forca').text();
-        atualizarModificador('forca', modificador, 1);
-    }
-
 })
+
+function elBonus(raca){
+    let bonus1 = $('[name="bonus-1"]');
+    let bonus2 = $('[name="bonus-2"]');
+    let arrAtr = ['forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma']
+    switch (raca) {
+        case '5':
+            bonus1.prop('disabled', false);
+            bonus2.prop('disabled', false);
+            arrAtr = ['forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma']
+            preencherBonus(bonus1, arrAtr)
+            preencherBonus(bonus2, arrAtr)
+            break;
+        case '6':
+            bonus1.prop('disabled', false);
+            bonus2.prop('disabled', false);
+            arrAtr = ['forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria']
+            preencherBonus(bonus1, arrAtr)
+            preencherBonus(bonus2, arrAtr)
+            break;
+        case '10':
+            bonus1.prop('disabled', false);
+            arrAtr = ['forca', 'destreza', 'inteligencia', 'sabedoria', 'carisma']
+            preencherBonus(bonus1, arrAtr)
+            break;
+        case '11':
+            bonus1.prop('disabled', false);
+            arrAtr = ['forca', 'destreza', 'constituicao', 'sabedoria']
+            preencherBonus(bonus1, arrAtr)
+            break;
+        default:
+            bonus1.prop('disabled', true);
+            bonus2.prop('disabled', true);
+            break;
+    }
+}
+
+function preencherBonus(el, arrAtr){
+
+}
 
 function limparCamposAtributos(){
     $('#exibe-forca').html('--');
@@ -289,6 +339,7 @@ function exibirRolagens(soma, descartar, rolagens, heroica, text){
 
 function exibirAtributos(atributo, valorAtributo){
     let valorModificador;
+    let raca = $('#racas').val();
 
     if(valorAtributo== 1){valorModificador = -5};
     if(valorAtributo==2 || valorAtributo==3){valorModificador = -4};
@@ -304,13 +355,12 @@ function exibirAtributos(atributo, valorAtributo){
     if(valorAtributo==22 || valorAtributo==23){valorModificador = 6};
     if(valorAtributo==24 || valorAtributo==25){valorModificador = 7};
 
-    //ATRIBUIR UM ATTR com o valor base
     $('#exibe-'+atributo).attr('modificador-base', parseInt(valorModificador));
 
     valorModificador = valorModificador>=0 ? `+${valorModificador}` : valorModificador;
     valorModificador = parseInt(valorModificador);
     $('#exibe-'+atributo).html(`${valorAtributo}`);
-    atualizarModificador(atributo, valorModificador);
+    atualizarModificador(atributo, valorModificador, raca);
 };
 
 function atualizarModificador(atributo, valorModificador, raca=0){
@@ -318,25 +368,47 @@ function atualizarModificador(atributo, valorModificador, raca=0){
     let elRaca = $('#racas');
     let valorAtual = elModificador.text();
     let modificador = parseInt(valorModificador);
-    let bonusRaca;
-
+    let prefixo;
     valorAtual = valorAtual != '' ? parseInt(valorAtual) : 0;
     if(elRaca.val()!=''){
-        bonusRaca = atribuirBonusRaca(atributo, raca);
-        modificador += bonusRaca;
+        atribuirBonusRaca(atributo, raca).then((resolve)=>{
+            modificador += resolve
+            if(modificador > 0){
+                cor = "#19d421"
+                prefixo = "+"
+            } else if(modificador < 0){
+                cor = "#b62020"
+                prefixo = ""
+            } else{
+                cor = "#fff"
+                prefixo = ""
+            }
+
+            elModificador.text(prefixo+modificador).css({"color":cor});
+        })
     }else{
-        modificador = parseInt(valorModificador);
+        elModificador.text(modificador);
     }
-    elModificador.text(modificador);
 
 }
 
 function atribuirBonusRaca(atributo, raca){
-    let bonusRaca;
-    //REQUISICAO AJAX
-    bonusRaca = 5;
-    return bonusRaca;
-
+    return new Promise((resolve, reject)=>{
+        let atr = atributo;
+        let bonusRaca;
+        $.ajax({
+            url: `novaficha/bonus-raca/${raca}`,
+            data: raca,
+            success(response){
+                let responseAtributos = response[0]
+                bonusRaca = parseInt(responseAtributos[atr])
+                return resolve(bonusRaca)
+            },
+            error(response){
+                return reject(response)
+            }
+        });
+    })
 }
 
 function previewFile() {

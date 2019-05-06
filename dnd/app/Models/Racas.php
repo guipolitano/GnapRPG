@@ -9,7 +9,7 @@ class Racas extends Model
 {
     protected $table = 'dnd.racas';
     protected $fillable = [
-        'Nome', 'AtributosBonus', 'Deslocamento', 'TratosRaciais', 'Tamanho'
+        'Nome', 'forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma', 'Deslocamento', 'TratosRaciais', 'Tamanho'
     ];
     protected $primaryKey = 'IdRaca';
     public $timestamps = false;

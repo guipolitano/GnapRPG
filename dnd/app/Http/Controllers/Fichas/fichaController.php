@@ -15,4 +15,16 @@ class fichaController extends Controller
         return view('fichas.novaficha.novaficha', compact($dados));
     }
 
+    public function getBonusRaca($IdRaca){
+        $raca = Racas::where('IdRaca', '=', $IdRaca)->get([
+            'forca',
+            'destreza',
+            'constituicao',
+            'inteligencia',
+            'sabedoria',
+            'carisma'
+        ]);
+        return $raca;
+    }
+
 }

@@ -64,7 +64,6 @@
                                                                 <option value="3">Heróico</option>
                                                                 <option value="4">Audacioso</option>
                                                                 <option value="5">Elite</option>
-                                                                <option value="6">Compra de Pontos</option>
                                                             </select>
                     </div>
                 </div>
@@ -188,8 +187,6 @@
                     <div style="" id="R5"></div>
                     <div style="" id="R6"></div>
                 </div>
-
-
             </div>
             <div class="row" style="margin:0px;">
                 <button type="button" class="btn btn-warning" id="rolar-dados" style="margin:0px;margin-top:5px; width:100%" disabled>ROLAR OS DADOS</button>
@@ -198,8 +195,10 @@
         </div>
     </div>
     <hr>
+
+    {{--RAÇAS--}}
     <div class="row" style="padding-left:15px;">
-        <div class="form-group" style="padding-right:5px; width:49%">
+        <div class="form-group" style="padding-right:5px;">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="racas"><a href="#" data-toggle="modal" data-target="#mostrar-info"><i class="far fa-question-circle question-mark"></i></a>Raça</label>
@@ -212,7 +211,40 @@
                 </select>
             </div>
         </div>
-        <div class="form-group" style="width:49%">
+        <div class="form-group" style="padding-right:5px;">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01"><a href="#" data-toggle="modal" data-target="#mostrar-info"><i class="far fa-question-circle question-mark"></i></a>Bonus 1</label>
+                </div>
+                <select class="custom-select bonus" name="bonus-1" disabled>
+                    <option value="1">Força</option>
+                    <option value="2">Destreza</option>
+                    <option value="3">Constituição</option>
+                    <option value="4">Inteligência</option>
+                    <option value="5">Sabedoria</option>
+                    <option value="6">Carisma</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" style="padding-right:5px;">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01"><a href="#" data-toggle="modal" data-target="#mostrar-info"><i class="far fa-question-circle question-mark"></i></a>Bonus 2</label>
+                </div>
+                <select class="custom-select bonus" name="bonus-2" disabled>
+                    <option value="1">Força</option>
+                    <option value="2">Destreza</option>
+                    <option value="3">Constituição</option>
+                    <option value="4">Inteligência</option>
+                    <option value="5">Sabedoria</option>
+                    <option value="6">Carisma</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    {{-- CLASSE --}}
+    <div class="row" style="padding-left:15px;">
+        <div class="form-group" style="">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01"><a href="#" data-toggle="modal" data-target="#mostrar-info"><i class="far fa-question-circle question-mark"></i></a>Classe</label>
@@ -236,6 +268,8 @@
             </div>
         </div>
     </div>
+
+    {{-- PERÍCIAS --}}
     <div class="row" style="padding-left:15px;">
         <div class="form-group" style="padding-right:5px; width:49%">
             <div class="input-group">
@@ -282,5 +316,4 @@
             </div>
         </div>
     </div>
-    {{-- FIM TAB RAÇA --}}
 </div>

@@ -1,7 +1,7 @@
 @extends('index')
 <link rel="stylesheet" href="{{ asset('css/novaficha.css') }}">
 @section('container')
-<div class="container emp-sheet" style="max-width: 40%;">
+<div class="container emp-sheet" style="max-width: 42%;">
     <form role="form" method="POST" enctype="multipart/form-data" action="">
         @csrf
         <div class="row" style="padding-left:3px; height:45px">
