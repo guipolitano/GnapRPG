@@ -1,0 +1,64 @@
+/* CARD PRINCIPAL */
+.container div.ui.card.card-ficha {
+    max-width: 600px;
+    background-color: #31353D;
+    border: 5px ridge #e9910f;
+    box-shadow: none;
+    color: white
+}
+
+/* TABS */
+
+.container div.ui.attached.segment {
+    max-width: 600px;
+    background-color: rgb(59, 64, 73);
+}
+
+.card-ficha .ui.attached.tabular.menu{
+    border:none
+}
+
+.card-ficha .ui.attached.tabular.menu > a{
+    color:white;
+    font-family: 'Germania One', cursive;
+}
+
+.card-ficha .ui.attached.tabular.menu > a.active{
+    background-color: rgb(59, 64, 73);
+    color: #e9910f;
+    border: none
+}
+
+.card-ficha .ui.attached.tabular.menu > a:hover{
+    background-color:rgb(59, 64, 73);
+    border-radius: 5px 5px 0 0;
+    color: #e9910f;
+
+}
+
+.card-ficha .ui.bottom.attached.segment.active.tab{
+    border: none
+}
+
+/* MINI CARDS DE ATRIBUTOS */
+
+.ui.divider {
+    margin: 0px;
+}
+
+.ui.card .card-atributos {
+    text-align: center;
+    color:white;
+    width:82px;
+    border: 4px ridge #e9910f;
+    background-color: #31353D;
+    box-shadow: none !important;
+}
+.ui.card .card-atributos .content{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.ui.card .card-atributos .valores{
+    font-size: 30px;
+}

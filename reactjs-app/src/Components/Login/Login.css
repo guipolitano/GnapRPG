@@ -1,0 +1,10 @@
+
+.ui.stacked.segment{
+    background-color: #434852;
+    border: #e9910f ridge 3px;
+    background-size: cover;
+    color:white;
+}
+.ui.stacked.segment > h2 {
+    color:white;
+}

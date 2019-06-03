@@ -1,0 +1,81 @@
+/* Barra principal */
+.ui.base-menu{
+    font-size: 1rem;
+    font-family: 'Germania One', cursive;
+    /* background-color: #31353D; */
+    background-image: linear-gradient(#31353D, rgb(67, 72, 82));
+    border-color: #e9910f;
+    border-style: ridge;
+    border-width: 0px 0px 5px 0px;
+    border-radius:0px;
+
+}
+
+/* Items da Barra */
+.ui.menu .menu-item{
+    color: white;
+    font-size: 12px;
+}
+.ui.menu .active.menu-item{
+    color: #e9910f;
+    /* border-bottom: 3px ridge #e9910f; */
+}
+.ui.menu a.menu-item:hover{
+    color: #e9910f;
+    border-bottom: 1px solid #3f444d;
+}
+.ui.menu a.active.item:hover{
+    color: #f3b24f;
+}
+.ui.menu div.menu-item:hover{
+    color: #e9910f;
+    border-bottom: 1px solid #3f444d;;
+}
+.ui.menu div.active.menu-item:hover{
+    color: #f3b24f;
+}
+
+/* Diamantes na base dos itens */
+.ui.pointing.menu .active.item::after{
+    background-color: #e9910f;
+    border-left: 2px solid #e9910f;
+    border-top: 2px solid #e9910f;
+    border-right: 2px solid #9b600a;
+    border-bottom: 2px solid #9b600a;
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.ui.pointing.menu .active.item:hover::after{
+    background-color: #f3b24f;
+}
+/* Logo da barra */
+
+/* Dropdown Menu */
+
+.ui.menu .transition.visible{
+    background-color:#31353D;
+    color:white;
+    border-color: #e9910f;
+    border-style: ridge;
+    border-width: 2px;
+}
+.ui.menu .ui.dropdown .menu.menu-dropdown > .item-dropdown{
+    color:white !important;
+}
+
+/* Botões */
+.ui.menu .menu-btn-login{
+    background-color: #f3b24f;
+}
+.ui.menu .menu-btn-login:hover {
+    background-color: #e9910f;
+}
+
+.ui.menu .menu-btn-cadastro{
+    background-color: #e9910f;
+}
+.ui.menu .menu-btn-cadastro:hover {
+    background-color: #f3b24f;
+}
+

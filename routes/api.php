@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'racas'], function () {
+    Route::get('/', 'Ficha\RacasController@listar')->name('racas.listar');
+
+    Route::post('/cadastrar', 'Ficha\RacasController@cadastrar')->name('racas.cadastrar');
+
+    Route::get('/{raca}', 'Ficha\RacasController@exibir')->name('racas.exibir');
+
+    Route::put('/editar/{raca}', 'Ficha\RacasController@editar')->name('racas.editar');
+
+    Route::delete('/deletar/{raca}', 'Ficha\RacasController@deletar')->name('racas.deletar');
+});
+
