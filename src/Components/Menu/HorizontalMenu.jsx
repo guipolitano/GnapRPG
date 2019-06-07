@@ -5,25 +5,32 @@ import { Menu, Icon, Dropdown, Button, ButtonGroup } from "semantic-ui-react";
 import logo from "../../assets/images/logo.png";
 
 class HorizontalMenu extends Component {
-    state = {};
+    state = {}; //Estado do componente. Este componente não possui nenhum estado no momento.
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name });
     handleLoginClick = (e) => this.setState({activeItem: 'none'})
 
+    /*
+    As funções handleItemClick e handleLoginClick atribuem os Estados activeItem ao se clicar no elemento que possua essa função.
+    Por exemplo, o componente <Menu.Item> com name="inicio". Ao se clicar neste componente o estado global do componente (state={}) será alterado para state={activeItem: inicio}. É possível haver diversos stados em um componente, como se vê no arquivo Components>Fichas>Caracteristicas.jsx.
+    */
+
     render() {
         const { activeItem } = this.state;
         return (
+            //Neste projeto estou usando a Semantic Ui, ele é um framework de CSS semelhante ao bootstrap. No site da para encontrar diversos componentes com a documentação para se utilizar. No inicio desse aquivo eu importo cada componente dele.
+            //Dentro de cada componente há as props (ou propriedades), por exemplo no componente <Menu> ele possui as propriedades className, size, stackable e pointing. No caso, todas essas props já vem com o componente, mas nada impede de criar novas props como por exemplo: "tema="escuro", visibilidade="mostrar", logado="nao"".
             <Menu className="base-menu" size="mini" stackable pointing>
                 <Menu.Item className="logo" as={Link} to="/">
                     <img alt="logo" src={logo} />
                 </Menu.Item>
                 <Menu.Item
-                    as={Link}
-                    to="/"
-                    className="menu-item"
+                    as={Link} //trata o item do menu como um link
+                    to="/" //destino do item
+                    className="menu-item" //classe do item (igual ao class do html)
                     name="inicio"
-                    active={activeItem === "inicio"}
-                    onClick={this.handleItemClick}
+                    active={activeItem === "inicio"} // checa se o item ativo é igual ao "inicio", se for, active="true".
+                    onClick={this.handleItemClick} // Função para lidar com o click. o atributo this se refere a esta classe. Ou seja, está usando a função handleItemClick da classe HorizontalMenu.
                 >
                     <Icon name="home" />
                     Início
