@@ -45,6 +45,7 @@ class Login extends Component {
                                 <hr />
                             </Header>
                             <Form.Input
+                                required
                                 icon="user"
                                 iconPosition="left"
                                 placeholder="Usuário"
@@ -55,6 +56,7 @@ class Login extends Component {
                                 }
                             />
                             <Form.Input
+                                required
                                 icon="lock"
                                 iconPosition="left"
                                 placeholder="Senha"

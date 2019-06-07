@@ -4,12 +4,16 @@ import './NovaFicha.css';
 import Caracteristicas from "./Caracteristicas";
 import Principal from "./Principal";
 import Equipamentos from "./Equipamentos";
+import Magias from "./Magias";
+import Talentos from "./Talentos";
 
 
 const itens = [
-    { menuItem: "Principal",render: () => <Principal /> },
+    { menuItem: "Principal", render: () => <Principal /> },
     { menuItem: "Caracteristicas", render: () => <Caracteristicas /> },
-    { menuItem: "Equipamentos", render: () => <Equipamentos/> }
+    { menuItem: "Magias", render: () => <Magias /> },
+    { menuItem: "Equipamentos", render: () => <Equipamentos /> },
+    { menuItem: "Talentos", render: () => <Talentos/> }
 ];
 class NovaFicha extends Component {
     state = {};

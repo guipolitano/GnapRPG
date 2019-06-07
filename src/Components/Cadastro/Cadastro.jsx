@@ -26,7 +26,6 @@ class Cadastro extends Component {
     }
 
     handleClick(event) {
-        let error = false;
         const apiBaseUrl = "https://enzjw83io3yep.x.pipedream.net/";
 
         if (
@@ -41,7 +40,6 @@ class Cadastro extends Component {
                     mensagem: "Todos os campos são obrigatórios"
                 }
             });
-            error = true;
         } else {
             this.setState({
                 formError: {
