@@ -68,3 +68,10 @@
     text-align: center;
     padding-left:38px !important;
 }
+
+.ui.bottom .ui.button.floating.labeled.dropdown.icon.icon-extras{
+    min-width: 140px;
+    text-align: center;
+    padding-left: 43px !important;
+    padding-right: 10px !important;
+}

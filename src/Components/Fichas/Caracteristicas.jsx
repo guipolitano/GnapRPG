@@ -5,7 +5,8 @@ import {
     Divider,
     Dropdown,
     Popup,
-    Grid
+    Grid,
+    Icon
 } from "semantic-ui-react";
 import CardAtributos from "./CardAtributos";
 import axios from "axios";
@@ -73,12 +74,30 @@ class Caracteristicas extends Component {
             sab: "",
             car: ""
         },
-        racas: []
+        racaSelecionada: 0,
+        racas: [
+            {
+            selecione: {
+              escolhas: 0
+            },
+            key: "",
+            text: "Selecione",
+            value: "0",
+            bonus: {
+              for: 0,
+              des: 0,
+              con: 0,
+              int: 0,
+              sab: 0,
+              car: 0
+            }
+          }
+        ]
     };
 
     componentDidMount() {
         axios
-            .get(`https://api.jsonbin.io/b/5cf94d99e36bab4cf312c179`)
+            .get(`https://api.jsonbin.io/b/5cfae2b33185c64c762e72ea/2`)
             .then(res => {
                 let racas = res.data;
                 this.setState({ racas });
@@ -108,9 +127,15 @@ class Caracteristicas extends Component {
         });
         this.setState({
             atributes: { ...this.state.atributes },
-            bonus: copyBonus
+            bonus: copyBonus,
+            racaSelecionada: value,
         });
     };
+
+    bonusChangeHandle = (e, { value }) =>{
+        let copyBonus = this.state.bonus;
+        
+    }
 
     render() {
         return (
@@ -147,7 +172,7 @@ class Caracteristicas extends Component {
                         nomeAtributo="car"
                     />
                 </CardGroup>
-                <Divider style={{ paddingTop: "10px", marginBottom: "10px" }} />
+                <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
 
                 <Popup
                     content="Força"
@@ -245,20 +270,21 @@ class Caracteristicas extends Component {
                         />
                     }
                 />
-                <Divider style={{ paddingTop: "10px", marginBottom: "10px" }} />
+                <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
                 <Grid
                     columns="equal"
                     className="justify-content-center"
                     divided
                 >
                     <Grid.Row className="text-center">
-                        <Grid.Column>
+                        <Grid.Column style={{textAlign: "-webkit-auto"}}>
+                            <Icon link size="small" circular name="question"/>
                             <Popup
                                 content="Raças"
                                 trigger={
                                     <Dropdown
                                         button
-                                        className="icon"
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
@@ -276,8 +302,8 @@ class Caracteristicas extends Component {
                                 trigger={
                                     <Dropdown
                                         button
-                                        disabled
-                                        className="icon"
+                                        disabled={this.state.racas[this.state.racaSelecionada].selecione.escolhas > 0 ? false : true}
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
@@ -292,8 +318,8 @@ class Caracteristicas extends Component {
                                 trigger={
                                     <Dropdown
                                         button
-                                        disabled
-                                        className="icon"
+                                        disabled={this.state.racas[this.state.racaSelecionada].selecione.escolhas > 1 ? false : true}
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
@@ -304,20 +330,21 @@ class Caracteristicas extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-                <Divider style={{ paddingTop: "10px", marginBottom: "10px" }} />
+                <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
                 <Grid
                     columns="equal"
                     className="justify-content-center"
                     divided
                 >
                     <Grid.Row className="text-center">
-                        <Grid.Column>
+                        <Grid.Column style={{textAlign: "-webkit-auto"}}>
+                        <Icon link size="small" circular name="question"/>
                             <Popup
                                 content="Classes"
                                 trigger={
                                     <Dropdown
                                         button
-                                        className="icon"
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
@@ -334,7 +361,7 @@ class Caracteristicas extends Component {
                                     <Dropdown
                                         button
                                         disabled
-                                        className="icon"
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
@@ -350,7 +377,7 @@ class Caracteristicas extends Component {
                                     <Dropdown
                                         button
                                         disabled
-                                        className="icon"
+                                        className="icon icon-extras"
                                         floating
                                         labeled
                                         icon="user circle"
