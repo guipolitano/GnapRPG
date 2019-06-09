@@ -5,8 +5,7 @@ import {
   Divider,
   Dropdown,
   Popup,
-  Grid,
-  Icon
+  Grid
 } from "semantic-ui-react";
 import CardAtributos from "./CardAtributos";
 import axios from "axios";
@@ -57,50 +56,54 @@ let atributos = [
 ];
 
 class Caracteristicas extends Component {
-  state = {
-    atributes: {
-      for: "-",
-      des: "-",
-      con: "-",
-      int: "-",
-      sab: "-",
-      car: "-"
-    },
-    bonus: {
-      for: "",
-      des: "",
-      con: "",
-      int: "",
-      sab: "",
-      car: ""
-    },
-    racaSelecionada: 0,
-    racas: [
-      {
-        selecione: {
-          opcoes: [
-            { key: "0", text: "Selecione", value: "0" },
-          ],
-          escolhas: 0
-        },
-        key: "",
-        text: "Selecione",
-        value: "0",
-        bonus: {
-          for: 0,
-          des: 0,
-          con: 0,
-          int: 0,
-          sab: 0,
-          car: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      atributes: {
+        for: "-",
+        des: "-",
+        con: "-",
+        int: "-",
+        sab: "-",
+        car: "-"
+      },
+      bonus: {
+        for: "",
+        des: "",
+        con: "",
+        int: "",
+        sab: "",
+        car: ""
+      },
+      racaSelecionada: 0,
+      racas: [
+        {
+          selecione: {
+            opcoes: [{ key: "0", text: "Selecione", value: "0" }],
+            escolhas: 0
+          },
+          caracteristicas: {
+            text: "Selecione a Raça"
+          },
+          key: "",
+          text: "Selecione",
+          value: "0",
+          bonus: {
+            for: 0,
+            des: 0,
+            con: 0,
+            int: 0,
+            sab: 0,
+            car: 0
+          }
         }
-      }
-    ]
-  };
+      ]
+    };
+  }
 
   componentDidMount() {
     axios
-      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/5`)
+      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/7`)
       .then(res => {
         let racas = res.data;
         this.setState({ racas });
@@ -131,14 +134,17 @@ class Caracteristicas extends Component {
       bonus: copyBonus,
       racaSelecionada: value
     });
+    this.props.handleInformacoes(
+      this.state.racas[value].caracteristicas.text,
+      this.state.racas[value].caracteristicas.tratos
+    );
   };
 
   bonusChangeHandle = (e, { value }) => {
-
-      this.setState({
-        atributes: { ...this.state.atributes },
-        bonus: { ...this.state.bonus, [value]: 2},
-      });
+    this.setState({
+      atributes: { ...this.state.atributes },
+      bonus: { ...this.state.bonus, [value]: 2 }
+    });
   };
 
   render() {
@@ -276,8 +282,14 @@ class Caracteristicas extends Component {
         />
         <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
         <Grid columns="equal" className="justify-content-center" divided>
-          <Grid.Row className="text-center">
-            <Grid.Column style={{ textAlign: "-webkit-auto" }}>
+          <Grid.Row className="text-center justify-content-center">
+            <Grid.Column
+              style={{
+                textAlign: "-webkit-auto",
+                paddingLeft: "15px",
+                paddingRight: "15px"
+              }}
+            >
               <Popup
                 content="Raças"
                 trigger={
@@ -346,8 +358,14 @@ class Caracteristicas extends Component {
         </Grid>
         <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
         <Grid columns="equal" className="justify-content-center" divided>
-          <Grid.Row className="text-center">
-            <Grid.Column style={{ textAlign: "-webkit-auto" }}>
+          <Grid.Row className="text-center justify-content-center">
+            <Grid.Column
+              style={{
+                textAlign: "-webkit-auto",
+                paddingLeft: "15px",
+                paddingRight: "15px"
+              }}
+            >
               <Popup
                 content="Classes"
                 trigger={
