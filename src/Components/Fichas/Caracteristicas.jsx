@@ -5,7 +5,9 @@ import {
   Divider,
   Dropdown,
   Popup,
-  Grid
+  Grid,
+  Loader,
+  Card
 } from "semantic-ui-react";
 import CardAtributos from "./CardAtributos";
 import axios from "axios";
@@ -60,6 +62,7 @@ class Caracteristicas extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputsCarregados: false,
       atributes: {
         for: "-",
         des: "-",
@@ -107,7 +110,7 @@ class Caracteristicas extends Component {
       .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/7`)
       .then(res => {
         let racas = res.data;
-        this.setState({ racas });
+        this.setState({ racas, inputsCarregados: true });
       });
   }
 
@@ -149,275 +152,286 @@ class Caracteristicas extends Component {
   };
 
   render() {
-    return (
-      <Tab.Pane>
-        <CardGroup>
-          <CardAtributos
-            valor={this.state.atributes.for}
-            bonus={this.state.bonus.for}
-            nomeAtributo="for"
-          />
-          <CardAtributos
-            valor={this.state.atributes.des}
-            bonus={this.state.bonus.des}
-            nomeAtributo="des"
-          />
-          <CardAtributos
-            valor={this.state.atributes.con}
-            bonus={this.state.bonus.con}
-            nomeAtributo="con"
-          />
-          <CardAtributos
-            valor={this.state.atributes.int}
-            bonus={this.state.bonus.int}
-            nomeAtributo="int"
-          />
-          <CardAtributos
-            valor={this.state.atributes.sab}
-            bonus={this.state.bonus.sab}
-            nomeAtributo="sab"
-          />
-          <CardAtributos
-            valor={this.state.atributes.car}
-            bonus={this.state.bonus.car}
-            nomeAtributo="car"
-          />
-        </CardGroup>
-        <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+    if (this.state.inputsCarregados) {
+      return (
+        <Tab.Pane>
+          <CardGroup>
+            <CardAtributos
+              valor={this.state.atributes.for}
+              bonus={this.state.bonus.for}
+              nomeAtributo="for"
+            />
+            <CardAtributos
+              valor={this.state.atributes.des}
+              bonus={this.state.bonus.des}
+              nomeAtributo="des"
+            />
+            <CardAtributos
+              valor={this.state.atributes.con}
+              bonus={this.state.bonus.con}
+              nomeAtributo="con"
+            />
+            <CardAtributos
+              valor={this.state.atributes.int}
+              bonus={this.state.bonus.int}
+              nomeAtributo="int"
+            />
+            <CardAtributos
+              valor={this.state.atributes.sab}
+              bonus={this.state.bonus.sab}
+              nomeAtributo="sab"
+            />
+            <CardAtributos
+              valor={this.state.atributes.car}
+              bonus={this.state.bonus.car}
+              nomeAtributo="car"
+            />
+          </CardGroup>
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
 
-        <Popup
-          content="Força"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="hand rock"
-              options={atributos}
-              placeholder="FOR"
-              name="for"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Popup
-          content="Destreza"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="crosshairs"
-              options={atributos}
-              placeholder="DES"
-              name="des"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Popup
-          content="Constituição"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="heartbeat"
-              options={atributos}
-              placeholder="CON"
-              name="con"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Popup
-          content="Inteligência"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="graduation cap"
-              options={atributos}
-              placeholder="INT"
-              name="int"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Popup
-          content="Sabedoria"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="lightbulb"
-              options={atributos}
-              placeholder="SAB"
-              name="sab"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Popup
-          content="Carisma"
-          trigger={
-            <Dropdown
-              button
-              className="icon icon-atr"
-              floating
-              labeled
-              icon="smile"
-              options={atributos}
-              placeholder="CAR"
-              name="car"
-              onChange={this.atrChangeHandle}
-            />
-          }
-        />
-        <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-        <Grid columns="equal" className="justify-content-center" divided>
-          <Grid.Row className="text-center justify-content-center">
-            <Grid.Column
-              style={{
-                textAlign: "-webkit-auto",
-                paddingLeft: "15px",
-                paddingRight: "15px"
-              }}
-            >
-              <Popup
-                content="Raças"
-                trigger={
-                  <Dropdown
-                    button
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="user circle"
-                    options={this.state.racas}
-                    placeholder="Raças"
-                    onChange={this.racaChangeHandle}
-                    name="raca"
-                  />
-                }
+          <Popup
+            content="Força"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="hand rock"
+                options={atributos}
+                placeholder="FOR"
+                name="for"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Bonus 1"
-                trigger={
-                  <Dropdown
-                    button
-                    disabled={
-                      this.state.racas[this.state.racaSelecionada].selecione
-                        .escolhas > 0
-                        ? false
-                        : true
-                    }
-                    className="icon icon-extras"
-                    options={
-                      this.state.racas[this.state.racaSelecionada].selecione
-                        .opcoes
-                    }
-                    floating
-                    labeled
-                    onChange={this.bonusChangeHandle}
-                    icon="plus circle"
-                    placeholder="Bonus 1"
-                  />
-                }
+            }
+          />
+          <Popup
+            content="Destreza"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="crosshairs"
+                options={atributos}
+                placeholder="DES"
+                name="des"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Bonus 2"
-                trigger={
-                  <Dropdown
-                    button
-                    disabled={
-                      this.state.racas[this.state.racaSelecionada].selecione
-                        .escolhas > 1
-                        ? false
-                        : true
-                    }
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="plus circle"
-                    placeholder="Bonus 2"
-                  />
-                }
+            }
+          />
+          <Popup
+            content="Constituição"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="heartbeat"
+                options={atributos}
+                placeholder="CON"
+                name="con"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-        <Grid columns="equal" className="justify-content-center" divided>
-          <Grid.Row className="text-center justify-content-center">
-            <Grid.Column
-              style={{
-                textAlign: "-webkit-auto",
-                paddingLeft: "15px",
-                paddingRight: "15px"
-              }}
-            >
-              <Popup
-                content="Classes"
-                trigger={
-                  <Dropdown
-                    button
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="book"
-                    placeholder="Classes"
-                    name="classe"
-                  />
-                }
+            }
+          />
+          <Popup
+            content="Inteligência"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="graduation cap"
+                options={atributos}
+                placeholder="INT"
+                name="int"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Perícias"
-                trigger={
-                  <Dropdown
-                    button
-                    disabled
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="sign language"
-                    placeholder="Perícias"
-                  />
-                }
+            }
+          />
+          <Popup
+            content="Sabedoria"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="lightbulb"
+                options={atributos}
+                placeholder="SAB"
+                name="sab"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Perícias 2"
-                trigger={
-                  <Dropdown
-                    button
-                    disabled
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="sign language"
-                    placeholder="Perícias 2"
-                  />
-                }
+            }
+          />
+          <Popup
+            content="Carisma"
+            trigger={
+              <Dropdown
+                button
+                className="icon icon-atr"
+                floating
+                labeled
+                icon="smile"
+                options={atributos}
+                placeholder="CAR"
+                name="car"
+                onChange={this.atrChangeHandle}
               />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Tab.Pane>
-    );
+            }
+          />
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Grid columns="equal" className="justify-content-center" divided>
+            <Grid.Row className="text-center justify-content-center">
+              <Grid.Column
+                style={{
+                  textAlign: "-webkit-auto",
+                  paddingLeft: "15px",
+                  paddingRight: "15px"
+                }}
+              >
+                <Popup
+                  content="Raças"
+                  trigger={
+                    <Dropdown
+                      button
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="user circle"
+                      options={this.state.racas}
+                      placeholder="Raças"
+                      onChange={this.racaChangeHandle}
+                      name="raca"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Bonus 1"
+                  trigger={
+                    <Dropdown
+                      button
+                      disabled={
+                        this.state.racas[this.state.racaSelecionada].selecione
+                          .escolhas > 0
+                          ? false
+                          : true
+                      }
+                      className="icon icon-extras"
+                      options={
+                        this.state.racas[this.state.racaSelecionada].selecione
+                          .opcoes
+                      }
+                      floating
+                      labeled
+                      onChange={this.bonusChangeHandle}
+                      icon="plus circle"
+                      placeholder="Bonus 1"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Bonus 2"
+                  trigger={
+                    <Dropdown
+                      button
+                      disabled={
+                        this.state.racas[this.state.racaSelecionada].selecione
+                          .escolhas > 1
+                          ? false
+                          : true
+                      }
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="plus circle"
+                      placeholder="Bonus 2"
+                    />
+                  }
+                />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Grid columns="equal" className="justify-content-center" divided>
+            <Grid.Row className="text-center justify-content-center">
+              <Grid.Column
+                style={{
+                  textAlign: "-webkit-auto",
+                  paddingLeft: "15px",
+                  paddingRight: "15px"
+                }}
+              >
+                <Popup
+                  content="Classes"
+                  trigger={
+                    <Dropdown
+                      button
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="book"
+                      placeholder="Classes"
+                      name="classe"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Perícias"
+                  trigger={
+                    <Dropdown
+                      button
+                      disabled
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="sign language"
+                      placeholder="Perícias"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Perícias 2"
+                  trigger={
+                    <Dropdown
+                      button
+                      disabled
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="sign language"
+                      placeholder="Perícias 2"
+                    />
+                  }
+                />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Tab.Pane>
+      );
+    } else {
+      return (
+        <Tab.Pane> 
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Grid columns="equal" className="justify-content-center" divided>
+            <Loader active/>              
+          </Grid>
+        </Tab.Pane>
+      );
+    }
   }
 }
 
