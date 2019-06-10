@@ -13,17 +13,17 @@ class NovaFicha extends Component {
     super(props);
 
     this.state = {
-      principal:{
+      principal: {
         nome: "",
         sexo: "",
         idade: "",
         tendencia: "",
-        deus:"",
+        deus: "",
         aparencia: "",
         personalidade: "",
         historia: ""
       },
-      atributes:{
+      atributes: {
         for: "",
         des: "",
         con: "",
@@ -31,13 +31,27 @@ class NovaFicha extends Component {
         sab: "",
         car: ""
       },
-      bonus:{
+      bonus: {
         for: "",
         des: "",
         con: "",
         int: "",
         sab: "",
         car: ""
+      },
+      caracteristicas:{
+        atributos:{
+          base:{
+
+          },
+          bonus:{
+
+          }
+        },
+        raca:{
+          nome: "Selecione a Raça",
+          info: {},          
+        }
       },
       raca: {
         nome: "Selecione a Raça",
@@ -57,14 +71,23 @@ class NovaFicha extends Component {
       }
     });
   }
-  
-  handlePrincipal(atributo, valor){
+
+  handleCaracteristicas(atributo, valor) {
     this.setState({
-      principal:{
+      caracteristicas: {
+        ...this.state.caracteristicas,
+        [atributo]: valor
+      }
+    });
+  }
+
+  handlePrincipal(atributo, valor) {
+    this.setState({
+      principal: {
         ...this.state.principal,
         [atributo]: valor
       }
-    })
+    });
   }
 
   render() {
@@ -75,7 +98,15 @@ class NovaFicha extends Component {
             <Tab
               className="tabs-ficha"
               panes={[
-                { menuItem: "Principal", render: () => <Principal estado={this.state.principal} handlePrincipal={this.handlePrincipal} /> },
+                {
+                  menuItem: "Principal",
+                  render: () => (
+                    <Principal
+                      estado={this.state.principal}
+                      handlePrincipal={this.handlePrincipal}
+                    />
+                  )
+                },
                 {
                   menuItem: "Caracteristicas",
                   render: () => (
@@ -93,7 +124,10 @@ class NovaFicha extends Component {
         </div>
         <div className="col-sm-6" style={{ marginLeft: "-46px" }}>
           <Responsive className="card-ficha" as={Card} fluid>
-            <Informacoes nomeRaca={this.state.raca.nome} infoRaca={this.state.raca.info} />
+            <Informacoes
+              nomeRaca={this.state.raca.nome}
+              infoRaca={this.state.raca.info}
+            />
           </Responsive>
         </div>
       </React.Fragment>

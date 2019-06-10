@@ -10,6 +10,7 @@ import {
 import CardAtributos from "./CardAtributos";
 import axios from "axios";
 
+// TODO Alterar Bonus no State também
 let atributos = [
   {
     key: "",
