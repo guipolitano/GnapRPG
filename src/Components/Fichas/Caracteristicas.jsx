@@ -58,6 +58,15 @@ let atributos = [
   }
 ];
 
+function bonusBase(base){
+  let valor = 0;
+  if(base === "8"){valor = -1};
+  if(base === "10"){valor = 0};
+  if(base === "12" || base === "13"){valor = 1};
+  if(base === "15"){valor = 2};
+  if(base === "17"){valor = 3};
+  return valor;
+}
 class Caracteristicas extends Component {
   constructor(props) {
     super(props);
@@ -78,6 +87,38 @@ class Caracteristicas extends Component {
         int: "",
         sab: "",
         car: ""
+      },
+      modificador:{
+        for: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        },
+        des: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        },
+        con: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        },
+        int: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        },
+        sab: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        },
+        car: {
+          soma: 0,
+          cor: "",
+          operador: ""
+        }
       },
       racaSelecionada: 0,
       racas: [
@@ -115,28 +156,60 @@ class Caracteristicas extends Component {
   }
 
   atrChangeHandle = (e, { name, value }) => {
+    let soma, operador, cor;
     let elSelect = atributos.find(x => x.value === value);
     elSelect.disabled = !elSelect.disabled;
     if (this.state.atributes[name] !== "-") {
       let elAtual = atributos.find(x => x.value === this.state.atributes[name]);
       elAtual.disabled = !elAtual.disabled;
     }
+    soma = this.state.racas[this.state.racaSelecionada].bonus[name]+bonusBase(value);
+    if(soma>0){
+      operador='+';
+      cor = "#4dd822";
+    }else if(soma<0){
+      operador='';
+      cor = "#b91717";
+    } else{
+      operador='';
+      cor = "#ffec5c";
+    }
     this.setState({
-      atributes: { ...this.state.atributes, [name]: value }
-    });
+      atributes: { ...this.state.atributes, [name]: value },
+      modificador: {...this.state.modificador, [name]:{...this.state.modificador[name], soma, operador, cor}}
+    });     
+    
   };
 
   racaChangeHandle = (e, { value }) => {
+    let soma, operador, cor;
     let copyBonus = this.state.bonus;
+    let copyModificador = this.state.modificador;
     Object.keys(this.state.racas[value].bonus).forEach(key => {
       if (this.state.bonus.hasOwnProperty(key)) {
         copyBonus[key] = this.state.racas[value].bonus[key];
       }
+      soma = copyBonus[key]+bonusBase(this.state.atributes[key]);
+      copyModificador[key].soma = soma;
+        if(soma>0){
+          operador='+';
+          cor = "#4dd822";
+        }else if(soma<0){
+          operador='';
+          cor = "#b91717";
+        } else{
+          operador='';
+          cor = "#ffec5c";
+        }
+        copyModificador[key].operador = operador;
+        copyModificador[key].cor = cor;
     });
+
     this.setState({
       atributes: { ...this.state.atributes },
       bonus: copyBonus,
-      racaSelecionada: value
+      racaSelecionada: value,
+      modificador: copyModificador
     });
     this.props.handleInformacoes(
       this.state.racas[value].caracteristicas.text,
@@ -158,32 +231,38 @@ class Caracteristicas extends Component {
           <CardGroup>
             <CardAtributos
               valor={this.state.atributes.for}
-              bonus={this.state.bonus.for}
+              modificador={this.state.modificador.for.operador+this.state.modificador.for.soma}
+              cor={this.state.modificador.for.cor}
               nomeAtributo="for"
             />
             <CardAtributos
               valor={this.state.atributes.des}
-              bonus={this.state.bonus.des}
+              modificador={this.state.modificador.des.operador+this.state.modificador.des.soma}
+              cor={this.state.modificador.des.cor}
               nomeAtributo="des"
             />
             <CardAtributos
               valor={this.state.atributes.con}
-              bonus={this.state.bonus.con}
+              modificador={this.state.modificador.con.operador+this.state.modificador.con.soma}
+              cor={this.state.modificador.con.cor}
               nomeAtributo="con"
             />
             <CardAtributos
               valor={this.state.atributes.int}
-              bonus={this.state.bonus.int}
+              modificador={this.state.modificador.int.operador+this.state.modificador.int.soma}
+              cor={this.state.modificador.int.cor}
               nomeAtributo="int"
             />
             <CardAtributos
               valor={this.state.atributes.sab}
-              bonus={this.state.bonus.sab}
+              modificador={this.state.modificador.sab.operador+this.state.modificador.sab.soma}
+              cor={this.state.modificador.sab.cor}
               nomeAtributo="sab"
             />
             <CardAtributos
               valor={this.state.atributes.car}
-              bonus={this.state.bonus.car}
+              modificador={this.state.modificador.car.operador+this.state.modificador.car.soma}
+              cor={this.state.modificador.car.cor}
               nomeAtributo="car"
             />
           </CardGroup>
