@@ -20,9 +20,16 @@ class Principal extends Component {
   }
 
   inputChangeHandle = (e, { name, value }) => {
-    this.setState({
-      [name]: value
-    });
+    const re = /^[0-9\b]+$/;
+    if(name === 'idade'){
+      if (value === '' || re.test(value)) {
+        this.setState({[name]: value})
+     }
+    }else{
+      this.setState({
+        [name]: value
+      });
+    }
     this.props.handlePrincipal(name, value);
   };
 

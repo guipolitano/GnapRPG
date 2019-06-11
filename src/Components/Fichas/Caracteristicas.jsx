@@ -12,7 +12,7 @@ import {
 import CardAtributos from "./CardAtributos";
 import axios from "axios";
 
-// TODO Alterar Bonus no State também
+// TODO REFATORAR PARA REMOVER STATE BONUS
 let atributos = [
   {
     key: "",
@@ -213,7 +213,8 @@ class Caracteristicas extends Component {
     });
     this.props.handleInformacoes(
       this.state.racas[value].caracteristicas.text,
-      this.state.racas[value].caracteristicas.tratos
+      this.state.racas[value].caracteristicas.tratos,
+      this.state.racas[value].caracteristicas.habilidades
     );
   };
 
