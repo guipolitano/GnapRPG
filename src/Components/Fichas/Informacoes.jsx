@@ -13,8 +13,8 @@ class Informacoes extends Component {
 
   render() {
     const { activeIndex } = this.state;
-    const tratos = Object.keys(this.props.infoRaca).map(
-      key => this.props.infoRaca[key]
+    const tratos = Object.keys(this.props.infoRaca.tratos).map(
+      key => this.props.infoRaca.tratos[key]
     );
     return (
       <div style={{ padding: "1em" }}>
@@ -99,7 +99,8 @@ class Informacoes extends Component {
             RAÇA
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
-            <h5 className="text-center">{this.props.nomeRaca}</h5>
+            <h5 className="text-center">{this.props.infoRaca.nome}</h5>
+            <h6 className="text-center"><i>({this.props.infoRaca.habilidades})</i></h6>
             <hr
               style={{ width: "50%", marginTop: "0px", marginBottom: "0px" }}
             />

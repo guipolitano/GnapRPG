@@ -50,7 +50,10 @@ class NovaFicha extends Component {
         },
         raca:{
           nome: "Selecione a Raça",
-          info: {},          
+          descricao: "",
+          deslocamento: "",
+          habilidades: "",
+          tratos: {},
         }
       }
     };
@@ -59,11 +62,11 @@ class NovaFicha extends Component {
     this.handlePrincipal = this.handlePrincipal.bind(this);
   }
 
-  handleInformacoes(nome, info, habilidades) {
+  handleInformacoes(nome, descricao, deslocamento, habilidades, tratos) {
     this.setState({
       caracteristicas: {
         ...this.state.caracteristicas,
-        raca:{nome,info, habilidades}
+        raca:{nome, descricao, deslocamento, habilidades, tratos}
       }
     });
   }
@@ -121,9 +124,7 @@ class NovaFicha extends Component {
         <div className="col-sm-6" style={{ marginLeft: "-46px" }}>
           <Responsive className="card-ficha" as={Card} fluid>
             <Informacoes
-              nomeRaca={this.state.caracteristicas.raca.nome}
-              infoRaca={this.state.caracteristicas.raca.info}
-              habilidadesRaca={this.state.caracteristicas.raca.habilidades}
+              infoRaca={this.state.caracteristicas.raca}
             />
           </Responsive>
         </div>
