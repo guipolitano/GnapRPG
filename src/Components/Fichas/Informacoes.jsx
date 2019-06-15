@@ -100,7 +100,7 @@ class Informacoes extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
             <h5 className="text-center">{this.props.infoRaca.nome}</h5>
-            <h6 className="text-center"><i>({this.props.infoRaca.habilidades})</i></h6>
+            <h6 className="text-center"><i>{this.props.infoRaca.habilidades}</i></h6>
             <hr
               style={{ width: "50%", marginTop: "0px", marginBottom: "0px" }}
             />

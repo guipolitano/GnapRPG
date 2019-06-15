@@ -1,20 +1,30 @@
 import React, { Component } from "react";
 import {
   Tab,
+  Card,
   CardGroup,
   Divider,
   Dropdown,
   Popup,
   Grid,
   Loader,
-  Card
+  Button
 } from "semantic-ui-react";
 import CardAtributos from "./CardAtributos";
+import CardMostrador from "./CardMostrador";
 import axios from "axios";
 
-// TODO REFATORAR PARA REMOVER STATE BONUS
-// TODO REMOVER TEXT DO JSON CARACTERISTICAS
-// TODO REMOVER OPCAO DO SEGUNDO BONUS CASO SELECIONADA OU PERMITIR SOMAR OS BONUS
+// TODO: REFATORAR PARA REMOVER STATE BONUS
+// TODO: REMOVER TEXT DO JSON CARACTERISTICAS
+// TODO: CORRIGIR DESCRICAO DE DEFORMIDADE LEFOU E QAREEN
+// TODO: CORRIGIR ALTERAR BONUS EXTRAS DE RACAS
+/*
+TODO: Raças que alteram perícia: 
+-Humano: 2 talentos adicionais a escolha do jogador
+-Lefou: 2 talentos de tormenta
+-Meio-Orc: Duro de matar
+
+*/
 let atributos = [
   {
     key: "",
@@ -94,10 +104,118 @@ function getOperadorCor(soma){
   }
   return operadorCor;
 }
+
+let leveis = [
+  {
+    key: 1,
+    text: 1,
+    value: 1,
+  },
+  {
+    key: 2,
+    text: 2,
+    value: 2,
+  },
+  {
+    key: 3,
+    text: 3,
+    value: 3,
+  },
+  {
+    key: 4,
+    text: 4,
+    value: 4,
+  },
+  {
+    key: 5,
+    text: 5,
+    value: 5,
+  },
+  {
+    key: 6,
+    text: 6,
+    value: 6,
+  },
+  {
+    key: 7,
+    text: 7,
+    value: 7,
+  },
+  {
+    key: 8,
+    text: 8,
+    value: 8,
+  },
+  {
+    key: 9,
+    text: 9,
+    value: 9,
+  },
+  {
+    key: 10,
+    text: 10,
+    value: 10,
+  },
+  {
+    key: 11,
+    text: 11,
+    value: 11,
+  },
+  {
+    key: 12,
+    text: 12,
+    value: 12,
+  },
+  {
+    key: 13,
+    text: 13,
+    value: 13,
+  },
+  {
+    key: 14,
+    text: 14,
+    value: 14,
+  },
+  {
+    key: 15,
+    text: 15,
+    value: 15,
+  },
+  {
+    key: 16,
+    text: 16,
+    value: 16,
+  },
+  {
+    key: 17,
+    text: 17,
+    value: 17,
+  },
+  {
+    key: 18,
+    text: 18,
+    value: 18,
+  },
+  {
+    key: 19,
+    text: 19,
+    value: 19,
+  },
+  {
+    key: 20,
+    text: 20,
+    value: 20,
+  },
+  ]
+
 class Caracteristicas extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      level:1,
+      pv:0,
+      ca:10,
+      pericias:0,
       inputsCarregados: false,
       atributes: {
         for: "-",
@@ -149,8 +267,14 @@ class Caracteristicas extends Component {
       },
       racaSelecionada: 0,
       bonusAtivo:{
-        1:'',
-        2:''
+        1:{
+          opcaoSelecionada:0,
+          atributo:''
+        },
+        2:{
+          opcaoSelecionada:0,
+          atributo:''
+        }
       },
       racas: [
         {
@@ -183,7 +307,7 @@ class Caracteristicas extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/12`)
+      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/15`)
       .then(res => {
         let racas = res.data;
         this.setState({ racas, inputsCarregados: true });
@@ -194,11 +318,14 @@ class Caracteristicas extends Component {
     let soma, operador, cor;
     let elSelect = atributos.find(x => x.value === value);
     let copyBonus = this.state.bonus;
+    let CA = this.state.ca;
+
     elSelect.disabled = !elSelect.disabled;
     if (this.state.atributes[name] !== "-") {
       let elAtual = atributos.find(x => x.value === this.state.atributes[name]);
       elAtual.disabled = !elAtual.disabled;
     }
+
     soma = copyBonus[name]+bonusBase(value);
     if (soma > 0) {
       operador = "+";
@@ -210,20 +337,29 @@ class Caracteristicas extends Component {
       operador = "";
       cor = "#ffec5c";
     }
+
+    if(name === 'des'){
+      CA -= this.state.modificador.des.soma;
+      CA += parseInt(soma);
+    }
     this.setState({
       ...this.state,
       atributes: { ...this.state.atributes, [name]: value },
       modificador: {
         ...this.state.modificador,
         [name]: { ...this.state.modificador[name], soma, operador, cor }
-      }
+      },
+      ca: CA     
     });
+
   };
 
   racaChangeHandle = (e, { value }) => {
     let soma, operadorCor;
     let copyBonus = this.state.bonus;
     let copyModificador = this.state.modificador;
+    let CA = this.state.ca;
+    
     Object.keys(this.state.racas[value].bonus).forEach(key => {
       if (this.state.bonus.hasOwnProperty(key)) {
         copyBonus[key] = this.state.racas[value].bonus[key];
@@ -235,10 +371,23 @@ class Caracteristicas extends Component {
     copyModificador[key].operador = operadorCor[0];
     copyModificador[key].cor = operadorCor[1];
     });
+    if(this.state.racaSelecionada !== 0){
+      CA -= this.state.racas[this.state.racaSelecionada].bonus.des;
+      if(this.state.racas[this.state.racaSelecionada].caracteristicas.hasOwnProperty('CA')){
+        CA -= this.state.racas[this.state.racaSelecionada].caracteristicas.CA;
+      }
+    }
+
+    CA += copyModificador.des.soma;
+
+    if(this.state.racas[value].caracteristicas.hasOwnProperty('CA')){
+      CA += this.state.racas[value].caracteristicas.CA;
+    }
 
     this.setState({
       atributes: { ...this.state.atributes },
-      bonusAtivo:{...this.state.bonusAtivo, 1:'', 2:''},
+      ca: CA,
+      bonusAtivo:{...this.state.bonusAtivo, 1:{opcaoSelecionada:0, atributo:''}, 2:{opcaoSelecionada:0, atributo:''}},
       bonus: copyBonus,
       racaSelecionada: value,
       modificador: copyModificador
@@ -253,17 +402,39 @@ class Caracteristicas extends Component {
   };
 
   bonusChangeHandle = (e, { name, value }) => {
-    if(value !== 0){
-      let soma, operadorCor;
+    if(value !== '0'){
+      let soma, operadorCor, elAtual, elSelect;
+      let racas = {...this.state.racas};
       let bonusInput = name === 'bonus1' ? 1 : 2;
       let copyBonus = {...this.state.racas[this.state.racaSelecionada].bonus};
       let copyModificador = {...this.state.modificador};
       let novoValor = copyBonus[value]+2;
+      let CA = this.state.ca;
+      elSelect = (racas[this.state.racaSelecionada].selecione.opcoes).find(x => x.value === value);
+      elSelect.disabled = !elSelect.disabled;
+      
+      let keyOption = elSelect.key;
+
+      if(this.state.bonusAtivo[bonusInput].atributo !== ''){
+        elAtual = (racas[this.state.racaSelecionada].selecione.opcoes).find(x => x.value === this.state.bonusAtivo[bonusInput].atributo);
+        elAtual.disabled = !elAtual.disabled;
+      }
       
       soma = novoValor + bonusBase(this.state.atributes[value]);
+      console.log("CA 1:"+CA)
+      if(value !== 0){
+        CA -= this.state.modificador.des.soma;
+        console.log("CA 2:"+CA)
+        if(value === 'des'){
+          CA += parseInt(soma);
+          console.log("CA 3:"+CA)
+        }
+      }
+    
       copyModificador[value].soma = soma;
-      if(this.state.bonusAtivo[bonusInput]){
-        copyModificador[this.state.bonusAtivo[bonusInput]].soma -=2;
+
+      if(this.state.bonusAtivo[bonusInput].atributo){
+        copyModificador[this.state.bonusAtivo[bonusInput].atributo].soma -=2;
       }
       operadorCor = getOperadorCor(soma)
 
@@ -271,7 +442,8 @@ class Caracteristicas extends Component {
       copyModificador[value].cor = operadorCor[1];
       this.setState({
         ...this.state,
-        bonusAtivo:{...this.state.bonusAtivo, [bonusInput]:value},
+        ca: CA,
+        bonusAtivo:{...this.state.bonusAtivo, [bonusInput]:{atributo: value, opcaoSelecionada: keyOption }},
         bonus:{...this.state.racas[this.state.racaSelecionada].bonus,[value]:novoValor},
         modificador: copyModificador
       });
@@ -482,7 +654,7 @@ class Caracteristicas extends Component {
                       }
                       floating
                       labeled
-                      value={this.state.bonusAtivo[1]}
+                      value={this.state.bonusAtivo[1].atributo}
                       name='bonus1'
                       onChange={this.bonusChangeHandle}
                       icon="plus circle"
@@ -512,7 +684,7 @@ class Caracteristicas extends Component {
                       onChange={this.bonusChangeHandle}
                       floating
                       labeled
-                      value={this.state.bonusAtivo[2]}
+                      value={this.state.bonusAtivo[2].atributo}
                       icon="plus circle"
                       placeholder="Bonus 2"
                     />
@@ -522,65 +694,78 @@ class Caracteristicas extends Component {
             </Grid.Row>
           </Grid>
           <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-          <Grid columns="equal" className="justify-content-center" divided>
-            <Grid.Row className="text-center justify-content-center">
-              <Grid.Column
-                style={{
-                  textAlign: "-webkit-auto",
-                  paddingLeft: "15px",
-                  paddingRight: "15px"
-                }}
-              >
-                <Popup
-                  content="Classes"
-                  trigger={
-                    <Dropdown
-                      button
-                      className="icon icon-extras"
-                      floating
-                      labeled
-                      icon="book"
-                      placeholder="Classes"
-                      name="classe"
-                    />
-                  }
-                />
-              </Grid.Column>
-              <Grid.Column>
-                <Popup
-                  content="Perícias"
-                  trigger={
-                    <Dropdown
-                      button
-                      disabled
-                      className="icon icon-extras"
-                      floating
-                      labeled
-                      icon="sign language"
-                      placeholder="Perícias"
-                    />
-                  }
-                />
-              </Grid.Column>
-              <Grid.Column>
-                <Popup
-                  content="Perícias 2"
-                  trigger={
-                    <Dropdown
-                      button
-                      disabled
-                      className="icon icon-extras"
-                      floating
-                      labeled
-                      icon="sign language"
-                      placeholder="Perícias 2"
-                    />
-                  }
-                />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Tab.Pane>
+        <div className="col-sm-12">
+          <div className="row">
+            <div className="col-sm-4 align-self-center" style={{paddingRight:"0px", paddingLeft:"12px"}}>
+              <Button icon="plus" disabled content="Adicionar Classe" style={{backgroundColor:"rgb(188, 115, 8)", color:"white"}}/>
+            </div>
+            <CardMostrador texto="Level" valor={this.state.level}/>
+            <CardMostrador texto="Pericias" valor={this.state.pericias}/>
+            <CardMostrador texto="PV" valor={this.state.pv}/>
+            <CardMostrador texto="CA" valor={this.state.ca > 10 ? this.state.ca : 10 }/>            
+          </div>
+        </div>
+        <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+        <Grid columns="equal" className="justify-content-center" divided>
+          <Grid.Row className="text-center justify-content-center">
+            <Grid.Column
+              style={{
+                textAlign: "-webkit-auto",
+                paddingLeft: "15px",
+                paddingRight: "15px"
+              }}
+            >
+              <Popup
+                content="Classes"
+                trigger={
+                  <Dropdown
+                    button
+                    className="icon icon-extras"
+                    floating
+                    labeled
+                    icon="book"
+                    placeholder="Classes"
+                    name="classe"
+                  />
+                }
+              />
+            </Grid.Column>
+            <Grid.Column>
+              <Popup
+                content="Level"
+                trigger={
+                  <Dropdown
+                    button
+                    options={leveis}
+                    disabled
+                    className="icon icon-extras"
+                    floating
+                    labeled
+                    icon="sort numeric up"
+                    placeholder="Level"
+                  />
+                }
+              />
+            </Grid.Column>
+            <Grid.Column>
+              <Popup
+                content="Perícias 2"
+                trigger={
+                  <Dropdown
+                    button
+                    disabled
+                    className="icon icon-extras"
+                    floating
+                    labeled
+                    icon="sign language"
+                    placeholder="Perícias 2"
+                  />
+                }
+              />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Tab.Pane>
       );
     } else {
       return (

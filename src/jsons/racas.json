@@ -1,0 +1,497 @@
+[
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 0,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {
+          "1": ""
+        },
+        "habilidades": "",
+        "deslocamento": "",
+        "descricao": "",
+        "text": "Selecione a Raça"
+      },
+      "value": "0",
+      "text": "Selecione",
+      "key": "",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 2,
+        "int": 0,
+        "con": 4,
+        "des": -2,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {
+          "0": "O deslocamento de um anão jamais é reduzido por uso de armadura ou excesso de carga.",
+          "1": "Visão no Escuro. Anões podem enxergar no escuro a até 18 metros, apenas em preto e branco. Um anão ignora camuflagem (incluindo camuflagem total) por escuridão.",
+          "2": "+4 em testes de resistência contra venenos e magia",
+          "3": "Todos os tipos de machados e martelos são armas simples",
+          "4": "Classe de armadura +4 contra adversários de tamanho Grande ou maior.",
+          "5": " +2 em testes de perícias para assuntos relacionados a pedra e metal, apenas para perícias com Inteligência ou Sabedoria como habilidade-chave. Este bônus aplica-se a coisas como masmorras, armadilhas, passagens secretas, armas, armaduras, joias e gemas preciosas, objetos de arte..."
+        },
+        "habilidades": "+4 Constituição, +2 Sabedoria, –2 Destreza",
+        "deslocamento": "6",
+        "descricao": "Povo recluso e próximo das montanhas e rochas, os anões habitam o reino subterrâneo de Doherimm, onde escavam ouro, prata e todo tipo de gemas. São gente simples: gostam de esculpir a rocha, trabalhar o metal e entalhar joias — além de uma boa briga e uma cerveja bem tirada! Entre os povos civilizados, não há criatura mais resistente ou difícil de matar que um anão.",
+        "text": "ANÃO"
+      },
+      "value": "1",
+      "text": "Anão",
+      "key": "1",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 2,
+        "con": -2,
+        "des": 4,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {
+          "0": "Visão na Penumbra. Um elfo ignora camuflagem (mas não camuflagem total) por escuridão. Elfos podem ver duas vezes mais longe que os humanos em condições de pouca iluminação, como luz das estrelas e tochas.",
+          "1": "+4 em testes de Vontade contra encantamentos. Elfos também são imunes à magia sono.",
+          "2": "+4 em testes de Identificar Magia e Percepção. Elfos têm familiaridade com magia e sentidos apurados.",
+          "3": "A dificuldade do teste de resistência contra magias arcanas lançadas por um elfo aumenta em CD +2.",
+          "4": "Elfos sabem usar espadas curtas, espadas longas, floretes e arcos (curtos, longos e compostos). Elfos também recebem Foco em Arma para uma destas armas (à escolha do jogador) como um talento adicional"
+        },
+        "habilidades": "+4 Destreza, +2 Inteligência,-2 Constituição",
+        "deslocamento": "9",
+        "descricao": "Esta raça antiga e mágica foi uma das primeiras criadas pelos deuses. São graciosos e sagazes, mas também excessivamente or gulhosos — sempre acreditaram ser melhores que os outros povos, nunca aceitando alianças. Essa arrogância custou-lhes caro quando sua nação foi arrasada por seus inimigos, os goblinoides.",
+        "text": "ELFO"
+      },
+      "value": "2",
+      "text": "Elfo",
+      "key": "2",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": -2,
+        "sab": 0,
+        "int": 0,
+        "con": 2,
+        "des": 4,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":1,
+        "tratos": {
+          "0": "Tamanho Pequeno. Go blins recebem +1 na classe de armadura, +1 nas jogadas de ataque e +4 em testes de Furtividade, mas precisam usar armas menores.",
+          "1": "Visão no Escuro. Go blins (assim como outros goblinoides) podem enxergar no escuro a até 18 metros, apenas em preto e branco. Um goblin ignora camuflagem (incluindo camuflagem total) por escuridão.",
+          "2": "+4 em testes de Fortitude contra doenças e venenos. Goblins também não precisam fazer testes de Fortitude por ingerir comida estragada.",
+          "3": "A dificuldade do teste de resistência contra magias arcanas lançadas por um elfo aumenta em CD +2.",
+          "4": "+4 em testes de Ladinagem e Oficio (um à escolha do jogador). Goblins estão acostumados a roubar para viver, e têm aptidão natural para engenhocas."
+        },
+        "habilidades": "+4 Destreza, +2 Constituição, –2 Carisma",
+        "deslocamento": "9",
+        "descricao": "Estes pequenos humanoides são bastante temidos em regiões selvagens, onde espreitam em grandes bandos e atacam humanos. Suas legiões também enchem as fileiras da Aliança Negra dos Goblinoides. No entanto, muitas partes do Reinado os aceitam como cidadãos legítimos — ainda que com desconfiança.",
+        "text": "GOBLIN"
+      },
+      "value": "3",
+      "text": "Goblin",
+      "key": "3",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 2,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 4,
+        "for": -2
+      },
+      "caracteristicas": {
+        "CA":1,
+        "tratos": {
+          "0": "Tamanho Pequeno. Halflings recebem +1 na classe de armadura, +1 nas jogadas de ataque e +4 em testes de Furtividade, mas precisam usar armas menores.",
+          "1": "+2 em todos os testes de resistência, por sua sorte incrível",
+          "2": "+1 em jogadas de ataque com armas de arremesso e fundas. O arremesso de pedras é um esporte popular da raça",
+          "3": "Para halflings a perícia Atletismo é baseada em Destreza, não em Força.",
+          "4": "+4 em testes de Enganação. Ninguém desconfia de halflings"
+        },
+        "habilidades": "+4 Destreza, +2 Carisma, –2 Força",
+        "deslocamento": "6",
+        "descricao": "Se existe um povo amante do conforto, são os halflings. Tão pequenos em ambição quanto no tamanho, só precisam de boa comida, roupas macias e tocas aconchegantes, onde repousam com família e amigos. São um povo tímido — para gente tão pequena, tudo parece mais ameaçador —, mas mesmo assim amistoso e hospitaleiro.",
+        "text": "HALFLING"
+      },
+      "value": "4",
+      "text": "Halfling",
+      "key": "4",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 0,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "pericias":2,
+        "tratos": {
+          "0": "2 perícias treinadas extras, que não precisam ser escolhidas entre suas perícias de classe.",
+          "1": "2 talentos adicionais à escolha do jogador."
+        },
+        "descricao": "Com sua inesgotável energia, determinação e ambição, os humanos reinam absolutos em Arton. Variantes em tudo que é possível, eles abraçam todas as devoções, bandeiras e causas — podem tornar-se os mais virtuosos heróis, ou mais cruéis vilões.",
+        "habilidades": "+2 em dois atributos à escolha do jogador",
+        "deslocamento": "9",
+        "text": "HUMANO"
+      },
+      "value": "5",
+      "text": "Humano",
+      "key": "5",
+      "selecione": {
+        "escolhas": 2,
+        "opcoes": [
+          {
+            "disabled": false,
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          },
+          {
+            "disabled": false,
+            "key": "1",
+            "text": "FOR",
+            "value": "for"
+          },
+          {
+            "disabled": false,
+            "key": "2",
+            "text": "DES",
+            "value": "des"
+          },
+          {
+            "disabled": false,
+            "key": "3",
+            "text": "CON",
+            "value": "con"
+          },
+          {
+            "disabled": false,
+            "key": "4",
+            "text": "INT",
+            "value": "int"
+          },
+          {
+            "disabled": false,
+            "key": "5",
+            "text": "SAB",
+            "value": "sab"
+          },
+          {
+            "disabled": false,
+            "key": "6",
+            "text": "CAR",
+            "value": "car"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 0,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {
+          "0": "Monstro. Um lefou não é considerado humano ou humanoide, sendo imune a magias e efeitos que afetam apenas estas criaturas.",
+          "1": "Visão no escuro. Um lefou ignora camuflagem (incluindo camuflagem total) por escuridão. Lefou enxergam normalmente no escuro, embora apenas em preto e branco.",
+          "2": "2 talentos da Tormenta adicionais. O lefou não perde pontos de Carisma por estes talentos (mas perde se adquirir outros).",
+          "3": "Deformidade. Todo lefou tem algum defeito físico que, embora desagradável aos olhos, confere certa vantagem. O jogador deve escolher uma entre as seguintes:\r\nArticulações flexíveis: +4 em testes de Acrobacia.\r\nDedos rígidos: deslocamento de escalada 4,5m.\r\nDentes afiados: +4 em testes de Intimidação.\r\nMãos membranosas: deslocamento de natação 4,5m.\r\nOlhos vermelhos: +4 em testes de Percepção.\r\nPele rígida: classe de armadura +1.",
+          "4": "Afinidade com a Tormenta. Um lefou jamais recebe níveis negativos devido a efeitos causados pela Tormenta ou seus habitantes. Ele ainda pode receber níveis negativos de outras formas."
+        },
+        "descricao": "A mácula da Tormenta sobre Arton tem sido cada vez maior. Não apenas cresce o número de áreas infestadas, mas também a influência do povo da Tormenta — os estranhos lefeu — além de suas fronteiras. Talvez a face mais assustadora dessa influência seja o surgimento dos lefou, os meio-demônios da Tormenta.",
+        "habilidades": "+2 em dois atributos à escolha do jogador, exceto Carisma",
+        "deslocamento": "9",
+        "text": "LEFOU"
+      },
+      "value": "6",
+      "text": "Lefou",
+      "key": "6",
+      "selecione": {
+        "escolhas": 2,
+        "opcoes": [
+          {
+            "disabled": false,
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          },
+          {
+            "disabled": false,
+            "key": "1",
+            "text": "FOR",
+            "value": "for"
+          },
+          {
+            "disabled": false,
+            "key": "2",
+            "text": "DES",
+            "value": "des"
+          },
+          {
+            "disabled": false,
+            "key": "3",
+            "text": "CON",
+            "value": "con"
+          },
+          {
+            "disabled": false,
+            "key": "4",
+            "text": "INT",
+            "value": "int"
+          },
+          {
+            "disabled": false,
+            "key": "5",
+            "text": "SAB",
+            "value": "sab"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 2,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 4,
+        "for": -2
+      },
+      "caracteristicas": {
+        "CA":1,
+        "tratos": {
+          "0": "Classe de armadura +1. Mino tauros têm couro rígido.",
+          "1": "Minotauros possuem um ataque natural de chifres (1d6, crítico x2, perfuração). Um minotauro pode realizar um ataque adicional por rodada com os chifres, mas provoca uma penalidade de –4 em todos os ataques (incluindo este)",
+          "2": "Faro. Minotauros recebem +4 em testes de Sobrevivência para rastrear usando o faro, e também detectam automaticamente a presença de criaturas a até 9m",
+          "3": "Lógica labiríntica. Minotauros têm excelente senso de direção, e recebem +8 em testes de Sobrevivência para não se perder.",
+          "4": "Medo de altura. Caso tenha que subir qualquer altura superior a 3m (ou se estiver a até 3m de uma queda desta altura), um minotauro sofre penalidade de –4 em suas jogadas e testes. Ele também não pode realizar nenhuma ação que dependa de concentração, como conjurar magias"
+        },
+        "habilidades": "+4 Força, +2 Constituição, –2 Carisma",
+        "deslocamento": "6",
+        "descricao": "Eles são o povo de Tauron, o Deus da Força e auto proclamado líder do Panteão. São uma raça guerreira e orgulhosa, que venera a força física. Acreditam que seu papel no mundo é proteger e governar os mais fracos.",
+        "text": "MINOTAURO"
+      },
+      "value": "7",
+      "text": "Minotauro",
+      "key": "7",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 4,
+        "sab": -2,
+        "int": 2,
+        "con": 0,
+        "des": 0,
+        "for": 0
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {
+          "0": "+4 em testes de Identificar Magia. A natureza mágica dos meio-gênios faz com que eles entendam melhor o funcionamento da magia.",
+          "1": "Desejos. Uma vez por dia, o qareen pode lançar uma magia sem pagar PM (ou sem esquecê-la), mas apenas se fizer isso na mesma rodada em que alguém tiver lhe pedido.",
+          "2": "“Fazer um desejo” ao meio-gênio é uma ação livre. Em combate, isso significa que o qareen deve aguardar pela iniciativa de quem vai fazer o pedido para poder lançar a magia (que tem tempo de conjuração normal). O qareen não tem a obrigação de conjurar magias contra a própria vontade, mesmo que alguém peça.",
+          "3": "Pequenos desejos. Mesmo que não pertença a uma classe conjuradora, um qareen pode lançar todos os truques (magias arcanas de nível 0) presentes neste livro. No entanto, ele só pode lançar estes truques quando outra pessoa pede.",
+          "4": "Um qareen pode lançar a magia voo uma vez por dia",
+          "5": "Conforme sua descendência, um qareen tem resistência especial contra as seguintes formas de ataque:\r\nÁgua: resistência a ácido e frio 5.\r\nAr: resistência a eletricidade e sônico 5.\r\nFogo: resistência a fogo 5.\r\nTerra: redução de dano 3/cortante ou per furante.\r\nLuz: resistência a eletricidade 10.\r\nTrevas: resistência a ácido e energia negativa 5. “Energia negativa” é provocada por efeitos e magias necromânticos (como infligir ferimentos)."
+        },
+        "habilidades": "+4 Carisma, +2 Inteligência, –2 Sabedoria",
+        "deslocamento": "6",
+        "descricao": "Também conhecidos como meio-gênios, os qareen são descendentes de humanos e seres mágicos — não necessariamente gênios, mas também fadas, ninfas e outros. Os qareen proliferam neste mundo abençoado por Wynna, a bela Deusa da Magia.",
+        "text": "QAREEN "
+      },
+      "value": "8",
+      "text": "Qareen",
+      "key": "8",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 4,
+        "con": 2,
+        "des": 0,
+        "for": -2
+      },
+      "caracteristicas": {
+        "CA":1,
+        "tratos": {
+          "0": "Tamanho Pequeno. Gnomos recebem +1 na classe de armadura, +1 nas jogadas de ataque e +4 em testes de Furtividade, mas precisam usar armas menores.",
+          "1": "Visão na Penumbra. Um gnomo ignora camuflagem (mas não camuflagem total) por escuridão. Gnomos podem ver duas vezes mais longe que os humanos em condições de pouca iluminação, como luz das estrelas e tochas.",
+          "2": "+4 em testes de Intuição e Ofícios (alquimia). Gnomos são perspicazes e familiarizados com ilusões e poções.",
+          "3": "Classe de armadura +4 contra adversários de tamanho Grande ou maior.",
+          "4": "Gnomos podem se comunicar com animais livremente. Veja a descrição da magia falar com animais.",
+          "5": "Um gnomo com Carisma 10 ou mais pode lançar as seguintes magias livremente: globos de luz, som fantasma, prestidigitação."
+        },
+        "habilidades": "+4 Inteligência, +2 Constituição, –2 Força",
+        "deslocamento": "6",
+        "descricao": "Gnomos tendem a ser rabugentos e reclusos, preferindo a solidão de suas tocas a qualquer companhia. Muitos, no entanto, apaixonam-se pelas grandes cidades dos humanos e ali encontram seu lugar — geralmente como estudiosos, alquimistas, engenheiros, inventores ou magos ilusionistas, as maiores aptidões da raça. São muito raros aqueles que decidem ser aventureiros.",
+        "text": "GNOMO"
+      },
+      "value": "9",
+      "text": "Gnomo",
+      "key": "9",
+      "selecione": {
+        "escolhas": 0,
+        "opcoes": [
+          {
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "bonus": {
+        "car": 0,
+        "sab": 0,
+        "int": 0,
+        "con": 0,
+        "des": 0,
+        "for": 2
+      },
+      "caracteristicas": {
+        "CA":0,
+        "tratos": {          
+          "1": "Visão no Escuro. Meio-orcs podem enxergar no escuro a até 18 metros, apenas em preto e branco. Um meio-orc ignora camuflagem (incluindo camuflagem total) por escuridão.",
+          "2": "Meio-orcs recebem Duro de Matar como um talento adicional.",
+          "3": "+4 em testes de Intimidação. Meio-orcs são ameaçadores."
+        },
+        "deslocamento": "9",
+        "descricao": "A aparência de um meio-orc é apenas um pouco melhor que um orc puro, mas em terras humanas eles ainda podem se fazer passar por “humanos grandes e feios”. Ao contrário dos meio-elfos, meio-orcs em geral são revoltados com sua origem e não querem “pertencer” a lugar nenhum.",
+        "habilidades": "+2 Força, +2 em outra habilidade à escolha do jogador (exceto Inteligência e Carisma).",
+        "text": "MEIO-ORC"
+      },
+      "value": "10",
+      "text": "Meio-Orc",
+      "key": "10",
+      "selecione": {
+        "escolhas": 1,
+        "opcoes": [
+          {
+            "disabled": false,
+            "key": "0",
+            "text": "Selecione",
+            "value": "0"
+          },
+          {
+            "disabled": false,
+            "key": "1",
+            "text": "FOR",
+            "value": "for"
+          },
+          {
+            "disabled": false,
+            "key": "2",
+            "text": "DES",
+            "value": "des"
+          },
+          {
+            "disabled": false,
+            "key": "3",
+            "text": "CON",
+            "value": "con"
+          },
+          {
+            "disabled": false,
+            "key": "4",
+            "text": "SAB",
+            "value": "sab"
+          }
+        ]
+      }
+    }
+  ]
