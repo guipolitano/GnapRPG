@@ -16,8 +16,10 @@ import axios from "axios";
 
 // TODO: REFATORAR PARA REMOVER STATE BONUS
 // TODO: REMOVER TEXT DO JSON CARACTERISTICAS
-// TODO: CORRIGIR DESCRICAO DE DEFORMIDADE LEFOU E QAREEN
-// TODO: CORRIGIR ALTERAR BONUS EXTRAS DE RACAS
+
+// FIXME: CORRIGIR DESCRICAO DE DEFORMIDADE LEFOU E QAREEN
+// FIXME: CORRIGIR ALTERAR BONUS EXTRAS DE RACAS
+
 /*
 TODO: Raças que alteram perícia: 
 -Humano: 2 talentos adicionais a escolha do jogador
@@ -226,12 +228,12 @@ class Caracteristicas extends Component {
         car: "-"
       },
       bonus: {
-        for: "",
-        des: "",
-        con: "",
-        int: "",
-        sab: "",
-        car: ""
+        for: 0,
+        des: 0,
+        con: 0,
+        int: 0,
+        sab: 0,
+        car: 0
       },
       modificador: {
         for: {
@@ -318,7 +320,6 @@ class Caracteristicas extends Component {
     let soma, operador, cor;
     let elSelect = atributos.find(x => x.value === value);
     let copyBonus = this.state.bonus;
-    let CA = this.state.ca;
 
     elSelect.disabled = !elSelect.disabled;
     if (this.state.atributes[name] !== "-") {
@@ -327,6 +328,7 @@ class Caracteristicas extends Component {
     }
 
     soma = copyBonus[name]+bonusBase(value);
+    
     if (soma > 0) {
       operador = "+";
       cor = "#4dd822";
@@ -338,19 +340,14 @@ class Caracteristicas extends Component {
       cor = "#ffec5c";
     }
 
-    if(name === 'des'){
-      CA -= this.state.modificador.des.soma;
-      CA += parseInt(soma);
-    }
     this.setState({
       ...this.state,
       atributes: { ...this.state.atributes, [name]: value },
       modificador: {
         ...this.state.modificador,
         [name]: { ...this.state.modificador[name], soma, operador, cor }
-      },
-      ca: CA     
-    });
+      }  
+    }, () => {this.caHandle()})
 
   };
 
@@ -358,7 +355,6 @@ class Caracteristicas extends Component {
     let soma, operadorCor;
     let copyBonus = this.state.bonus;
     let copyModificador = this.state.modificador;
-    let CA = this.state.ca;
     
     Object.keys(this.state.racas[value].bonus).forEach(key => {
       if (this.state.bonus.hasOwnProperty(key)) {
@@ -371,27 +367,14 @@ class Caracteristicas extends Component {
     copyModificador[key].operador = operadorCor[0];
     copyModificador[key].cor = operadorCor[1];
     });
-    if(this.state.racaSelecionada !== 0){
-      CA -= this.state.racas[this.state.racaSelecionada].bonus.des;
-      if(this.state.racas[this.state.racaSelecionada].caracteristicas.hasOwnProperty('CA')){
-        CA -= this.state.racas[this.state.racaSelecionada].caracteristicas.CA;
-      }
-    }
-
-    CA += copyModificador.des.soma;
-
-    if(this.state.racas[value].caracteristicas.hasOwnProperty('CA')){
-      CA += this.state.racas[value].caracteristicas.CA;
-    }
 
     this.setState({
       atributes: { ...this.state.atributes },
-      ca: CA,
       bonusAtivo:{...this.state.bonusAtivo, 1:{opcaoSelecionada:0, atributo:''}, 2:{opcaoSelecionada:0, atributo:''}},
       bonus: copyBonus,
       racaSelecionada: value,
       modificador: copyModificador
-    });
+    }, () => {this.caHandle()})
     this.props.handleInformacoes(
       this.state.racas[value].caracteristicas.text,
       this.state.racas[value].caracteristicas.descricao,
@@ -401,6 +384,15 @@ class Caracteristicas extends Component {
     );
   };
 
+  caHandle(){
+    let copyModificador = {...this.state.modificador};
+    let copyRaca = {...this.state.racas};
+    let copyRacaSelecionada = this.state.racaSelecionada;
+    let CA = 10;
+    CA += copyModificador.des.soma + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    this.setState({ca: CA});
+    
+  }
   bonusChangeHandle = (e, { name, value }) => {
     if(value !== '0'){
       let soma, operadorCor, elAtual, elSelect;
@@ -409,7 +401,6 @@ class Caracteristicas extends Component {
       let copyBonus = {...this.state.racas[this.state.racaSelecionada].bonus};
       let copyModificador = {...this.state.modificador};
       let novoValor = copyBonus[value]+2;
-      let CA = this.state.ca;
       elSelect = (racas[this.state.racaSelecionada].selecione.opcoes).find(x => x.value === value);
       elSelect.disabled = !elSelect.disabled;
       
@@ -421,16 +412,6 @@ class Caracteristicas extends Component {
       }
       
       soma = novoValor + bonusBase(this.state.atributes[value]);
-      console.log("CA 1:"+CA)
-      if(value !== 0){
-        CA -= this.state.modificador.des.soma;
-        console.log("CA 2:"+CA)
-        if(value === 'des'){
-          CA += parseInt(soma);
-          console.log("CA 3:"+CA)
-        }
-      }
-    
       copyModificador[value].soma = soma;
 
       if(this.state.bonusAtivo[bonusInput].atributo){
@@ -440,13 +421,13 @@ class Caracteristicas extends Component {
 
       copyModificador[value].operador = operadorCor[0];
       copyModificador[value].cor = operadorCor[1];
+
       this.setState({
         ...this.state,
-        ca: CA,
         bonusAtivo:{...this.state.bonusAtivo, [bonusInput]:{atributo: value, opcaoSelecionada: keyOption }},
         bonus:{...this.state.racas[this.state.racaSelecionada].bonus,[value]:novoValor},
         modificador: copyModificador
-      });
+      }, () => {this.caHandle()});
     }
   };
 
