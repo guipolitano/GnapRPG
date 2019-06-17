@@ -1,83 +1,165 @@
 [
-    {
-      "key": 1,
-      "nome": "Bárbaro",
-      "descricao": "Um selvagem que vaga pelas selvas. Um lutador brutal dos desertos inclementes. Um caçador das montanhas geladas. Um truculento brigão das ruas. O bárbaro pode ser qualquer um deles, e muitos mais.",
-      "caracteristicas":{
-        "pv":{
-          "inicial": 24,
-          "bonus": 6
+  {
+    "key": 1,
+    "nome": "Bárbaro",
+    "descricao": "Um selvagem que vaga pelas selvas. Um lutador brutal dos desertos inclementes. Um caçador das montanhas geladas. Um truculento brigão das ruas. O bárbaro pode ser qualquer um deles, e muitos mais.",
+    "caracteristicas": {
+      "pv": {
+        "inicial": 24,
+        "bonus": 6
+      },
+      "pericias_treinadas": 4,
+      "pericias_classe": {
+        "0": "Adestrar Animais (Car)",
+        "1": "Atletismo (For)",
+        "2": "Cavalgar (Des)",
+        "3": "Iniciativa (Des)",
+        "4": "Intimidação (Car)",
+        "5": "Ofício (Int)",
+        "6": "Percepção (Sab)",
+        "7": "Sobrevivência (Sab)"
+      },
+      "talentos_adicionais": {
+        "0": "Usar Armaduras (leves e médias)",
+        "1": "Usar Armas (simples e marciais)",
+        "2": "Usar Escudos",
+        "3": "Fortitude Maior"
+      }
+    },
+    "bonus_nivel": {},
+    "habilidades": {
+      "0": {
+        "nome": "Analfabetismo",
+        "descricao": "Graças aos esforços da Igreja de Tanna-Toh, cujos clérigos atuam como professores e educadores, a maior parte dos habitantes de Arton é alfabetizada — mas bárbaros são originários de povos que não têm acesso a esse tipo de educação, ou então a rejeitam. Membros desta classe não sabem ler e escrever. No entanto, podem aprender caso adquiram um nível em qualquer outra classe."
+      },
+      "1": {
+        "nome": "Fúria",
+        "descricao": "Você pode invocar uma fúria selvagem, tornando-se temível em combate por um curto período de tempo.\r\nQuando você usa esta habilidade, recebe +2 nas jogadas de ataque e dano corpo-a-corpo, e redução de dano 1, mas sofre uma penalidade de –2 na classe de armadura. Além disso, não pode executar nenhuma ação que exige paciência ou concentração (como usar a perícia Furtividade ou lançar magias).\r\nUsar esta habilidade é uma ação livre. A fúria dura um número de rodadas igual a 5 + seu modificador de Constituição (mas você pode terminá-la antes, se quiser). Quando a fúria termina, você fica fatigado (Força –2, Destreza –2 e não pode correr ou fazer investida) durante um minuto.\r\nUm bárbaro só pode entrar em fúria uma vez por encontro. No 1º nível ele pode usar sua fúria uma vez por dia. No 4º nível, e a cada 4 níveis seguintes, recebe uma utilização diária adicional (máximo 6 vezes por dia no 20º nível)."
+      },
+      "2": {
+        "nome": "Movimento Rápido",
+        "descricao": "Seu deslocamento aumenta em 3m."
+      },
+      "3": {
+        "nome": "Esquiva Sobrenatural",
+        "descricao": "No 2º nível, seus instintos ficam tão apurados que você consegue reagir ao perigo antes que seus sentidos percebam. Você nunca fica desprevenido (veja “Surpresa” no Capítulo 8: Combate).\r\nCaso já tenha recebido esquiva sobrenatural de outra classe,você recebe esquiva sobrenatural aprimorada."
+      },
+      "4": {
+        "nome": "Instinto Selvagem",
+        "descricao": "No 3º nível, você recebe +1 em testes de Iniciativa e Reflexos. A cada seis níveis seguintes, esse bônus aumenta em +1."
+      },
+      "5": {
+        "nome": "Esquiva Sobrenatural Aprimorada",
+        "descricao": "A partir do 5º nível, você consegue lutar contra diversos inimigos como se fossem apenas um. Você não pode ser flanqueado."
+      },
+      "6": {
+        "nome": "Redução de Dano",
+        "descricao": "A partir do 7º nível, graças a seu extremo vigor e força de vontade, o bárbaro ignora parte de seus ferimentos. Você recebe redução de dano 1 (todo o dano de ataques físicos que sofre é reduzido em 1). A cada três níveis seguintes, sua RD aumenta em 1.\r\nEsta redução de dano é cumulativa com quaisquer outras, incuindo aquela que você recebe durante a fúria (por exemplo, um bárbaro de 10º nível em fúria tem redução de dano 3)."
+      },
+      "7": {
+        "nome": "Fúria Maior",
+        "descricao": "No 11º nível, o bônus fornecido pela fúria nas jogadas de ataque e dano corpo-a-corpo aumenta para +3, e a redução de dano aumenta para 3."
+      },
+      "8": {
+        "nome": "Vontade Inabalável",
+        "descricao": "A partir do 14º nível, você recebe +4 em testes de Vontade quando em fúria."
+      },
+      "9": {
+        "nome": "Fúria Incansável",
+        "descricao": "A partir do 17º nível, você não fica mais fatigado quando sua fúria termina"
+      },
+      "10": {
+        "nome": "Fúria Poderosa",
+        "descricao": "No 20º nível, o bônus fornecido pela fúria nas jogadas de ataque e dano corpo-a-corpo aumenta para +4, e a redução de dano aumenta para 5."
+      },
+      "11": {
+        "nome": "Ex-Bárbaro",
+        "descricao": "Um bárbaro que adota tendência Leal perde sua habilidade de entrar em fúria e não pode mais ganhar níveis nesta classe. Ele mantém outras habilidades de bárbaro já obtidas (redução de dano, movimento rápido, instinto selvagem e esquiva sobrenatural)"
+      }
+    }
+  },
+  {
+    "key": 2,
+    "nome": "Bardo",
+    "descricao": "Grandes salões de baile, cortes refinadas, tavernas agitadas e metrópoles lotadas são o domínio dos bardos — os artistas, músicos, sedutores e fanfarrões de Arton.",
+    "caracteristicas": {
+      "pv": {
+        "inicial": 12,
+        "bonus": 3
+      },
+      "pericias_treinadas": 6,
+      "pericias_classe": {
+        "0": "Acrobacia (Des)",
+        "1": "Atletismo (For)",
+        "2": "Atuação (Car)",
+        "3": "Cavalgar (Des)",
+        "4": "Conhecimento (Int)",
+        "5": "Diplomacia (Car)",
+        "6": "Enganação (Car)",
+        "7": "Furtividade (Des)",
+        "8": "Identificar Magia (Int)",
+        "9": "Iniciativa (Des)",
+        "10": "Intuição (Sab)",
+        "11": "Ladinagem (Des)",
+        "12": "Obter Informação (Car)",
+        "13": "Percepção (Sab)"
+      },
+      "talentos_adicionais": {
+        "0": "Usar Armaduras (leves)",
+        "1": "Usar Armas (simples e marciais)",
+        "2": "Usar Escudos",
+        "3": "Reflexos Rápidos",
+        "4": "Vontade de Ferro"
+      }
+    },
+    "bonus_nivel": {},
+    "habilidades": {
+      "0": {
+        "nome": "Conhecimento de Bardo",
+        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
+      },
+      "1": {
+        "nome": "Magias",
+        "descricao": {
+          "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
+          "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
+          "2": "Magias Conhecidas: Você conhece 4 magias de nível 0, e também um número de magias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança de nível, você aprende uma nova magia de qualquer nível que possa lançar",
+          "3": "Pontos de Magia: Você tem um número de pontos de magia (PM) igual a 1 + modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
+          "4": "Preparação de Magia: Você não precisa preparar suas magias com antecedência. Você pode lançar qualquer magia que conheça, desde que possua PM suficientes."
         },
-        "pericias_treinadas": 4,
-        "pericias_classe":{
-          "0": "Adestrar Animais (Car)", 
-          "1": "Atletismo (For)",
-          "2": "Cavalgar (Des)", 
-          "3": "Iniciativa (Des)", 
-          "4": "Intimidação (Car)", 
-          "5": "Ofício (Int)",
-          "6": "Percepção (Sab)", 
-          "7": "Sobrevivência (Sab)"
-        },
-        "talentos_adicionais":{
-          "0": "Usar Armaduras (leves e médias)", 
-          "1": "Usar Armas (simples e marciais)", 
-          "2": "Usar Escudos", 
-          "3": "Fortitude Maior"
+        "chave": "car",
+        "conhecidas": {
+          "nv0": 4,
+          "total": 0,
+          "novas_lv": 1,
+          "tipo": "qualquer"
         }
       },
-      "bonus_nivel":{
-        
-      },
-      "habilidades":{
-        "0":{
-          "nome":"Analfabetismo",
-          "descricao": "Graças aos esforços da Igreja de Tanna-Toh, cujos clérigos atuam como professores e educadores, a maior parte dos habitantes de Arton é alfabetizada — mas bárbaros são originários de povos que não têm acesso a esse tipo de educação, ou então a rejeitam. Membros desta classe não sabem ler e escrever. No entanto, podem aprender caso adquiram um nível em qualquer outra classe."
-        },
-        "1":{
-          "nome":"Fúria",
-          "descricao": "Você pode invocar uma fúria selvagem, tornando-se temível em combate por um curto período de tempo.\r\nQuando você usa esta habilidade, recebe +2 nas jogadas de ataque e dano corpo-a-corpo, e redução de dano 1, mas sofre uma penalidade de –2 na classe de armadura. Além disso, não pode executar nenhuma ação que exige paciência ou concentração (como usar a perícia Furtividade ou lançar magias).\r\nUsar esta habilidade é uma ação livre. A fúria dura um número de rodadas igual a 5 + seu modificador de Constituição (mas você pode terminá-la antes, se quiser). Quando a fúria termina, você fica fatigado (Força –2, Destreza –2 e não pode correr ou fazer investida) durante um minuto.\r\nUm bárbaro só pode entrar em fúria uma vez por encontro. No 1º nível ele pode usar sua fúria uma vez por dia. No 4º nível, e a cada 4 níveis seguintes, recebe uma utilização diária adicional (máximo 6 vezes por dia no 20º nível)."
-        },
-        "2":{
-          "nome":"Movimento Rápido",
-          "descricao": "Seu deslocamento aumenta em 3m."
-        },
-        "3":{
-          "nome":"Esquiva Sobrenatural",
-          "descricao": "No 2º nível, seus instintos ficam tão apurados que você consegue reagir ao perigo antes que seus sentidos percebam. Você nunca fica desprevenido (veja “Surpresa” no Capítulo 8: Combate).\r\nCaso já tenha recebido esquiva sobrenatural de outra classe,você recebe esquiva sobrenatural aprimorada."
-        },
-        "4":{
-          "nome":"Instinto Selvagem",
-          "descricao": "No 3º nível, você recebe +1 em testes de Iniciativa e Reflexos. A cada seis níveis seguintes, esse bônus aumenta em +1."
-        },
-        "5":{
-          "nome":"Esquiva Sobrenatural Aprimorada",
-          "descricao": "A partir do 5º nível, você consegue lutar contra diversos inimigos como se fossem apenas um. Você não pode ser flanqueado."
-        },
-        "6":{
-          "nome":"Redução de Dano",
-          "descricao": "A partir do 7º nível, graças a seu extremo vigor e força de vontade, o bárbaro ignora parte de seus ferimentos. Você recebe redução de dano 1 (todo o dano de ataques físicos que sofre é reduzido em 1). A cada três níveis seguintes, sua RD aumenta em 1.\r\nEsta redução de dano é cumulativa com quaisquer outras, incuindo aquela que você recebe durante a fúria (por exemplo, um bárbaro de 10º nível em fúria tem redução de dano 3)."
-        },
-        "7":{
-          "nome":"Fúria Maior",
-          "descricao": "No 11º nível, o bônus fornecido pela fúria nas jogadas de ataque e dano corpo-a-corpo aumenta para +3, e a redução de dano aumenta para 3."
-        },
-        "8":{
-          "nome":"Vontade Inabalável",
-          "descricao": "A partir do 14º nível, você recebe +4 em testes de Vontade quando em fúria."
-        },
-        "9":{
-          "nome":"Fúria Incansável",
-          "descricao": "A partir do 17º nível, você não fica mais fatigado quando sua fúria termina"
-        },
-        "10":{
-          "nome":"Fúria Poderosa",
-          "descricao": "No 20º nível, o bônus fornecido pela fúria nas jogadas de ataque e dano corpo-a-corpo aumenta para +4, e a redução de dano aumenta para 5."
-        },
-        "11":{
-          "nome":"Ex-Bárbaro",
-          "descricao": "Um bárbaro que adota tendência Leal perde sua habilidade de entrar em fúria e não pode mais ganhar níveis nesta classe. Ele mantém outras habilidades de bárbaro já obtidas (redução de dano, movimento rápido, instinto selvagem e esquiva sobrenatural)"
+      "2": {
+        "nome": "Música de Bardo",
+        "descricao": {
+          "0": "Você pode usar música (ou outro tipo de arte performática, como dança) para gerar vários efeitos mágicos. Você começa com dois efeitos da lista a seguir, à sua escolha. No 2º nível, e a cada dois níveis seguintes, aprende um novo efeito. Todos os efeitos têm alcance de 9m e duração de 1 minuto, a menos que sua descrição diga o contrário. Usar esta habilidade é uma ação padrão, e ela pode ser usada um número de vezes por dia igual a seu nível + seu modificador de Carisma. Você só pode usar esta habilidade se for treinado em Atuação. Ela só afeta criaturas inteligentes (Int 3 ou mais) que possam ouvir o bardo (ou ver, conforme o tipo de Atuação).",
+          "1": "Canção Assustadora: uma criatura à sua escolha deve fazer um teste de Vontade (CD 10 + metade do seu nível + modificador de Carisma). Se falhar, fica abalada. Se for bem-sucedida, fica imune a este efeito por um dia.",
+          "2": "Canção Assustadora em Massa: como canção assustadora, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: canção assustadora, 4º nível.",
+          "3": "Canção Apavorante: como canção assustadora, mas se a vítima falhar fica apavorada. Pré-requisito: canção assustadora, 4º nível.",
+          "4": "Fascinar: você pode fascinar uma criatura à sua escolha. Faça um teste de Atuação oposto por um teste de Vontade do alvo. Em caso de sucesso, a criatura fica fascinada pelo tempo que você continuar a música (máximo 1 minuto). Se você falhar, o alvo fica imune a este efeito por um dia. Uma criatura fascinada não pode realizar ações e sofre penalidade de –4 em testes de Percepção. Uma ameaça óbvia contra a criatura fascinada cancela este efeito.",
+          "5": "Fascinar em Massa: como fascinar, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: sugestão.",
+          "6": "Inspirar Competência: você e seus aliados recebem um bônus de +2 em testes de perícia.",
+          "7": "Inspirar Competência Aprimorada: o bônus de inspirar competência aumenta para +4. Pré-requisito: inspirar competência, 4º nível.",
+          "8": "Inspirar Competência Maior: o bônus de inspirar competência aumenta para +6. Pré-requisito: inspirar competência aprimorada.",
+          "9": "Inspirar Coragem: você e seus aliados recebem +1 em jogadas de ataque, dano e testes de resistência contra medo.",
+          "10": "Inspirar Coragem Aprimorada: o bônus de inspirar coragem aumenta para +2. Pré-requisito: inspirar coragem, 4º nível.",
+          "11": "Inspirar Coragem Maior: o bônus de inspirar coragem aumenta para +3. Pré-requisito: inspirar coragem aprimorada.",
+          "12": "Inspirar Grandeza: você ou um aliado recebe 10 pontos de vida temporários, e +2 em jogadas de ataque e testes de Fortitude. Pré-requisito: inspirar coragem aprimorada.",
+          "13": "Inspirar Heroísmo: você ou um aliado recebe +4 na classe de armadura e testes de resistência. Pré-requisito: inspirar coragem aprimorada.",
+          "14": "Melodia Libertadora: um aliado à sua escolha recebe o efeito da magia remover encantamento. Pré-requisito: melodia revigorante aprimorada.",
+          "15": "Melodia Revigorante: você e todos os seus aliados curam 2d6 pontos de dano.",
+          "16": "Melodia Revigorante Aprimorada: você e seus aliados curam 4d6 pontos de dano. Pré-requisitos: melodia revigorante, 4º nível.",
+          "17": "Melodia Revigorante Maior: você e seus aliados curam 6d6 pontos de dano. Pré-requisito: melodia revigorante aprimorada.",
+          "18": "Sugestão: você causa o efeito da magia sugestão a uma criatura que já esteja fascinada. O alvo tem direito a um teste de Vontade (CD 10 + metade do seu nível + modificador de Carisma) para evitar o efeito. Esta habilidade não conta como uma ameaça contra a criatura fascinada, e mesmo que ela resista você pode tentar novamente (desde que ela ainda esteja fascinada, e gastando mais uma ação padrão e um uso diário de música de bardo). Pré-requisito: fascinar, 4º nível.",
+          "19": "Sugestão em Massa: como sugestão, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: fascinar em massa."
         }
       }
     }
-  ]
+  }
+]

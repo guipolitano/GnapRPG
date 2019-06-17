@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   Tab,
-  Card,
   CardGroup,
   Divider,
   Dropdown,
@@ -16,9 +15,9 @@ import axios from "axios";
 
 // TODO: REFATORAR PARA REMOVER STATE BONUS
 // TODO: REMOVER TEXT DO JSON CARACTERISTICAS
+// TODO: REFATORAR PARA MELHORAR O SET DE MODIFICADOR
 
 // FIXME: CORRIGIR DESCRICAO DE DEFORMIDADE LEFOU E QAREEN
-// FIXME: CORRIGIR ALTERAR BONUS EXTRAS DE RACAS
 
 /*
 TODO: Raças que alteram perícia: 
@@ -328,7 +327,7 @@ class Caracteristicas extends Component {
     }
 
     soma = copyBonus[name]+bonusBase(value);
-    
+
     if (soma > 0) {
       operador = "+";
       cor = "#4dd822";
@@ -375,6 +374,7 @@ class Caracteristicas extends Component {
       racaSelecionada: value,
       modificador: copyModificador
     }, () => {this.caHandle()})
+
     this.props.handleInformacoes(
       this.state.racas[value].caracteristicas.text,
       this.state.racas[value].caracteristicas.descricao,
@@ -390,9 +390,29 @@ class Caracteristicas extends Component {
     let copyRacaSelecionada = this.state.racaSelecionada;
     let CA = 10;
     CA += copyModificador.des.soma + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    // TODO: Adicionar Bonus do LV
+    CA = CA >=10 ? CA : 10;
     this.setState({ca: CA});
-    
   }
+
+  pvHandle(){
+    let copyModificador = {...this.state.modificador};
+    let copyRaca = {...this.state.racas};
+    let copyRacaSelecionada = this.state.racaSelecionada;
+    let PV = 0; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
+    PV += copyModificador.con.soma + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    this.setState({pv: PV});
+  }
+
+  periciasHandle(){
+    let copyModificador = {...this.state.modificador};
+    let copyRaca = {...this.state.racas};
+    let copyRacaSelecionada = this.state.racaSelecionada;
+    let pericias = 10; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
+    pericias =   + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    this.setState({pericias});
+  }
+
   bonusChangeHandle = (e, { name, value }) => {
     if(value !== '0'){
       let soma, operadorCor, elAtual, elSelect;
@@ -683,7 +703,7 @@ class Caracteristicas extends Component {
             <CardMostrador texto="Level" valor={this.state.level}/>
             <CardMostrador texto="Pericias" valor={this.state.pericias}/>
             <CardMostrador texto="PV" valor={this.state.pv}/>
-            <CardMostrador texto="CA" valor={this.state.ca > 10 ? this.state.ca : 10 }/>            
+            <CardMostrador texto="CA" valor={this.state.ca}/>            
           </div>
         </div>
         <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
