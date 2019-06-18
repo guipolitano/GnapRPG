@@ -161,5 +161,81 @@
         }
       }
     }
+  },
+  {
+    "key": 3,
+    "nome": "Clérigo",
+    "descricao": "Há lugares onde os deuses são distantes, ausentes, pouco interferindo nos assuntos dos mortais. Mas não Arton: aqui, vinte divindades estão sempre envolvidas em disputas, tramas e jogos. E atuam intensamente no mundo mortal através de seus representantes, os clérigos.",
+      "caracteristicas": {
+      "pv": {
+        "inicial": 16,
+        "bonus": 4
+      },
+      "pericias_treinadas": 2,
+      "pericias_classe": {
+        "0": "Conhecimento (Int)", 
+        "1": "Cura (Sab)", 
+        "2": "Diplomacia (Car)", 
+        "3": "Identificar Magia (Int)", 
+        "4": "Intuição (Sab)", 
+        "5": "Ofício (Int)"
+      },
+      "talentos_adicionais": {
+        "0": "Usar Armaduras (leves, médias e pesadas)",
+        "1": "Usar Armas Simples",
+        "2": "Usar Escudos",
+        "3": "Fortitute Maior",
+        "4": "Vontade de Ferro"
+      }
+    },
+    "bonus_nivel": {},
+    "habilidades": {
+      "0": {
+        "nome": "Conhecimento de Bardo",
+        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
+      },
+      "1": {
+        "nome": "Magias",
+        "descricao": {
+          "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
+          "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
+          "2": "Magias Conhecidas: Você conhece 4 magias de nível 0, e também um número de magias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança de nível, você aprende uma nova magia de qualquer nível que possa lançar",
+          "3": "Pontos de Magia: Você tem um número de pontos de magia (PM) igual a 1 + modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
+          "4": "Preparação de Magia: Você não precisa preparar suas magias com antecedência. Você pode lançar qualquer magia que conheça, desde que possua PM suficientes."
+        },
+        "chave": "car",
+        "conhecidas": {
+          "nv0": 4,
+          "total": 0,
+          "novas_lv": 1,
+          "tipo": "qualquer"
+        }
+      },
+      "2": {
+        "nome": "Música de Bardo",
+        "descricao": {
+          "0": "Você pode usar música (ou outro tipo de arte performática, como dança) para gerar vários efeitos mágicos. Você começa com dois efeitos da lista a seguir, à sua escolha. No 2º nível, e a cada dois níveis seguintes, aprende um novo efeito. Todos os efeitos têm alcance de 9m e duração de 1 minuto, a menos que sua descrição diga o contrário. Usar esta habilidade é uma ação padrão, e ela pode ser usada um número de vezes por dia igual a seu nível + seu modificador de Carisma. Você só pode usar esta habilidade se for treinado em Atuação. Ela só afeta criaturas inteligentes (Int 3 ou mais) que possam ouvir o bardo (ou ver, conforme o tipo de Atuação).",
+          "1": "Canção Assustadora: uma criatura à sua escolha deve fazer um teste de Vontade (CD 10 + metade do seu nível + modificador de Carisma). Se falhar, fica abalada. Se for bem-sucedida, fica imune a este efeito por um dia.",
+          "2": "Canção Assustadora em Massa: como canção assustadora, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: canção assustadora, 4º nível.",
+          "3": "Canção Apavorante: como canção assustadora, mas se a vítima falhar fica apavorada. Pré-requisito: canção assustadora, 4º nível.",
+          "4": "Fascinar: você pode fascinar uma criatura à sua escolha. Faça um teste de Atuação oposto por um teste de Vontade do alvo. Em caso de sucesso, a criatura fica fascinada pelo tempo que você continuar a música (máximo 1 minuto). Se você falhar, o alvo fica imune a este efeito por um dia. Uma criatura fascinada não pode realizar ações e sofre penalidade de –4 em testes de Percepção. Uma ameaça óbvia contra a criatura fascinada cancela este efeito.",
+          "5": "Fascinar em Massa: como fascinar, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: sugestão.",
+          "6": "Inspirar Competência: você e seus aliados recebem um bônus de +2 em testes de perícia.",
+          "7": "Inspirar Competência Aprimorada: o bônus de inspirar competência aumenta para +4. Pré-requisito: inspirar competência, 4º nível.",
+          "8": "Inspirar Competência Maior: o bônus de inspirar competência aumenta para +6. Pré-requisito: inspirar competência aprimorada.",
+          "9": "Inspirar Coragem: você e seus aliados recebem +1 em jogadas de ataque, dano e testes de resistência contra medo.",
+          "10": "Inspirar Coragem Aprimorada: o bônus de inspirar coragem aumenta para +2. Pré-requisito: inspirar coragem, 4º nível.",
+          "11": "Inspirar Coragem Maior: o bônus de inspirar coragem aumenta para +3. Pré-requisito: inspirar coragem aprimorada.",
+          "12": "Inspirar Grandeza: você ou um aliado recebe 10 pontos de vida temporários, e +2 em jogadas de ataque e testes de Fortitude. Pré-requisito: inspirar coragem aprimorada.",
+          "13": "Inspirar Heroísmo: você ou um aliado recebe +4 na classe de armadura e testes de resistência. Pré-requisito: inspirar coragem aprimorada.",
+          "14": "Melodia Libertadora: um aliado à sua escolha recebe o efeito da magia remover encantamento. Pré-requisito: melodia revigorante aprimorada.",
+          "15": "Melodia Revigorante: você e todos os seus aliados curam 2d6 pontos de dano.",
+          "16": "Melodia Revigorante Aprimorada: você e seus aliados curam 4d6 pontos de dano. Pré-requisitos: melodia revigorante, 4º nível.",
+          "17": "Melodia Revigorante Maior: você e seus aliados curam 6d6 pontos de dano. Pré-requisito: melodia revigorante aprimorada.",
+          "18": "Sugestão: você causa o efeito da magia sugestão a uma criatura que já esteja fascinada. O alvo tem direito a um teste de Vontade (CD 10 + metade do seu nível + modificador de Carisma) para evitar o efeito. Esta habilidade não conta como uma ameaça contra a criatura fascinada, e mesmo que ela resista você pode tentar novamente (desde que ela ainda esteja fascinada, e gastando mais uma ação padrão e um uso diário de música de bardo). Pré-requisito: fascinar, 4º nível.",
+          "19": "Sugestão em Massa: como sugestão, mas afeta todas as criaturas que você escolher dentro do alcance. Pré-requisito: fascinar em massa."
+        }
+      }
+    }
   }
 ]

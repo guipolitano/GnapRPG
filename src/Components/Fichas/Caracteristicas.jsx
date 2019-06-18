@@ -217,7 +217,8 @@ class Caracteristicas extends Component {
       pv:0,
       ca:10,
       pericias:0,
-      inputsCarregados: false,
+      inputsRacasCarregado: false,
+      inputsClassesCarregado: false,
       atributes: {
         for: "-",
         des: "-",
@@ -311,7 +312,13 @@ class Caracteristicas extends Component {
       .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/15`)
       .then(res => {
         let racas = res.data;
-        this.setState({ racas, inputsCarregados: true });
+        this.setState({ racas, inputsRacasCarregado: true });
+      });
+    axios
+      .get(`https://api.jsonbin.io/b/5d06f9114f234842a566c4c3`)
+      .then(res => {
+        let classes = res.data;
+        this.setState({ classes, inputsClassesCarregado: true });
       });
   }
 
@@ -452,7 +459,7 @@ class Caracteristicas extends Component {
   };
 
   render() {
-    if (this.state.inputsCarregados) {
+    if (this.state.inputsRacasCarregado && this.state.inputsClassesCarregado) {
       return (
         <Tab.Pane>
           <CardGroup>
