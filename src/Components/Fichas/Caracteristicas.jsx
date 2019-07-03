@@ -16,6 +16,7 @@ import axios from "axios";
 // TODO: REFATORAR PARA REMOVER STATE BONUS
 // TODO: REMOVER TEXT DO JSON CARACTERISTICAS
 // TODO: REFATORAR PARA MELHORAR O SET DE MODIFICADOR
+// TODO: REMOVER OPÇÕES SE A SOMA PASSAR DO LV 20
 
 // FIXME: CORRIGIR DESCRICAO DE DEFORMIDADE LEFOU E QAREEN
 
@@ -217,6 +218,7 @@ class Caracteristicas extends Component {
       pv:0,
       ca:10,
       pericias:0,
+      classeSelecionada:0,
       inputsRacasCarregado: false,
       inputsClassesCarregado: false,
       atributes: {
@@ -315,7 +317,7 @@ class Caracteristicas extends Component {
         this.setState({ racas, inputsRacasCarregado: true });
       });
     axios
-      .get(`https://api.jsonbin.io/b/5d06f9114f234842a566c4c3`)
+      .get(`https://api.jsonbin.io/b/5d1ced622c39867519def265/2`)
       .then(res => {
         let classes = res.data;
         this.setState({ classes, inputsClassesCarregado: true });
@@ -391,6 +393,10 @@ class Caracteristicas extends Component {
     );
   };
 
+  classeChangeHandle = (e, { name, value}) =>{
+    this.setState({classeSelecionada: value}, () => {this.periciasHandle()});
+  }
+
   caHandle(){
     let copyModificador = {...this.state.modificador};
     let copyRaca = {...this.state.racas};
@@ -400,6 +406,12 @@ class Caracteristicas extends Component {
     // TODO: Adicionar Bonus do LV
     CA = CA >=10 ? CA : 10;
     this.setState({ca: CA});
+  }
+
+  levelChangeHandle = (e, { value }) => {
+    let LV = 0; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
+    LV += value;
+    this.setState({level: LV});
   }
 
   pvHandle(){
@@ -413,10 +425,11 @@ class Caracteristicas extends Component {
 
   periciasHandle(){
     let copyModificador = {...this.state.modificador};
-    let copyRaca = {...this.state.racas};
-    let copyRacaSelecionada = this.state.racaSelecionada;
-    let pericias = 10; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
-    pericias =   + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    let pericias = copyModificador.int.soma;
+    if(this.state.classeSelecionada !== 0){
+      pericias += this.state.classes[this.state.classeSelecionada].caracteristicas.pericias_treinadas
+    }
+    // pericias += copyRaca[copyRacaSelecionada].caracteristicas.CA;
     this.setState({pericias});
   }
 
@@ -617,7 +630,11 @@ class Caracteristicas extends Component {
             }
           />
           <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-          <Grid columns="equal" className="justify-content-center" divided>
+          <Grid
+            columns="equal"
+            className="justify-content-center"
+            divided
+          >
             <Grid.Row className="text-center justify-content-center">
               <Grid.Column
                 style={{
@@ -650,20 +667,20 @@ class Caracteristicas extends Component {
                     <Dropdown
                       button
                       disabled={
-                        this.state.racas[this.state.racaSelecionada].selecione
-                          .escolhas > 0
+                        this.state.racas[this.state.racaSelecionada]
+                          .selecione.escolhas > 0
                           ? false
                           : true
                       }
                       className="icon icon-extras"
                       options={
-                        this.state.racas[this.state.racaSelecionada].selecione
-                          .opcoes
+                        this.state.racas[this.state.racaSelecionada]
+                          .selecione.opcoes
                       }
                       floating
                       labeled
                       value={this.state.bonusAtivo[1].atributo}
-                      name='bonus1'
+                      name="bonus1"
                       onChange={this.bonusChangeHandle}
                       icon="plus circle"
                       placeholder="Bonus 1"
@@ -677,17 +694,17 @@ class Caracteristicas extends Component {
                   trigger={
                     <Dropdown
                       button
-                      name='bonus2'
+                      name="bonus2"
                       disabled={
-                        this.state.racas[this.state.racaSelecionada].selecione
-                          .escolhas > 1
+                        this.state.racas[this.state.racaSelecionada]
+                          .selecione.escolhas > 1
                           ? false
                           : true
                       }
                       className="icon icon-extras"
                       options={
-                        this.state.racas[this.state.racaSelecionada].selecione
-                          .opcoes
+                        this.state.racas[this.state.racaSelecionada]
+                          .selecione.opcoes
                       }
                       onChange={this.bonusChangeHandle}
                       floating
@@ -702,78 +719,98 @@ class Caracteristicas extends Component {
             </Grid.Row>
           </Grid>
           <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-        <div className="col-sm-12">
-          <div className="row">
-            <div className="col-sm-4 align-self-center" style={{paddingRight:"0px", paddingLeft:"12px"}}>
-              <Button icon="plus" disabled content="Adicionar Classe" style={{backgroundColor:"rgb(188, 115, 8)", color:"white"}}/>
+          <div className="col-sm-12">
+            <div className="row">
+              <div
+                className="col-sm-4 align-self-center"
+                style={{ paddingRight: "0px", paddingLeft: "12px" }}
+              >
+                <Button
+                  icon="plus"
+                  disabled
+                  content="Adicionar Classe"
+                  style={{
+                    backgroundColor: "rgb(188, 115, 8)",
+                    color: "white"
+                  }}
+                />
+              </div>
+              <CardMostrador texto="Level" valor={this.state.level} />
+              <CardMostrador
+                texto="Pericias"
+                valor={this.state.pericias}
+              />
+              <CardMostrador texto="PV" valor={this.state.pv} />
+              <CardMostrador texto="CA" valor={this.state.ca} />
             </div>
-            <CardMostrador texto="Level" valor={this.state.level}/>
-            <CardMostrador texto="Pericias" valor={this.state.pericias}/>
-            <CardMostrador texto="PV" valor={this.state.pv}/>
-            <CardMostrador texto="CA" valor={this.state.ca}/>            
           </div>
-        </div>
-        <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
-        <Grid columns="equal" className="justify-content-center" divided>
-          <Grid.Row className="text-center justify-content-center">
-            <Grid.Column
-              style={{
-                textAlign: "-webkit-auto",
-                paddingLeft: "15px",
-                paddingRight: "15px"
-              }}
-            >
-              <Popup
-                content="Classes"
-                trigger={
-                  <Dropdown
-                    button
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="book"
-                    placeholder="Classes"
-                    name="classe"
-                  />
-                }
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Level"
-                trigger={
-                  <Dropdown
-                    button
-                    options={leveis}
-                    disabled
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="sort numeric up"
-                    placeholder="Level"
-                  />
-                }
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <Popup
-                content="Perícias 2"
-                trigger={
-                  <Dropdown
-                    button
-                    disabled
-                    className="icon icon-extras"
-                    floating
-                    labeled
-                    icon="sign language"
-                    placeholder="Perícias 2"
-                  />
-                }
-              />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Tab.Pane>
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Grid
+            columns="equal"
+            className="justify-content-center"
+            divided
+          >
+            <Grid.Row className="text-center justify-content-center">
+              <Grid.Column
+                style={{
+                  textAlign: "-webkit-auto",
+                  paddingLeft: "15px",
+                  paddingRight: "15px"
+                }}
+              >
+                <Popup
+                  content="Classes"
+                  trigger={
+                    <Dropdown
+                      button
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      options={this.state.classes}
+                      onChange={this.classeChangeHandle}
+                      icon="book"
+                      placeholder="Classes"
+                      name="classe"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Level"
+                  trigger={
+                    <Dropdown
+                      button
+                      options={leveis}
+                      onChange={this.levelChangeHandle}
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="sort numeric up"
+                      placeholder="Level"
+                    />
+                  }
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Popup
+                  content="Perícias 2"
+                  trigger={
+                    <Dropdown
+                      button
+                      disabled
+                      className="icon icon-extras"
+                      floating
+                      labeled
+                      icon="sign language"
+                      placeholder="Perícias 2"
+                    />
+                  }
+                />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Tab.Pane>
       );
     } else {
       return (

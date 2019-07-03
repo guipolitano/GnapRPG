@@ -1,7 +1,8 @@
 [
   {
     "key": 1,
-    "nome": "Bárbaro",
+    "text": "Bárbaro",
+    "value": 1,
     "descricao": "Um selvagem que vaga pelas selvas. Um lutador brutal dos desertos inclementes. Um caçador das montanhas geladas. Um truculento brigão das ruas. O bárbaro pode ser qualquer um deles, e muitos mais.",
     "caracteristicas": {
       "pv": {
@@ -80,7 +81,8 @@
   },
   {
     "key": 2,
-    "nome": "Bardo",
+    "text": "Bardo",
+    "value": 2,
     "descricao": "Grandes salões de baile, cortes refinadas, tavernas agitadas e metrópoles lotadas são o domínio dos bardos — os artistas, músicos, sedutores e fanfarrões de Arton.",
     "caracteristicas": {
       "pv": {
@@ -164,20 +166,21 @@
   },
   {
     "key": 3,
-    "nome": "Clérigo",
+    "text": "Clérigo",
+    "value": 3,
     "descricao": "Há lugares onde os deuses são distantes, ausentes, pouco interferindo nos assuntos dos mortais. Mas não Arton: aqui, vinte divindades estão sempre envolvidas em disputas, tramas e jogos. E atuam intensamente no mundo mortal através de seus representantes, os clérigos.",
-      "caracteristicas": {
+    "caracteristicas": {
       "pv": {
         "inicial": 16,
         "bonus": 4
       },
       "pericias_treinadas": 2,
       "pericias_classe": {
-        "0": "Conhecimento (Int)", 
-        "1": "Cura (Sab)", 
-        "2": "Diplomacia (Car)", 
-        "3": "Identificar Magia (Int)", 
-        "4": "Intuição (Sab)", 
+        "0": "Conhecimento (Int)",
+        "1": "Cura (Sab)",
+        "2": "Diplomacia (Car)",
+        "3": "Identificar Magia (Int)",
+        "4": "Intuição (Sab)",
         "5": "Ofício (Int)"
       },
       "talentos_adicionais": {
