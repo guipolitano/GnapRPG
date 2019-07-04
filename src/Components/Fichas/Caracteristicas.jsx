@@ -214,11 +214,11 @@ class Caracteristicas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      level:1,
-      pv:0,
-      ca:10,
-      pericias:0,
-      classeSelecionada:0,
+      level: 1,
+      pv: 0,
+      ca: 10,
+      pericias: 0,
+      classeSelecionada: 0,
       inputsRacasCarregado: false,
       inputsClassesCarregado: false,
       atributes: {
@@ -270,14 +270,14 @@ class Caracteristicas extends Component {
         }
       },
       racaSelecionada: 0,
-      bonusAtivo:{
-        1:{
-          opcaoSelecionada:0,
-          atributo:''
+      bonusAtivo: {
+        1: {
+          opcaoSelecionada: 0,
+          atributo: ""
         },
-        2:{
-          opcaoSelecionada:0,
-          atributo:''
+        2: {
+          opcaoSelecionada: 0,
+          atributo: ""
         }
       },
       racas: [
@@ -305,6 +305,26 @@ class Caracteristicas extends Component {
             car: 0
           }
         }
+      ],
+      classes: [
+        {
+          key: "",
+          text: "Selecione",
+          value: "0",
+          descricao: "Selecione a Classe",
+          caracteristicas: {
+            pv: {
+              inicial: 0,
+              bonus: 0
+            },
+            pericias_treinadas: 0,
+            pericias_classe: {},
+            talentos_adicionais: {}
+          },
+          bonus_nivel: {},
+          habilidades: {},
+          magias:{}
+        }
       ]
     };
   }
@@ -317,7 +337,7 @@ class Caracteristicas extends Component {
         this.setState({ racas, inputsRacasCarregado: true });
       });
     axios
-      .get(`https://api.jsonbin.io/b/5d1ced622c39867519def265/2`)
+      .get(`https://api.jsonbin.io/b/5d1ced622c39867519def265/4`)
       .then(res => {
         let classes = res.data;
         this.setState({ classes, inputsClassesCarregado: true });
@@ -382,19 +402,33 @@ class Caracteristicas extends Component {
       bonus: copyBonus,
       racaSelecionada: value,
       modificador: copyModificador
-    }, () => {this.caHandle()})
-
-    this.props.handleInformacoes(
-      this.state.racas[value].caracteristicas.text,
-      this.state.racas[value].caracteristicas.descricao,
-      this.state.racas[value].caracteristicas.deslocamento,
-      this.state.racas[value].caracteristicas.habilidades,
-      this.state.racas[value].caracteristicas.tratos
-    );
+    }, () => {this.caHandle(); this.handleInformacoesFicha(value, this.state.classeSelecionada)})    
   };
 
+  handleInformacoesFicha(raca, classe){
+    this.props.handleInformacoes(
+      {
+        nome: this.state.racas[raca].caracteristicas.text,
+        descricao: this.state.racas[raca].caracteristicas.descricao,
+        deslocamento: this.state.racas[raca].caracteristicas.deslocamento,
+        habilidades: this.state.racas[raca].caracteristicas.habilidades,
+        tratos: this.state.racas[raca].caracteristicas.tratos
+      },
+      {
+        nome: this.state.classes[classe].text,
+        pv: this.state.classes[classe].caracteristicas.pv,
+        descricao: this.state.classes[classe].descricao,
+        pericias_treinadas: this.state.classes[classe].caracteristicas.pericias_treinadas,
+        pericias_classe: this.state.classes[classe].caracteristicas.pericias_classe,
+        talentos_adicionais: this.state.classes[classe].caracteristicas.talentos_adicionais,
+        habilidades: this.state.classes[classe].habilidades,
+        magias: this.state.classes[classe].magias
+      }
+    );
+  }
+
   classeChangeHandle = (e, { name, value}) =>{
-    this.setState({classeSelecionada: value}, () => {this.periciasHandle()});
+    this.setState({classeSelecionada: value}, () => {this.periciasHandle(); this.handleInformacoesFicha(this.state.racaSelecionada, value)});
   }
 
   caHandle(){

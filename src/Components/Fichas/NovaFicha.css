@@ -76,35 +76,6 @@
     padding-right: 10px !important;
 }
 
-.ui.styled.accordion, .ui.styled.accordion .accordion{
-    background-color: #3b4049;
-}
-
-.ui.styled.accordion .accordion .active.title, .ui.styled.accordion .accordion .title:hover, .ui.styled.accordion .active.title, .ui.styled.accordion .title:hover{
-    color: #e9910f;
-}
-
-.ui.styled.accordion .title{
-    color: #fff;
-    font-weight: 200;
-    font-family: 'Germania One', cursive;
-}
-
-.container div.ui.card.card-ficha .header {
-    color: #e9910f;
-}
-
-h5 {
-    font-family: 'Germania One', cursive;
-}
-
-.ui.styled.accordion .accordion .title, hr{
-    border-top: 1px solid rgba(34,36,38,.15);
-    border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.ui.styled.accordion>.title, .ui.divided.list>.item{
-    border: none;
-}
 .ui.grid>.column:not(.row), .ui.grid>.row>.column{
     padding-left: 0.2rem;
     padding-right: 0.2rem;

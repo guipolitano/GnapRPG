@@ -1,5 +1,31 @@
 [
   {
+   "key": "",
+    "text": "Selecione",
+    "value": "0",
+    "descricao": "Selecione a Classe",
+    "caracteristicas": {
+      "pv": {
+        "inicial": 0,
+        "bonus": 0
+      },
+      "pericias_treinadas": 0,
+      "pericias_classe": {
+        "0":""
+      },
+      "talentos_adicionais": {
+        "0":""
+      }
+    },
+    "bonus_nivel": {},
+    "habilidades": {
+      "0":""
+    },
+    "magias":{
+
+    }
+  },
+  {
     "key": 1,
     "text": "Bárbaro",
     "value": 1,
@@ -28,6 +54,7 @@
       }
     },
     "bonus_nivel": {},
+    "magias":0,
     "habilidades": {
       "0": {
         "nome": "Analfabetismo",
@@ -115,13 +142,8 @@
       }
     },
     "bonus_nivel": {},
-    "habilidades": {
-      "0": {
-        "nome": "Conhecimento de Bardo",
-        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
-      },
-      "1": {
-        "nome": "Magias",
+    "magias":{
+      "nome": "Magias",
         "descricao": {
           "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
           "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
@@ -136,8 +158,13 @@
           "novas_lv": 1,
           "tipo": "qualquer"
         }
+    },
+    "habilidades": {
+      "0": {
+        "nome": "Conhecimento de Bardo",
+        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
       },
-      "2": {
+      "1": {
         "nome": "Música de Bardo",
         "descricao": {
           "0": "Você pode usar música (ou outro tipo de arte performática, como dança) para gerar vários efeitos mágicos. Você começa com dois efeitos da lista a seguir, à sua escolha. No 2º nível, e a cada dois níveis seguintes, aprende um novo efeito. Todos os efeitos têm alcance de 9m e duração de 1 minuto, a menos que sua descrição diga o contrário. Usar esta habilidade é uma ação padrão, e ela pode ser usada um número de vezes por dia igual a seu nível + seu modificador de Carisma. Você só pode usar esta habilidade se for treinado em Atuação. Ela só afeta criaturas inteligentes (Int 3 ou mais) que possam ouvir o bardo (ou ver, conforme o tipo de Atuação).",
@@ -192,13 +219,8 @@
       }
     },
     "bonus_nivel": {},
-    "habilidades": {
-      "0": {
-        "nome": "Conhecimento de Bardo",
-        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
-      },
-      "1": {
-        "nome": "Magias",
+    "magias": {
+      "nome": "Magias",
         "descricao": {
           "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
           "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
@@ -213,8 +235,13 @@
           "novas_lv": 1,
           "tipo": "qualquer"
         }
+    },
+    "habilidades": {
+      "0": {
+        "nome": "Conhecimento de Bardo",
+        "descricao": "Com seu acervo de histórias e lendas, o bardo é um arquivo vivo de assuntos ligados a aventuras. Você pode fazer testes de qualquer perícia de Conhecimento como se fosse treinado nela,com um bônus igual a seu nível + modificador de Inteligência."
       },
-      "2": {
+      "1": {
         "nome": "Música de Bardo",
         "descricao": {
           "0": "Você pode usar música (ou outro tipo de arte performática, como dança) para gerar vários efeitos mágicos. Você começa com dois efeitos da lista a seguir, à sua escolha. No 2º nível, e a cada dois níveis seguintes, aprende um novo efeito. Todos os efeitos têm alcance de 9m e duração de 1 minuto, a menos que sua descrição diga o contrário. Usar esta habilidade é uma ação padrão, e ela pode ser usada um número de vezes por dia igual a seu nível + seu modificador de Carisma. Você só pode usar esta habilidade se for treinado em Atuação. Ela só afeta criaturas inteligentes (Int 3 ou mais) que possam ouvir o bardo (ou ver, conforme o tipo de Atuação).",

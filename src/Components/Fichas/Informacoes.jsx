@@ -1,20 +1,45 @@
 import React, { Component } from "react";
-import { Card, Divider, Accordion, Grid, Icon, List } from "semantic-ui-react";
+import {
+  Card,
+  Divider,
+  Accordion,
+  Grid,
+  Icon,
+  List,
+  Table
+} from "semantic-ui-react";
+import "./Informacoes.css";
 class Informacoes extends Component {
-  state = { activeIndex: -1 };
+  state = { mainActiveIndex: -1, classeActiveIndex: -1 };
 
-  handleClick = (e, titleProps) => {
+  handleClickMain = (e, titleProps) => {
     const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
+    const mainActiveIndex = this.state.mainActiveIndex;
+    const newMainIndex = mainActiveIndex === index ? -1 : index;
 
-    this.setState({ activeIndex: newIndex });
+    this.setState({ mainActiveIndex: newMainIndex });
+  };
+
+  handleClickClasse = (e, titleProps) => {
+    const { index } = titleProps;
+    const classeActiveIndex = this.state.classeActiveIndex;
+    const newClasseIndex = classeActiveIndex === index ? -1 : index;
+
+    this.setState({ classeActiveIndex: newClasseIndex });
   };
 
   render() {
-    const { activeIndex } = this.state;
     const tratos = Object.keys(this.props.infoRaca.tratos).map(
       key => this.props.infoRaca.tratos[key]
+    );
+    const pericias_classe = Object.keys(
+      this.props.infoClasse.pericias_classe
+    ).map(key => this.props.infoClasse.pericias_classe[key]);
+    const talentos = Object.keys(this.props.infoClasse.talentos_adicionais).map(
+      key => this.props.infoClasse.talentos_adicionais[key]
+    );
+    const habilidades = Object.keys(this.props.infoClasse.habilidades).map(
+      key => this.props.infoClasse.habilidades[key]
     );
     return (
       <div style={{ padding: "1em" }}>
@@ -23,14 +48,15 @@ class Informacoes extends Component {
         <Accordion styled>
           <Accordion.Title
             index={0}
-            active={activeIndex === 0}
-            onClick={this.handleClick}
+            active={this.state.mainActiveIndex === 0}
+            onClick={this.handleClickMain}
           >
             <Icon name="dropdown" />
             ATRIBUTOS BÁSICOS
           </Accordion.Title>
-          <Accordion.Content active={activeIndex === 0}>
-            <Grid className="justify-content-center" 
+          <Accordion.Content active={this.state.mainActiveIndex === 0}>
+            <Grid
+              className="justify-content-center"
               style={{ padding: "1em" }}
               columns="equal"
               divided="vertically"
@@ -92,21 +118,28 @@ class Informacoes extends Component {
           </Accordion.Content>
           <Accordion.Title
             index={1}
-            active={activeIndex === 1}
-            onClick={this.handleClick}
+            active={this.state.mainActiveIndex === 1}
+            onClick={this.handleClickMain}
           >
             <Icon name="dropdown" />
             RAÇA
           </Accordion.Title>
-          <Accordion.Content active={activeIndex === 1}>
+          <Accordion.Content active={this.state.mainActiveIndex === 1}>
             <h5 className="text-center">{this.props.infoRaca.nome}</h5>
-            <h6 className="text-center"><i>{this.props.infoRaca.habilidades}</i></h6>
+            <h6 className="text-center">
+              <i>{this.props.infoRaca.habilidades}</i>
+            </h6>
             <hr
-              style={{ width: "50%", marginTop: "0px", marginBottom: "0px" }}
+              style={{
+                width: "50%",
+                marginTop: "0px",
+                marginBottom: "0px"
+              }}
             />
             <List divided>
               {tratos.map((item, index) => (
                 <List.Item
+                  index={index}
                   icon="chevron right"
                   style={
                     index % 2 === 0 ? { color: "#e9910f" } : { color: "white" }
@@ -116,6 +149,156 @@ class Informacoes extends Component {
                 />
               ))}
             </List>
+          </Accordion.Content>
+          <Accordion.Title
+            index={2}
+            active={this.state.mainActiveIndex === 2}
+            onClick={this.handleClickMain}
+          >
+            <Icon name="dropdown" />
+            CLASSE
+          </Accordion.Title>
+          <Accordion.Content active={this.state.mainActiveIndex === 2}>
+            <h5 className="text-center">{this.props.infoClasse.nome}</h5>
+            <h6 className="text-center">
+              <i>{this.props.infoClasse.descricao}</i>
+            </h6>
+            <hr
+              style={{
+                width: "50%",
+                marginTop: "0px",
+                marginBottom: "0px"
+              }}
+            />
+            <div className="text-center">
+              <span>
+                Perícias Treinadas: {this.props.infoClasse.pericias_treinadas}
+              </span>{" "}
+              |&nbsp;
+              <span>
+                PV: {this.props.infoClasse.pv.inicial} +(
+                {this.props.infoClasse.pv.bonus}+ mod. CON por nv.)
+              </span>
+            </div>
+            <Accordion className="accordion-interno" styled>
+              <Accordion.Title
+                index={0}
+                active={this.state.classeActiveIndex === 0}
+                onClick={this.handleClickClasse}
+              >
+                <Icon name="dropdown" />
+                Perícias e Talentos
+              </Accordion.Title>
+              <Accordion.Content active={this.state.classeActiveIndex === 0}>
+                <div className="row text-center">
+                  <div className="col-sm-6" style={{ paddingRight: "1px" }}>
+                    <Table singleLine striped inverted compact>
+                      <Table.Header>
+                        <Table.Row>
+                          <Table.HeaderCell className="text-center head-tabela">
+                            Perícias de Classe
+                          </Table.HeaderCell>
+                        </Table.Row>
+                      </Table.Header>
+                      <Table.Body style={{ fontSize: "11px" }}>
+                        {pericias_classe.length > 0 &&
+                        pericias_classe[0] !== "" ? (
+                          pericias_classe.map((item, index) => (
+                            <Table.Row>
+                              <Table.Cell>{pericias_classe[index]}</Table.Cell>
+                            </Table.Row>
+                          ))
+                        ) : (
+                          <Table.Row>
+                            <Table.Cell>Nenhuma</Table.Cell>
+                          </Table.Row>
+                        )}
+                      </Table.Body>
+                    </Table>
+                  </div>
+                  <div className="col-sm-6" style={{ paddingLeft: "1px" }}>
+                    <Table singleLine striped inverted compact>
+                      <Table.Header>
+                        <Table.Row>
+                          <Table.HeaderCell className="text-center head-tabela">
+                            Talentos Adicionais
+                          </Table.HeaderCell>
+                        </Table.Row>
+                      </Table.Header>
+                      <Table.Body style={{ fontSize: "11px" }}>
+                        {talentos.length > 0 && talentos[0] !== "" ? (
+                          talentos.map((item, index) => (
+                            <Table.Row>
+                              <Table.Cell>{talentos[index]}</Table.Cell>
+                            </Table.Row>
+                          ))
+                        ) : (
+                          <Table.Row>
+                            <Table.Cell>Nenhuma</Table.Cell>
+                          </Table.Row>
+                        )}
+                      </Table.Body>
+                    </Table>
+                  </div>
+                </div>
+              </Accordion.Content>
+              <Accordion.Title
+                index={1}
+                active={this.state.classeActiveIndex === 1}
+                onClick={this.handleClickClasse}
+              >
+                <Icon name="dropdown" />
+                Habilidades
+              </Accordion.Title>
+              <Accordion.Content active={this.state.classeActiveIndex === 1}>
+                <List divided>
+                  {habilidades.map((item, index) => (
+                    <List.Item index={index} icon="chevron right" key={index}>
+                      <span style={{ color: "#e9910f" }}>
+                        <Icon name="chevron right" />
+                        {habilidades[index].nome}: &nbsp;
+                      </span>
+                      {typeof habilidades[index].descricao === "object"
+                        ? Object.keys(habilidades[index].descricao).map(key => {
+                            if (key == 0) {
+                              return (
+                                <span>
+                                  {habilidades[index].descricao[key]}
+                                  <p>&nbsp;</p>
+                                </span>
+                              );
+                            } else {
+                              return (
+                                <p> -{habilidades[index].descricao[key]}</p>
+                              );
+                            }
+                          })
+                        : habilidades[index].descricao}
+                    </List.Item>
+                  ))}
+                </List>
+              </Accordion.Content>
+
+              {Object.keys(this.props.infoClasse.magias).length > 0 ? (
+                <React.Fragment>
+                  <Accordion.Title
+                    index={2}
+                    active={this.state.classeActiveIndex === 2}
+                    onClick={this.handleClickClasse}
+                  >
+                    <Icon name="dropdown" />
+                    Magias
+                  </Accordion.Title>
+                  <Accordion.Content
+                    active={this.state.classeActiveIndex === 2}
+                  >
+                    Teste
+                  </Accordion.Content>
+                </React.Fragment>
+              ) : (
+                ""
+              )}
+            </Accordion>
           </Accordion.Content>
         </Accordion>
 
