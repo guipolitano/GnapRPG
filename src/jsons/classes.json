@@ -10,20 +10,12 @@
         "bonus": 0
       },
       "pericias_treinadas": 0,
-      "pericias_classe": {
-        "0":""
-      },
-      "talentos_adicionais": {
-        "0":""
-      }
+      "pericias_classe": {},
+      "talentos_adicionais": {}
     },
     "bonus_nivel": {},
-    "habilidades": {
-      "0":""
-    },
-    "magias":{
-
-    }
+    "habilidades": {},
+    "magias":{}
   },
   {
     "key": 1,
@@ -53,7 +45,108 @@
         "3": "Fortitude Maior"
       }
     },
-    "bonus_nivel": {},
+    "bonus_nivel": {
+      "1": {
+        "bba": 1,
+        "habilidades": "Analfabetismo, fúria 1/dia, movimento rápido",
+        "magias": ""
+      },
+      "2": {
+        "bba": 2,
+        "habilidades": "Esquiva sobrenatural",
+        "magias": ""
+      },
+      "3": {
+        "bba": 3,
+        "habilidades": "Instinto Selvagem +1",
+        "magias": ""
+      },
+      "4": {
+        "bba": 4,
+        "habilidades": "Fúria 2/dia",
+        "magias": ""
+      },
+      "5": {
+        "bba": 5,
+        "habilidades": "Esquiva sobrenatural aprimorada",
+        "magias": ""
+      },
+      "6": {
+        "bba": 6,
+        "habilidades": "",
+        "magias": ""
+      },
+      "7": {
+        "bba": 7,
+        "habilidades": "Redução de dano 1",
+        "magias": ""
+      },
+      "8": {
+        "bba": 8,
+        "habilidades": "Fúria 3/dia",
+        "magias": ""
+      },
+      "9": {
+        "bba": 9,
+        "habilidades": "Instinto Selvagem +2",
+        "magias": ""
+      },
+      "10": {
+        "bba": 10,
+        "habilidades": "Redução de dano 2",
+        "magias": ""
+      },
+      "11": {
+        "bba": 11,
+        "habilidades": "Fúria maior",
+        "magias": ""
+      },
+      "12": {
+        "bba": 12,
+        "habilidades": "Fúria 4/dia",
+        "magias": ""
+      },
+      "13": {
+        "bba": 13,
+        "habilidades": "Redução de dano 3",
+        "magias": ""
+      },
+      "14": {
+        "bba": 14,
+        "habilidades": "Vontade inabalável",
+        "magias": ""
+      },
+      "15": {
+        "bba": 15,
+        "habilidades": "Instinto Selvagem +3",
+        "magias": ""
+      },
+      "16": {
+        "bba": 16,
+        "habilidades": "Fúria 5/dia, redução de dano 4",
+        "magias": ""
+      },
+      "17": {
+        "bba": 17,
+        "habilidades": "Fúria incansável",
+        "magias": ""
+      },
+      "18": {
+        "bba": 18,
+        "habilidades": "",
+        "magias": ""
+      },
+      "19": {
+        "bba": 19,
+        "habilidades": "Redução de dano 5",
+        "magias": ""
+      },
+      "20": {
+        "bba": 20,
+        "habilidades": "Fúria 6/dia, fúria poderosa",
+        "magias": ""
+      }
+    },
     "magias":0,
     "habilidades": {
       "0": {
@@ -141,23 +234,121 @@
         "4": "Vontade de Ferro"
       }
     },
-    "bonus_nivel": {},
-    "magias":{
-      "nome": "Magias",
-        "descricao": {
-          "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
-          "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
-          "2": "Magias Conhecidas: Você conhece 4 magias de nível 0, e também um número de magias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança de nível, você aprende uma nova magia de qualquer nível que possa lançar",
-          "3": "Pontos de Magia: Você tem um número de pontos de magia (PM) igual a 1 + modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
-          "4": "Preparação de Magia: Você não precisa preparar suas magias com antecedência. Você pode lançar qualquer magia que conheça, desde que possua PM suficientes."
-        },
-        "chave": "car",
-        "conhecidas": {
-          "nv0": 4,
-          "total": 0,
-          "novas_lv": 1,
-          "tipo": "qualquer"
-        }
+    "bonus_nivel": {
+      "1": {
+        "bba": 0,
+        "habilidades": "Conhecimento de bardo, música de Bardo",
+        "magias": "0,1"
+      },
+      "2": {
+        "bba": 1,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "3": {
+        "bba": 2,
+        "habilidades": "",
+        "magias": ""
+      },
+      "4": {
+        "bba": 3,
+        "habilidades": "Música de Bardo",
+        "magias": "2"
+      },
+      "5": {
+        "bba": 3,
+        "habilidades": "",
+        "magias": ""
+      },
+      "6": {
+        "bba": 4,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "7": {
+        "bba": 5,
+        "habilidades": "",
+        "magias": "3"
+      },
+      "8": {
+        "bba": 6,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "9": {
+        "bba": 6,
+        "habilidades": "",
+        "magias": ""
+      },
+      "10": {
+        "bba": 7,
+        "habilidades": "Música de Bardo",
+        "magias": "4"
+      },
+      "11": {
+        "bba": 8,
+        "habilidades": "",
+        "magias": ""
+      },
+      "12": {
+        "bba": 9,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "13": {
+        "bba": 9,
+        "habilidades": "",
+        "magias": "5"
+      },
+      "14": {
+        "bba": 10,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "15": {
+        "bba": 11,
+        "habilidades": "",
+        "magias": ""
+      },
+      "16": {
+        "bba": 12,
+        "habilidades": "Música de Bardo",
+        "magias": "6"
+      },
+      "17": {
+        "bba": 12,
+        "habilidades": "",
+        "magias": ""
+      },
+      "18": {
+        "bba": 13,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      },
+      "19": {
+        "bba": 14,
+        "habilidades": "",
+        "magias": ""
+      },
+      "20": {
+        "bba": 15,
+        "habilidades": "Música de Bardo",
+        "magias": ""
+      }
+    },
+    "magias": {
+      "descricao": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
+      "habilidade_chave": "Sua habilidade para lançar magias é Carisma",
+      "magias_conhecidas": "Você conhece 4 magias de nível 0, e também um número de magias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança denível, você aprende uma nova magia de qualquer nível que possa lançar",
+      "pontos_magia": "Você tem um número de pontos de magia (PM) igual a 1 +modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
+      "preparacao": "Você não precisa preparar suas magias com antecedência.Você pode lançar qualquer magia que conheça, desde que possua PM suficientes.",
+      "chave": "car",
+      "conhecidas": {
+        "nv0": 4,
+        "total": 0,
+        "novas_lv": 1,
+        "tipo": "qualquer"
+      }
     },
     "habilidades": {
       "0": {
@@ -220,21 +411,19 @@
     },
     "bonus_nivel": {},
     "magias": {
-      "nome": "Magias",
-        "descricao": {
-          "0": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
-          "1": "Habilidade-chave: Sua habilidade para lançar magias é Carisma",
-          "2": "Magias Conhecidas: Você conhece 4 magias de nível 0, e também um número de magias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança de nível, você aprende uma nova magia de qualquer nível que possa lançar",
-          "3": "Pontos de Magia: Você tem um número de pontos de magia (PM) igual a 1 + modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
-          "4": "Preparação de Magia: Você não precisa preparar suas magias com antecedência. Você pode lançar qualquer magia que conheça, desde que possua PM suficientes."
-        },
-        "chave": "car",
-        "conhecidas": {
-          "nv0": 4,
-          "total": 0,
-          "novas_lv": 1,
-          "tipo": "qualquer"
-        }
+      "descricao": "Você pode lançar magias arcanas e divinas de nível 0 (truques e preces) e 1º nível. A cada três níveis de bardo seguintes, você pode lançar magias um nível acima: no 4º nível você pode lançar magias de 2º nível, no 7º nível você pode lançar magias de 3º nível e assim por diante, até o 16º nível, quando você pode lançar magias de 6º nível.",
+      "habilidade_chave": "Sua habilidade para lançar magias é Carisma",
+      "magias_conhecidas": "Você conhece 4 magias de nível 0, e também um número demagias de 1º nível igual a 1 + seu modificador de Carisma. Cada vez que avança denível, você aprende uma nova magia de qualquer nível que possa lançar",
+      "pontos_magia": "Você tem um número de pontos de magia (PM) igual a 1 +modificador de Carisma. Cada vez que avança de nível, recebe 2 PM.",
+      "preparacao": "Você não precisa preparar suas magias com antecedência.Você pode lançar qualquer magia que conheça, desde que possua PM suficientes."
+      ,
+      "chave": "car",
+      "conhecidas": {
+        "nv0": 4,
+        "total": 0,
+        "novas_lv": 1,
+        "tipo": "qualquer"
+      }
     },
     "habilidades": {
       "0": {

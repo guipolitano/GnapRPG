@@ -331,13 +331,13 @@ class Caracteristicas extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/15`)
+      .get(`https://api.jsonbin.io/b/5cfbc9582132b7426dfd9d2b/17`)
       .then(res => {
         let racas = res.data;
         this.setState({ racas, inputsRacasCarregado: true });
       });
     axios
-      .get(`https://api.jsonbin.io/b/5d1ced622c39867519def265/4`)
+      .get(`https://api.jsonbin.io/b/5d1ced622c39867519def265/10`)
       .then(res => {
         let classes = res.data;
         this.setState({ classes, inputsClassesCarregado: true });
@@ -375,7 +375,10 @@ class Caracteristicas extends Component {
         ...this.state.modificador,
         [name]: { ...this.state.modificador[name], soma, operador, cor }
       }  
-    }, () => {this.caHandle()})
+    }, () => {
+      this.caHandle();
+      this.pvHandle();
+    })
 
   };
 
@@ -402,7 +405,11 @@ class Caracteristicas extends Component {
       bonus: copyBonus,
       racaSelecionada: value,
       modificador: copyModificador
-    }, () => {this.caHandle(); this.handleInformacoesFicha(value, this.state.classeSelecionada)})    
+    }, () => {
+      this.caHandle(); 
+      this.handleInformacoesFicha(value, this.state.classeSelecionada);
+      this.pvHandle();
+    })    
   };
 
   handleInformacoesFicha(raca, classe){
@@ -412,23 +419,28 @@ class Caracteristicas extends Component {
         descricao: this.state.racas[raca].caracteristicas.descricao,
         deslocamento: this.state.racas[raca].caracteristicas.deslocamento,
         habilidades: this.state.racas[raca].caracteristicas.habilidades,
-        tratos: this.state.racas[raca].caracteristicas.tratos
+        tratos: {...this.state.racas[raca].caracteristicas.tratos}
       },
       {
         nome: this.state.classes[classe].text,
         pv: this.state.classes[classe].caracteristicas.pv,
         descricao: this.state.classes[classe].descricao,
         pericias_treinadas: this.state.classes[classe].caracteristicas.pericias_treinadas,
-        pericias_classe: this.state.classes[classe].caracteristicas.pericias_classe,
-        talentos_adicionais: this.state.classes[classe].caracteristicas.talentos_adicionais,
-        habilidades: this.state.classes[classe].habilidades,
-        magias: this.state.classes[classe].magias
+        pericias_classe: {...this.state.classes[classe].caracteristicas.pericias_classe},
+        talentos_adicionais: {...this.state.classes[classe].caracteristicas.talentos_adicionais},
+        habilidades: {...this.state.classes[classe].habilidades},
+        magias: {...this.state.classes[classe].magias},
+        bonus_nivel: {...this.state.classes[classe].bonus_nivel}
       }
     );
   }
 
   classeChangeHandle = (e, { name, value}) =>{
-    this.setState({classeSelecionada: value}, () => {this.periciasHandle(); this.handleInformacoesFicha(this.state.racaSelecionada, value)});
+    this.setState({classeSelecionada: value}, () => {
+      this.periciasHandle(); 
+      this.handleInformacoesFicha(this.state.racaSelecionada, value);
+      this.pvHandle();
+    });
   }
 
   caHandle(){
@@ -445,15 +457,19 @@ class Caracteristicas extends Component {
   levelChangeHandle = (e, { value }) => {
     let LV = 0; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
     LV += value;
-    this.setState({level: LV});
+    this.setState({level: LV}, ()=>{
+      this.pvHandle();
+    });
   }
 
   pvHandle(){
     let copyModificador = {...this.state.modificador};
-    let copyRaca = {...this.state.racas};
-    let copyRacaSelecionada = this.state.racaSelecionada;
-    let PV = 0; //colocar this.state.classes se tiver setado, ou 0 caso classe nao escolhida
-    PV += copyModificador.con.soma + copyRaca[copyRacaSelecionada].caracteristicas.CA;
+    let copyClasse = {...this.state.classes};
+    let copyClasseSelecionada = this.state.classeSelecionada;
+    let classePV = copyClasse[copyClasseSelecionada].caracteristicas.pv;
+    let calcPV = classePV.inicial + ((copyModificador.con.soma + classePV.bonus) * this.state.level);
+    let PV = 0;
+    PV = copyClasseSelecionada !== 0 ? calcPV : 0;
     this.setState({pv: PV});
   }
 
@@ -572,6 +588,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -588,6 +605,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -604,6 +622,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -620,6 +639,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -636,6 +656,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -652,6 +673,7 @@ class Caracteristicas extends Component {
             trigger={
               <Dropdown
                 button
+                scrolling
                 className="icon icon-atr"
                 floating
                 labeled
@@ -682,6 +704,7 @@ class Caracteristicas extends Component {
                   trigger={
                     <Dropdown
                       button
+                      scrolling
                       className="icon icon-extras"
                       floating
                       labeled
@@ -797,6 +820,7 @@ class Caracteristicas extends Component {
                   trigger={
                     <Dropdown
                       button
+                      scrolling
                       className="icon icon-extras"
                       floating
                       labeled
@@ -815,6 +839,7 @@ class Caracteristicas extends Component {
                   trigger={
                     <Dropdown
                       button
+                      scrolling
                       options={leveis}
                       onChange={this.levelChangeHandle}
                       className="icon icon-extras"
@@ -849,7 +874,7 @@ class Caracteristicas extends Component {
     } else {
       return (
         <Tab.Pane>
-          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Divider style={{ marginTop: "60px", marginBottom: "10px" }} />
           <Grid columns="equal" className="justify-content-center" divided>
             <Loader active />
           </Grid>

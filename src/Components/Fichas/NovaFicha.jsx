@@ -46,7 +46,8 @@ class NovaFicha extends Component {
           pericias_classe: {},
           talentos_adicionais: {},
           habilidades: {},
-          magias:{}
+          magias:{},
+          bonus_nivel:{}
         }
       }
     };
