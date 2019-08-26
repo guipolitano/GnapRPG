@@ -1,0 +1,22 @@
+@import "../../../../util/sass/variables.scss";
+
+.ui.divider {
+  margin: 0px;
+}
+
+.ui.cards .card-atributos {
+  text-align: center;
+  color: white;
+  width: 100px;
+  border: 4px ridge $laranja-principal;
+  background-color: $cards-background;
+  box-shadow: none !important;
+}
+.ui.cards .card-atributos .content {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.ui.cards .card-atributos .valores {
+  font-size: 38px;
+}

@@ -1,0 +1,27 @@
+@import "../../node_modules/semantic-ui-css/semantic.min.css";
+@import "../util/sass/variables.scss";
+
+body > * {
+  font-size: 0.9rem;
+  font-family: "Germania One", cursive;
+}
+body {
+  background: url(../assets/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#root {
+  display: grid;
+  padding-top: 30px;
+  grid-template-columns: 20vw 60vw 20vw;
+  grid-template-rows: 20vh 80vh 5vh;
+}
+
+.App {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  grid-template-columns: 60% 40%;
+  grid-column-gap: 5px;
+}
