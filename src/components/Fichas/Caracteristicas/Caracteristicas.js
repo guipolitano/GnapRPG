@@ -1,51 +1,64 @@
 import React, { Component } from "react";
-import { CardGroup } from "semantic-ui-react";
-import CardAtributos from "./elementos/CardAtributos";
+import { CardGroup, Grid, Dropdown, Popup } from "semantic-ui-react";
+import CardAtributos from "./elementos/CardAtributos/CardAtributos";
+import DropdownAtributos from "./elementos/DropdownAtributos/DropdownAtributos";
 
 class Caracteristicas extends Component {
   state = {};
   render() {
     return (
-      <div className="caracteristicas-container">
-        <CardGroup>
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-          <CardAtributos
-            nomeAtributo="FOR"
-            valor="17"
-            cor="red"
-            modificador="+4"
-          />
-        </CardGroup>
-      </div>
+      <Grid>
+        <div className="caracteristicas-container">
+          <Grid.Row>
+            <CardGroup>
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+              <CardAtributos
+                nomeAtributo="FOR"
+                valor="17"
+                cor="red"
+                modificador="+4"
+              />
+            </CardGroup>
+          </Grid.Row>
+          <Grid.Row>
+            <Popup
+              content="Força"
+              trigger={
+                <DropdownAtributos/>
+              }
+            />
+          </Grid.Row>
+        </div>
+      </Grid>
     );
   }
 }

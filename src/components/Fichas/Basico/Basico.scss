@@ -14,11 +14,13 @@
 .ui.form textarea {
   font-size: 0.9rem;
   font-family: "Germania One", cursive;
-  background-color: $card-meio-tom;
+  background-color: #3e434e;
   background-image: none;
   color: white;
   &:focus {
-    background-color: $card-meio-tom;
+    background-color: #585e6b;
+    border-color: $laranja-principal;
+    color: white;
   }
 }
 

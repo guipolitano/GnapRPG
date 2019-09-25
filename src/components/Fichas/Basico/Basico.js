@@ -1,38 +1,55 @@
-import React, { Component } from "react";
-import { Input, Select, TextArea, Form, Grid } from "semantic-ui-react";
+import React from "react";
+import { Input, Select, TextArea, Grid } from "semantic-ui-react";
 import "./Basico.scss";
-import * as data from "../../../util/jsons/divindades.json";
+import data from "../../../util/jsons/divindades.json";
+import { Store } from '../../../Store';
+import { atualizarBasico } from './Actions';
 
 const { divindades } = data;
-class Basico extends Component {
-  state = {};
-  render() {
+const Basico = props => {
+  const { state, dispatch } = React.useContext(Store);
     return (
       <div className="basico-container">
+        {console.log(state)}
         <Grid>
           <Grid.Row>
             <Grid.Column width="7">
               <div id="input-nome">
-                <label>Nome</label>
-                <Input fluid />
+                <label>Nome</label>                
+                <Input name="nome" onChange={(evt)=>atualizarBasico(evt.target.value, state, dispatch, evt.target.name)} fluid />
               </div>
             </Grid.Column>
             <Grid.Column width="3">
               <div id="input-sexo">
                 <label>Sexo</label>
-                <Input fluid />
+                <Input name = "sexo"
+                onChange = {
+                  (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
+                }
+                fluid / >
               </div>
             </Grid.Column>
             <Grid.Column width="2">
               <div id="input-idade">
                 <label>Idade</label>
-                <Input fluid />
+                <Input name = "idade"
+                onChange = {
+                  (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
+                }
+                fluid / >
               </div>
             </Grid.Column>
             <Grid.Column width="4">
               <div id="input-divindade">
                 <label>Divindade</label>
-                <Select fluid options={divindades} />
+                <Select name = "divindade"
+                onChange = {
+                  (evt, {value}) => atualizarBasico(value, state, dispatch, "divindade")
+                }
+                fluid options = {
+                  divindades
+                }
+                />
               </div>
             </Grid.Column>
           </Grid.Row>
@@ -40,9 +57,13 @@ class Basico extends Component {
             <Grid.Column width="16">
               <div id="input-aparencia">
                 <label>Aparência</label>
-                <Form>
-                  <TextArea />
-                </Form>
+                <div className="ui form">
+                  <TextArea name="aparencia"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
+                  } 
+                  />
+                </div>
               </div>
             </Grid.Column>
           </Grid.Row>
@@ -50,16 +71,19 @@ class Basico extends Component {
             <Grid.Column width="16">
               <div id="input-historia">
                 <label>História</label>
-                <Form>
-                  <TextArea />
-                </Form>
+                <div className="ui form">
+                  <TextArea name="historia"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
+                  } 
+                  />
+                </div>
               </div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>
     );
-  }
 }
 
 export default Basico;
