@@ -26,7 +26,7 @@ const Basico = props => {
                 onChange = {
                   (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
                 }
-                fluid / >
+                fluid />
               </div>
             </Grid.Column>
             <Grid.Column width="2">
@@ -36,7 +36,7 @@ const Basico = props => {
                 onChange = {
                   (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
                 }
-                fluid / >
+                fluid />
               </div>
             </Grid.Column>
             <Grid.Column width="4">

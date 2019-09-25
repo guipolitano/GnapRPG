@@ -3,7 +3,8 @@ import React from 'react';
 export const Store = React.createContext();
 
 const initialState = {
-    ficha: {}
+    ficha: {},
+    informacoes: {}
 }
 
 function reducer(state, action) {
