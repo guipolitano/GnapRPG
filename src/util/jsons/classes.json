@@ -7,47 +7,77 @@
         },
         {
             "value": 1,
-            "text": "Anão",
+            "text": "Arcanista",
             "key": "1"
         },
         {
             "value": 2,
-            "text": "Dahllan",
+            "text": "Bárbaro",
             "key": "2"
         },
         {
             "value": 3,
-            "text": "Elfo",
+            "text": "Bardo",
             "key": "3"
         },
         {
             "value": 4,
-            "text": "Goblin",
+            "text": "Bucaneiro",
             "key": "4"
         },
         {
             "value": 5,
-            "text": "Humano",
+            "text": "Caçador",
             "key": "5"
         },
         {
             "value": 6,
-            "text": "Lefou",
+            "text": "Cavaleiro",
             "key": "6"
         },
         {
             "value": 7,
-            "text": "Minotauro",
+            "text": "Clérigo",
             "key": "7"
         },
         {
             "value": 8,
-            "text": "Qareen",
+            "text": "Druida",
             "key": "8"
+        },
+        {
+            "value": 9,
+            "text": "Guerreiro",
+            "key": "9"
+        }, 
+        {
+            "value": 10,
+            "text": "Inventor",
+            "key": "10"
+        }, 
+        {
+            "value": 11,
+            "text": "Ladino",
+            "key": "11"
+        }, 
+        {
+            "value": 12,
+            "text": "Lutador",
+            "key": "12"
+        }, 
+        {
+            "value": 13,
+            "text": "Nobre",
+            "key": "13"
+        },
+        {
+            "value": 14,
+            "text": "Paladino",
+            "key": "14"
         }
     ],
-    "racas": {
-        "Anao": {
+    "classes": {
+        "Arcanista": {
             "id": 1,
             "bonus": {
                 "car": 0,

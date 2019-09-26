@@ -8,3 +8,11 @@ export const atualizarCaracteristicas = (atualizacao, store, dispatch, elemento)
     };
     return dispatch(dispatchObj);
 };
+
+export const atualizarSelectAtributos = (atualizacao, dispatch) =>{
+    let dispatchObj = {
+        type: 'UPDATE_SELECT_ATRIBUTOS',
+        payload: atualizacao
+    };
+    return dispatch(dispatchObj);
+}

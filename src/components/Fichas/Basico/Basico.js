@@ -1,11 +1,14 @@
 import React from "react";
-import { Input, Select, TextArea, Grid } from "semantic-ui-react";
+import { Input, Select, TextArea, Grid, Label } from "semantic-ui-react";
 import "./Basico.scss";
 import data from "../../../util/jsons/divindades.json";
+import origem from "../../../util/jsons/origens.json";
+
 import { Store } from '../../../Store';
 import { atualizarBasico } from './Actions';
 
 const { divindades } = data;
+const { origens } = origem;
 const Basico = props => {
   const { state, dispatch } = React.useContext(Store);
     return (
@@ -61,7 +64,7 @@ const Basico = props => {
                     (evt, {value}) => atualizarBasico(value, state, dispatch, "origem")
                   }
                   fluid options = {
-                    divindades
+                    origens
                   }
                   />
                 </div>
@@ -72,8 +75,8 @@ const Basico = props => {
           <Grid.Row style={{display:"none"}}>
             <Grid.Column width="16">
               <div id="input-origem-personalizada">
-                <label>Origem Personalizada</label>
                 <div className="ui form">
+                <Label attached="top">Origem Personalizada</Label>
                   <TextArea name="origem-personalizada"
                   onChange = {
                     (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
@@ -87,8 +90,8 @@ const Basico = props => {
           <Grid.Row>
             <Grid.Column width="16">
               <div id="input-personalidade">
-                <label>Personalidade</label>
                 <div className="ui form">
+                <Label attached="top"> Personalidade </Label>
                   <TextArea name="personalidade"
                   onChange = {
                     (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
@@ -101,8 +104,8 @@ const Basico = props => {
           <Grid.Row>
             <Grid.Column width="16">
               <div id="input-aparencia">
-                <label>Aparência</label>
                 <div className="ui form">
+                  <Label attached="top"> Aparência</Label>
                   <TextArea name="aparencia"
                   onChange = {
                     (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
@@ -115,8 +118,8 @@ const Basico = props => {
           <Grid.Row>
             <Grid.Column width="16">
               <div id="input-historia">
-                <label>História</label>
                 <div className="ui form">
+                  <Label attached="top"> História</Label>
                   <TextArea name="historia"
                   onChange = {
                     (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)

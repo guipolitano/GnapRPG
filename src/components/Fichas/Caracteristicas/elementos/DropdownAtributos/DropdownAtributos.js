@@ -2,9 +2,6 @@ import React from "react";
 import { Popup,
     Dropdown
 } from "semantic-ui-react"
-import data from "../../../../../util/jsons/atributos.json";
-
-const { atributos } = data;
 
 const DropdownAtributos = props => {
     return (
@@ -16,8 +13,9 @@ const DropdownAtributos = props => {
                     className="icon icon-atr"
                     icon={props.icon}
                     placeholder={props.placeholder}
-                    name={props.name} 
-                    options = {atributos}
+                    name={props.name}
+                    onChange={props.change}
+                    options={props.atributos}
                 />
             }
         />        

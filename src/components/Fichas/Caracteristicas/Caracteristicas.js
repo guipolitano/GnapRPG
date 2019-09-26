@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Card, Grid, Divider, Button} from "semantic-ui-react";
 import "./Caracteristicas.scss";
-
+import { atualizarContadores } from "../../../util/util.js"
 import { Store } from '../../../Store';
-import { atualizarCaracteristicas } from './Actions';
+import { atualizarSelectAtributos, atualizarCaracteristicas } from './Actions';
 
 import CardAtributos from "./elementos/CardAtributos/CardAtributos";
 import DropdownAtributos from "./elementos/DropdownAtributos/DropdownAtributos";
@@ -31,12 +31,12 @@ const Caracteristicas = props => {
           </Grid.Row>
           <Divider/>
           <Grid.Row>
-             <DropdownAtributos textPopUp="Força" icon="hand rock" placeholder="FOR" name="for"/>
-             <DropdownAtributos textPopUp="Destreza" icon="crosshairs" placeholder="DES" name="des"/>
-             <DropdownAtributos textPopUp="Constituição" icon="heartbeat" placeholder="CON" name="con"/>
-             <DropdownAtributos textPopUp="Inteligência" icon="graduation cap" placeholder="INT" name="int"/>
-             <DropdownAtributos textPopUp="Sabedoria" icon="lightbulb" placeholder="SAB" name="sab"/>
-             <DropdownAtributos textPopUp="Carisma" icon="smile" placeholder="CAR" name="car"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Força" icon="hand rock" placeholder="FOR" name="for"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Destreza" icon="crosshairs" placeholder="DES" name="des"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Constituição" icon="heartbeat" placeholder="CON" name="con"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Inteligência" icon="graduation cap" placeholder="INT" name="int"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Sabedoria" icon="lightbulb" placeholder="SAB" name="sab"/>
+             <DropdownAtributos atributos={state.atributos} change={(e, { name, value })=>atualizarContadores(name, value, state, dispatch, atualizarSelectAtributos)} textPopUp="Carisma" icon="smile" placeholder="CAR" name="car"/>
           </Grid.Row>
           <Divider/>
           <Grid.Row>
