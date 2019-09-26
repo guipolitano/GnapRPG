@@ -8,16 +8,28 @@ const initialState = {
 }
 
 function reducer(state, action) {
+    let nome, valor;
     switch (action.type) {
         case 'UPDATE_BASICO':
-            let nome = Object.keys(action.payload)[0];
-            let valor = Object.values(action.payload)[0];
+            nome = Object.keys(action.payload)[0];
+            valor = Object.values(action.payload)[0];
             return {
                 ...state,
                 ficha: {
                     ...state.ficha, 
                     basico: {
                         ...state.ficha.basico, 
+                        [nome]: valor}}
+            }
+        case 'UPDATE_CARACTERISTICAS':
+            nome = Object.keys(action.payload)[0];
+            valor = Object.values(action.payload)[0];
+            return {
+                ...state,
+                ficha: {
+                    ...state.ficha, 
+                    caracteristicas: {
+                        ...state.ficha.caracteristicas,
                         [nome]: valor}}
             }
             default:

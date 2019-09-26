@@ -1,0 +1,33 @@
+{
+    "opcoes":[
+        {
+        "value": 0,
+        "text": "Selecione",
+        "key": "",
+        "disabled": true
+        },
+        {
+        "value": 1,
+        "text": "Anão",
+        "key": "1"
+        },
+        {
+        "value": 2,
+        "text": "Elfo",
+        "key": "2"
+        }
+    ],
+    "racas": {
+        "Anao": {
+            "id": 1,
+            "bonus":{
+                "car": 0,
+                "sab": 0,
+                "int": 0,
+                "con": 0,
+                "des": 0,
+                "for": 0
+            }
+        }
+    }    
+}

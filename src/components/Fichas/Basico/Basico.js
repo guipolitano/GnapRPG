@@ -10,46 +10,91 @@ const Basico = props => {
   const { state, dispatch } = React.useContext(Store);
     return (
       <div className="basico-container">
-        {console.log(state)}
         <Grid>
           <Grid.Row>
-            <Grid.Column width="7">
+            <Grid.Column width="10">
               <div id="input-nome">
-                <label>Nome</label>                
-                <Input name="nome" onChange={(evt)=>atualizarBasico(evt.target.value, state, dispatch, evt.target.name)} fluid />
+                <Input name="nome" label="Nome" onChange={(evt)=>atualizarBasico(evt.target.value, state, dispatch, evt.target.name)} fluid />
               </div>
             </Grid.Column>
             <Grid.Column width="3">
               <div id="input-sexo">
-                <label>Sexo</label>
-                <Input name = "sexo"
+                <Input label="Sexo" name = "sexo"
                 onChange = {
                   (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
                 }
                 fluid />
               </div>
             </Grid.Column>
-            <Grid.Column width="2">
+            <Grid.Column width="3">
               <div id="input-idade">
-                <label>Idade</label>
-                <Input name = "idade"
+                <Input label="Idade" name = "idade"
                 onChange = {
                   (evt) => atualizarBasico(evt.target.value, state, dispatch, evt.target.name)
                 }
                 fluid />
               </div>
             </Grid.Column>
-            <Grid.Column width="4">
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width="8">
               <div id="input-divindade">
-                <label>Divindade</label>
-                <Select name = "divindade"
-                onChange = {
-                  (evt, {value}) => atualizarBasico(value, state, dispatch, "divindade")
-                }
-                fluid options = {
-                  divindades
-                }
-                />
+                <div className="ui fluid labeled input">
+                  <div className="ui label label">Divindade</div>
+                  <Select name="divindade"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, "divindade")
+                  }
+                  fluid options = {
+                    divindades
+                  }
+                  />
+                </div>
+              </div>
+            </Grid.Column>
+            <Grid.Column width="8">
+              <div id="input-origem">
+                <div className="ui fluid labeled input">
+                  <div className="ui label label">Origem</div>
+                  <Select name="origem"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, "origem")
+                  }
+                  fluid options = {
+                    divindades
+                  }
+                  />
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+          {/* Caso a opção seja # trocar para display true */}
+          <Grid.Row style={{display:"none"}}>
+            <Grid.Column width="16">
+              <div id="input-origem-personalizada">
+                <label>Origem Personalizada</label>
+                <div className="ui form">
+                  <TextArea name="origem-personalizada"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
+                  } 
+                  />
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+          {/* ----------- */}
+          <Grid.Row>
+            <Grid.Column width="16">
+              <div id="input-personalidade">
+                <label>Personalidade</label>
+                <div className="ui form">
+                  <TextArea name="personalidade"
+                  onChange = {
+                    (evt, {value}) => atualizarBasico(value, state, dispatch, evt.target.name)
+                  } 
+                  />
+                </div>
               </div>
             </Grid.Column>
           </Grid.Row>
