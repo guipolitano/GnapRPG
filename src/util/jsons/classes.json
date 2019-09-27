@@ -79,13 +79,38 @@
     "classes": {
         "Arcanista": {
             "id": 1,
-            "bonus": {
-                "car": 0,
-                "sab": 0,
-                "int": 0,
-                "con": 0,
-                "des": 0,
-                "for": 0
+            "pv":{
+                "base": 8,
+                "bonus": 2
+            },
+            "pm": 6,
+            "pericias":{
+                "qnt": 2,
+                "opcoes":{
+                    "0": "Conhecimento (Int)",
+                    "1": "Iniciativa (Des)",
+                    "2": "Misticismo (Int)",
+                    "3": "Ofício (Int)",
+                    "4": "Percepção (Sab)",
+                    "5": "Vontade (Sab)"
+                }
+            },
+            "proeficiencias": "",
+            "habilidades":{
+                "0":{
+                    "nome": "Caminhos da Magia",
+                    "descricao":{
+                        "0": "A magia é um poder incrível, capaz de realizar os maiores feitos. Esse poder tem origens distintas, e cada uma opera conforme suas próprias regras. Você deve escolher uma das opções a seguir.",
+                        "1": "Bruxo - Você lança magias através de um objeto encantado, como uma varinha, cajado, chapéu ou amuleto.Se não estiver segurando seu foco em uma das mãos, precisa fazer um teste de Misticismo sempre que lançar uma magia, com CD 20 + o custo em PM da magia. Se falhar, a magia não funciona, mas você gasta os PM mesmo assim. O foco tem resistência a dano 10 e PV máximos iguais à metade dos seus. Se for danificado, é restaurado na próxima vez que você recuperar seus PM.Se for destruído (reduzido a 0 PV), você fica atordoado por 1d4 rodadas. Você pode reconstruir um foco destruído ou perdido com uma semana de trabalho e 100 T$. Seu atributo-chave para magias é Inteligência",
+                        "2": "Feiticeiro - Você lança magias através de um poder inato que corre em seu sangue. Você não depende de nenhum item ou estudo, mas sua capacidade de aprender magias é limitada — você aprende uma magia nova a cada nível ímpar(3º, 5º, 7º, etc.), em vez de a cada nível. Seu atributo-chave para magias é Carisma."
+                    }
+                },
+                "1":{
+                    "nome":"",
+                    "descricao":{
+
+                    }
+                }
             }
         }
     }

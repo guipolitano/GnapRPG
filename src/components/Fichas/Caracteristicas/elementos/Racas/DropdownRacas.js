@@ -2,8 +2,8 @@ import React from 'react';
 import { Popup, Dropdown } from 'semantic-ui-react';
 import data from "../../../../../util/jsons/racas.json";
 
-const DropdownRacas = props => {
-    const { opcoes, racas } = data;
+export const DropdownRacas = props => {
+    const { opcoes } = data;
     return (
         <Popup
             content="Raças"
@@ -23,4 +23,23 @@ const DropdownRacas = props => {
             }
         />)
 }
-export default DropdownRacas;
+
+export const DropdownBonus = props => {
+
+return (
+    <Popup
+        content={props.content}
+        trigger={
+        <Dropdown
+            button
+            disabled={true}
+            className="icon icon-extras"
+            floating
+            labeled
+            name={props.name}
+            icon="plus circle"
+            placeholder={props.content}
+        />
+        }
+    />)
+}

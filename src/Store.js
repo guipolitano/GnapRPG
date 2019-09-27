@@ -10,13 +10,23 @@ export const Store = React.createContext();
 
 const initialState = {
     ficha: {
-        atributos: {
-            for: 8,
-            des: 0,
-            con: 0,
-            int: 0,
-            sab: 0,
-            car: 0
+        caracteristicas:{
+            atributos: {
+                for: 0,
+                des: 0,
+                con: 0,
+                int: 0,
+                sab: 0,
+                car: 0
+            },
+            modificador:{
+                for: 0,
+                des: 0,
+                con: 0,
+                int: 0,
+                sab: 0,
+                car: 0
+            }
         }
     },
     informacoes: {},
@@ -50,30 +60,43 @@ function reducer(state, action) {
                         }
                     }
                 }
-                case 'UPDATE_SELECT_ATRIBUTOS':                    
-                    return {
-                        ...state,
-                        atributos: {
-                            ...state.atributos,
-                            [0]: action.payload
-                        }
-                    }
-                    case 'UPDATE_ATRIBUTOS':                        
-                        return {
-                            ...state,
-                            ficha: {
-                                ...state.ficha,
-                                caracteristicas: {
-                                    ...state.ficha.caracteristicas,
-                                    atributos: {
-                                        ...state.ficha.caracteristicas.atributos,
-                                        [nome]: valor
-                                    }
-                                }
+            case 'UPDATE_SELECT_ATRIBUTOS':                    
+                return {
+                    ...state,
+                    atributos: action.payload                    
+                }
+
+            case 'UPDATE_MODIFICADOR':                    
+                return {
+                    ...state,
+                    ficha: {
+                        ...state.ficha,
+                        caracteristicas: {
+                            ...state.ficha.caracteristicas,
+                            modificador: {
+                                ...state.ficha.caracteristicas.modificador,
+                                [nome]: valor
                             }
                         }
-                        default:
-                            return state;
+                    }
+                }
+
+            case 'UPDATE_ATRIBUTOS':                        
+                return {
+                    ...state,
+                    ficha: {
+                        ...state.ficha,
+                        caracteristicas: {
+                            ...state.ficha.caracteristicas,
+                            atributos: {
+                                ...state.ficha.caracteristicas.atributos,
+                                [nome]: valor
+                            }
+                        }
+                    }
+                }
+            default:
+                return state;
     }
 }
 
@@ -83,9 +106,7 @@ export function StoreProvider(props) {
         state,
         dispatch
     };
-    return <Store.Provider value = {
-        value
-    } > {
-        props.children
-    } < /Store.Provider>
+    return  <Store.Provider value = {value}>
+                {props.children} 
+            </Store.Provider>
 }

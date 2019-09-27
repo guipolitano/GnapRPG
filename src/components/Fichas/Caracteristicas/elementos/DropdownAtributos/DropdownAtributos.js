@@ -15,7 +15,7 @@ const DropdownAtributos = props => {
                     placeholder={props.placeholder}
                     name={props.name}
                     onChange={props.change}
-                    options={props.atributos}
+                    options={(props.atributos).sort((a, b) => (a.value === b.value) ? 0 : ((a.value > b.value) ? 1 : -1))}
                 />
             }
         />        
