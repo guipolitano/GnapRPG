@@ -9,8 +9,9 @@ import {
   Loader,
   Button
 } from "semantic-ui-react";
-import CardAtributos from "./CardAtributos";
-import CardMostrador from "./CardMostrador";
+import CardAtributos from "./elementos/CardAtributos";
+import CardMostrador from "./elementos/CardMostrador";
+import Pericias from "./elementos/Pericias";
 import axios from "axios";
 
 // TODO: REFATORAR PARA REMOVER STATE BONUS
@@ -853,7 +854,7 @@ class Caracteristicas extends Component {
               </Grid.Column>
               <Grid.Column>
                 <Popup
-                  content="Perícias 2"
+                  content="Perícias"
                   trigger={
                     <Dropdown
                       button
@@ -862,11 +863,18 @@ class Caracteristicas extends Component {
                       floating
                       labeled
                       icon="sign language"
-                      placeholder="Perícias 2"
+                      placeholder="Perícias"
                     />
                   }
                 />
               </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Divider style={{ marginTop: "10px", marginBottom: "10px" }} />
+          <Grid columns="equal"
+            className="justify-content-center" style={{wordWrap: "normal"}}>
+            <Grid.Row style={{margin: "0px 15px"}}>
+              <Pericias/>
             </Grid.Row>
           </Grid>
         </Tab.Pane>

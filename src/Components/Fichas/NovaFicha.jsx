@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Responsive, Card, Tab, Input, Button, Icon } from "semantic-ui-react";
 import "./NovaFicha.css";
-import Caracteristicas from "./Caracteristicas";
-import Principal from "./Principal";
-import Equipamentos from "./Equipamentos";
-import Magias from "./Magias";
-import Talentos from "./Talentos";
+import Caracteristicas from "./Caracteristicas/Caracteristicas";
+import Principal from "./Principal/Principal";
+import Equipamentos from "./Equipamentos/Equipamentos";
+import Magias from "./Magias/Magias";
+import Talentos from "./Talentos/Talentos";
 import Informacoes from "./Informacoes";
 
 class NovaFicha extends Component {
