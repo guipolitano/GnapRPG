@@ -9,30 +9,27 @@ const Pericias = props  => {
         <React.Fragment>        
             <Grid.Column>          
                 {Object.keys(pericias).map(key =>{
-                    while(key<8){
-                        return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
-                    }
+                    if(key<8) return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
+                    else return null;
+                    
                 })}
             </Grid.Column>
             <Grid.Column>
                 {Object.keys(pericias).map(key =>{
-                    while(key>=8 && key<16){
-                        return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
-                    }
+                    if(key>=8 && key<16) return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
+                    else return null;
                 })}
             </Grid.Column>
             <Grid.Column>
                 {Object.keys(pericias).map(key =>{
-                    while (key >= 16 && key < 24) {
-                        return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
-                    }
+                    if (key >= 16 && key < 24) return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
+                    else return null;
                 })}
             </Grid.Column>
             <Grid.Column>
                 {Object.keys(pericias).map(key =>{
-                    while(key>=24){
-                        return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
-                    }
+                    if(key>=24) return <Checkbox style={{alignSelf:"center", display:"grid"}} fitted key={key} label={pericias[key]}/>
+                    else return null;
                 })}
             </Grid.Column>
         </React.Fragment>

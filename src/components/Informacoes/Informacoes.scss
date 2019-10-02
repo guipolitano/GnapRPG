@@ -1,9 +1,55 @@
 @import '../../util/sass/variables.scss';
 
-.container-informacoes{    
+.container-informacoes {    
     background-color:$cards-background;
     width:100%;
     height:100%;
     grid-column: 2/2;
-    border:6px ridge $laranja-principal;    
+    border:6px ridge $laranja-principal;
+
+    h1.ui.header {
+        background-color: $card-fundo-escuro;
+        padding: 5px 0px;
+        margin: auto;
+        color: $laranja-principal;
+        font-weight: 100;
+        font-family: "Germania One", cursive; 
+    }
+
+    .container-accordion {
+        padding: 0px 5px;
+        margin-top: 26px;
+
+        .ui.styled.accordion{
+            box-shadow: none;
+            background-color: $card-fundo-escuro;
+            
+            .titulo-accordion{
+                font-weight: 500;                
+            }
+            .title.active{
+                .titulo-accordion{
+                    color: $laranja-principal;
+                }
+            }
+            * {
+                color:white;
+                .header{
+                    color: $laranja-principal;
+                }
+            }
+            .content.active{
+                padding: 0 0.5em 1.5em;
+                .accordion.ui.styled{
+                    margin:0px;
+                }
+            }
+            .content.active.content-interno{
+                .cor-laranja{
+                    color: $laranja-principal;
+                }
+                padding: 0px 0px 0px 25px;
+            }
+        }
+    }
 }

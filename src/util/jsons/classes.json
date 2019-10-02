@@ -77,7 +77,8 @@
         }
     ],
     "classes": {
-        "Arcanista": {
+        "arcanista": {
+            "nome": "Arcanista",
             "id": 1,
             "pv":{
                 "base": 8,
