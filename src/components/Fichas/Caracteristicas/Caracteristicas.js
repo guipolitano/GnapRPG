@@ -7,6 +7,7 @@ import { atualizarCaracteristicas, atualizarAtributos } from './Actions';
 import CardAtributos from "./elementos/CardAtributos/CardAtributos";
 import DropdownAtributos from "./elementos/DropdownAtributos/DropdownAtributos";
 import CardMostrador from "./elementos/Mostradores/CardMostrador";
+import Pericias from "./elementos/Pericias/Pericias";
 import { DropdownRacas, DropdownBonus } from "./elementos/Racas/DropdownRacas";
 import { DropdownPericias, DropdownClasses, DropdownLeveis } from "./elementos/Classes/DropdownClasses";
 
@@ -68,6 +69,10 @@ const Caracteristicas = props => {
             <DropdownClasses/>
             <DropdownLeveis/>
             <DropdownPericias/>
+          </Grid.Row>
+          <Divider/>
+          <Grid.Row style={{alignItems: "baseline"}}>
+            <Pericias/>
           </Grid.Row>
         </div>
       </Grid>
