@@ -6,9 +6,12 @@
   font-family: "Germania One", cursive;
 }
 body {
-  background: url(../assets/images/background.jpg);
+  background: #000 url(../assets/images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+html, body, #root{
+  min-width: 100%;
 }
 
 #root {

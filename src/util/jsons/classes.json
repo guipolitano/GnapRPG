@@ -96,7 +96,7 @@
                     "5": "Vontade (Sab)"
                 }
             },
-            "proeficiencias": "",
+            "proeficiencias": null,
             "habilidades":{
                 "0":{
                     "nome": "Caminhos da Magia",
@@ -137,7 +137,9 @@
                 },
                 "3":{
                     "nome": "Alta Arcana",
-                    "descricao": "No 20 º nível, seu domínio das artes arcanas é total. O custo em PM de suas magias(incluindo aprimoramentos) é reduzido à metade."
+                    "descricao": {
+                        "0": "No 20 º nível, seu domínio das artes arcanas é total. O custo em PM de suas magias(incluindo aprimoramentos) é reduzido à metade."
+                    }
                 }
             },
             "tabela":{
@@ -161,6 +163,98 @@
                 "17": "Poder arcano",
                 "18": "Poder arcano",
                 "19": "Alta arcana, poder arcano"
+            }
+        },
+        "barbaro": {
+            "nome": "Bárbaro",
+            "id": 2,
+            "pv":{
+                "base": 24,
+                "bonus": 6
+            },
+            "pm": 3,
+            "pericias":{
+                "qnt": 6,
+                "opcoes":{
+                    "0": "Adestramento(Car)",
+                    "1": "Atletismo(For)",
+                    "2": "Cavalgar(Des)",
+                    "3": "Fortitude(Con)",
+                    "4": "Iniciativa(Des)",
+                    "5": "Intimidação(Car)",
+                    "6": "Luta(For)",
+                    "7": "Ofício(Int)",
+                    "8": "Percepção(Sab)",
+                    "9": "Pontaria(Des)",
+                    "10": "Sobrevivência(Sab)",
+                    "11": "Vontade(Sab)"
+                }
+            },
+            "proeficiencias": "Armas marciais e escudos.",
+            "habilidades":{
+                "0":{
+                    "nome": "Fúria",
+                    "descricao":{
+                        "0": "Você pode gastar 3 PM para invocar uma fúria selvagem, tornando-se temível em combate.Você recebe + 2 nos testes de ataque e rolagens de dano corpo a corpo, mas não pode executar nenhuma ação que exige paciência ou concentração (como usar a perícia Furtividade ou lançar magias). Para cada 3 PM extras que você gastar, o bônus nos testes de ataque e rolagens de dano corpo a corpo aumenta em + 1. A fúria termina no fim da cena ou se você passar uma rodada inteira sem atacar uma criatura e sem sofrer dano "                        
+                    }
+                },
+                "1":{
+                    "nome":"Poder Primal",
+                    "descricao":{
+                        "0": "No 2º nível, e a cada nível seguinte, você recebe um benefício da lista a seguir.",
+                        "1": "Aprimoramento - Você recebe +1 em um atributo à sua escolha.Você pode escolher este benefício várias vezes, mas não pode aumentar o mesmo atributo dois níveis seguidos.",
+                        "2": "Brado Assustador. Você pode gastar uma ação padrão e 1 PM para soltar um berro feroz.Todos os inimigos em alcance curto devem fazer um teste de Vontade(CD Car).Um inimigo que falhe fica abalado até o fim da cena.Um inimigo bem - sucedido se torna imune a esta habilidade até o fim do dia.Pré - requisito. Treinado em Intimidação.",
+                        "3": "Corrida - Seu deslocamento aumenta em +3m.",
+                        "4": "Crítico Brutal - Seu multiplicador de crítico com ataques corpo a corpo aumenta em +1. Por exemplo, se fizer um crítico com um machado de batalha, seu multiplicador será x4, em vez de x3.",
+                        "5": "Esquiva Sobrenatural - Seus instintos ficam tão apurados que você consegue reagir ao perigo antes que seus sentidos percebam. Você nunca fica surpreso.",
+                        "6": "Força Indomável - Você pode gastar 1 PM para somar seu nível em um teste de Força ou de Atletismo. Você pode usar esta habilidade depois de rolar o dado, mas deve usá-la antes do mestre dizer se você foi bemsucedido ou não.",
+                        "7": "Frenesi - Se estiver em fúria e usar a ação padrão ataque para fazer um ataque corpo a corpo, você pode gastar 2 PM para fazer um ataque adicional.",
+                        "8": "Golpe Poderoso - Ao acertar um ataque corpo a corpo, você pode gastar 1 PM para aumentar o dano do ataque em mais um dado do mesmo tipo(por exemplo, com uma espada grande, causa 3d6, em vez de 2d6; com um machado grande, causa 2d12, em vez de 1d12).",
+                        "9": "Pele Rígida - Você recebe um bônus de +2 na classe de armadura, mas apenas se não estiver usando armadura pesada. Você pode escolher este benefício quantas vezes quiser. Seus efeitos são cumulativos.",
+                        "10": "Superstição - Você odeia magia, o que faz com que seja mais resistente a ela. Você recebe + 5 em testes de resistência contra magias.",
+                        "11": "Vigor Primal - Você pode gastar uma ação de movimento e 1 PM para recuperar 1d12 pontos de vida.Para cada 2 PM extras que você gastar, cura +1d12 PV (ou seja, pode gastar 3 PM para recuperar 2d12 PV, 5 PM para recuperar 3d12 PV e assim por diante)."
+                    }
+                },
+                "2":{
+                    "nome": "Instinto Selvagem",
+                    "descricao":{
+                        "0": "No 3º nível, você recebe +1 em testes de Percepção e Reflexos. A cada seis níveis, esse bônus aumenta em + 1."
+                    }
+                },
+                "3":{
+                    "nome": "Resistência a Dano",
+                    "descricao": {
+                        "0": "A partir do 5º nível, graças a seu vigor e força de vontade, você ignora parte de seus ferimentos.Você recebe resistência a dano 2 (todo o dano que sofre é reduzido em 2). A cada níveis, sua RD aumenta em 2, até um máximo de RD 10 no 17 º nível."
+                    }
+                },
+                "4":{
+                    "nome": "Fúria Titânica",
+                    "descricao": {
+                        "0": "No 20º nível, o bônus que você recebe nos testes de ataque e rolagens de dano quando usa fúria é dobrado. Por exemplo, se pagar 12 PM, em vez de um bônus de +5, recebe um bônus de +10."
+                    }
+                }
+            },
+            "tabela":{
+                "0": "Fúria",
+                "1": "Poder primal",
+                "2": "Instinto Selvagem +1, poder primal",
+                "3": "Poder primal",
+                "4": "Poder primal, resistência a dano 2",
+                "5": "Poder primal",
+                "6": "Poder primal",
+                "7": "Poder primal, resistência a dano 4",
+                "8": "Instinto Selvagem +2, poder primal",
+                "9": "Poder primal",
+                "10": "Poder primal, resistência a dano 6",
+                "11": "Poder primal",
+                "12": "Poder primal",
+                "13": "Poder primal, resistência a dano 8",
+                "14": "Instinto Selvagem +3, Poder primal",
+                "15": "Poder primal",
+                "16": "Poder primal, resistência a dano 10",
+                "17": "Poder primal",
+                "18": "Poder primal",
+                "19": "Fúria tiânica, poder primal"
             }
         }
     }
